@@ -11,7 +11,7 @@ function Header() {
         <div class="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div class="judul d-flex align-items-center">
             <a class="navbar-brand" href="#home">
-              <h1>
+              <h1 className="fw-bold">
                 Febe<span>Express</span>
               </h1>
             </a>
