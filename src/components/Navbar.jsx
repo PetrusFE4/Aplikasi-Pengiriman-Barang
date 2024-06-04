@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import "../components/Navbar.css";
+import "../assets/css/Navbar.css";
 import { IoIosCloseCircle } from "react-icons/io";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 
