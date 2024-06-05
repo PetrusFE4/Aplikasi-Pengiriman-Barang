@@ -11,7 +11,7 @@ function AboutSection() {
       className="about container-fluid ps-4 pe-4 ps-sm-5 ps-sm-5 d-flex flex-column flex-sm-row pt-3 pb-5 pb-sm-0 justify-content-between align-items-center gap-5"
       id="about"
     >
-      <div className="image-about ps-4 pe-4 ps-sm-1 pe-sm-1 ps-lg-5 pe-lg-5">
+      <div className="image-about ps-3 pe-3 ps-sm-1 pe-sm-1 ps-lg-5 pe-lg-5">
         <img src={ImageAbout} alt="about" />
       </div>
       <div className="content-about d-flex flex-column gap-3 ps-lg-5 pe-lg-5 m-lg-5 ">
@@ -19,10 +19,10 @@ function AboutSection() {
           <span>About</span> Us
         </h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-          accusamus, adipisci quo incidunt recusandae, modi a veniam omnis sunt
-          similique delectus odit voluptatem sit iusto, fuga temporibus!
-          Aspernatur, quis eligendi!
+          We are a leading parcel delivery service provider that prioritizes
+          speed, security, and convenience in every delivery process. With
+          advanced technology and a wide-reaching network, we ensure your items
+          arrive at their destination on time and in perfect condition.
         </p>
         <div className="button-container">
           <ButtonStyle

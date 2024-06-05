@@ -1,19 +1,18 @@
-.about{
-    background-color: rgba(1, 170, 90, 0.17);
-}
-.content-about h2 span{
-    color: #01aa5a;
-
-}
-.image-about img{
-    width: 400px;
+.about {
+  background-color: rgba(1, 170, 90, 0.17);
+  width: 100vw;
+  box-sizing: border-box;
 }
 
+.content-about h2 span {
+  color: #01aa5a;
+}
+.image-about img {
+  width: 400px;
+}
 
 @media (max-width: 810px) {
-
   .image-about img {
     width: 350px;
   }
-
 }
