@@ -26,22 +26,22 @@ const Login = () => {
     // };
 
     return (
-        <div class="login-container">
-            <section class="login-box">
+        <div className="login-container">
+            <section className="login-box">
                 {/* Grid sebelah kiri */}
-                <div class="left-grid">
-                    <div class="login-img">
-                        <p class="welcome"><b>Welcome!</b></p>
-                        <p class="welcome-sub">Fill up your personal information and start journey with us.</p>
+                <div className="left-grid">
+                    <div className="login-img">
+                        <p className="welcome"><b>Welcome!</b></p>
+                        <p className="welcome-sub">Fill up your personal information and start journey with us.</p>
                         <img src={ImageLogin} alt="Welcome" />
                     </div>
                 </div>
 
                 {/* Grid sebelah kanan */}
-                <div class="login-form">
+                <div className="login-form">
                     <form>
                     <center>
-                    <p>Sign in to <b>Febe</b><b class="brand">Express</b></p>
+                    <p>Sign in to <b>Febe</b><b className="brand">Express</b></p>
 
                     <label htmlFor="email"><StyledIcon icon={faEnvelope} size="20px" color="black" />Email</label>
                     <input type="text" placeholder="Email address"/>
@@ -51,7 +51,7 @@ const Login = () => {
 
                     {/* Bagian button kalau sudah login langsung mengarah ke homepage, ini tak kasih <Link to="/"> buat cek nanti dibuah ya */}
                     <ButtonStyle style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width:'100%' }} type="submit"><Link to="/" style={{textDecoration: 'none', color:'white'}}><b>Sign in</b></Link></ButtonStyle> 
-                    <p class="no-account">Don't have an account?<Link to="/register" class="sign-up-link"><b> Sign up.</b></Link></p>
+                    <p className="no-account">Don't have an account?<Link to="/register" className="sign-up-link"><b> Sign up.</b></Link></p>
                     </center>
                     </form>
                 </div>

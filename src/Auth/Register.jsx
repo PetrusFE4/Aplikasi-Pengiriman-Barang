@@ -51,10 +51,10 @@ const Register = () => {
   // };
 
     return(
-        <div class="register-container">
-            <section class="register-box">
+        <div className="register-container">
+            <section className="register-box">
                  {/* Grid sebelah kiri */}
-                <div class="register-form">
+                <div className="register-form">
                     <form>
                         <center>
                         <p>Create an Account</p>
@@ -78,17 +78,17 @@ const Register = () => {
                         <input type="password" placeholder="Enter your password"/>
 
                         <ButtonStyle type="submit" style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width:'100%'}}><b>Sign up</b></ButtonStyle>
-                        <p class="no-account">Already have an account?<Link to="/login" class="sign-up-link"><b> Sign in.</b></Link></p>
+                        <p className="no-account">Already have an account?<Link to="/login" className="sign-up-link"><b> Sign in.</b></Link></p>
                         </center>
                     </form>
                 </div>
             
 
                 {/* Grid sebelah kanan */}
-                <div class="right-grid">
-                    <div class="register-img">
-                    <p class="welcome"><b>Let's Join Us!</b></p>
-                    <p class="welcome-sub">To connected with us, please login with your personal info.</p>
+                <div className="right-grid">
+                    <div className="register-img">
+                    <p className="welcome"><b>Let's Join Us!</b></p>
+                    <p className="welcome-sub">To connected with us, please login with your personal info.</p>
                     <img src={ImageRegister} alt="Welcome" />
                     </div>
                 </div>
