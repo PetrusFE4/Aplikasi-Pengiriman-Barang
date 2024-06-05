@@ -17,4 +17,5 @@ export const ButtonStyle = styled.button`
     color: #fff;
     font-weight: bold;
   }
+
 `;

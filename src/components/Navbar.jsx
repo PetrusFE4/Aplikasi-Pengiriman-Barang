@@ -4,6 +4,7 @@ import "../assets/css/Navbar.css";
 import { ButtonStyle } from "./StyledComponents";
 import { IoIosCloseCircle } from "react-icons/io";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -105,7 +106,9 @@ function Header() {
               </li>
             </ul>
             <ButtonStyle className="login" padding={"7px 40px"}>
-              Login
+              <Link to="/login" class="sign-up-link" style={{textDecoration: 'none', color:'white'}}>
+                Login
+              </Link>
             </ButtonStyle>
           </div>
         </div>
