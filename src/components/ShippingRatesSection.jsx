@@ -8,23 +8,23 @@ import { FaArrowRightLong } from "react-icons/fa6";
 function ShippingRatesSection() {
   return (
     <section className="shipping-rates container-fluid pt-5 pb-5">
-      <div className="container-rates">
+      <div className="container-rates d-flex flex-column">
         <div className="header-rates d-flex flex-column justify-content-center align-items-center">
           <h2 className="fw-bold fs-2">
             Shipping <span>Rates</span>
           </h2>
           <p>This is the estimated cost of shipping the package</p>
         </div>
-        <div className="body-rates d-flex p-5">
-          <div className="img-rates col-6 d-flex justify-content-center align-items-center">
+        <div className="body-rates d-flex flex-column flex-lg-row p-3 p-sm-5 ">
+          <div className="img-rates d-flex justify-content-center align-items-center col-12 col-lg-6">
             <img src={ImageShippingRates} alt=" shipping rates section" />
           </div>
-          <div className="form-container d-flex justify-content-center align-items-center">
+          <div className="form-container d-flex justify-content-center align-items-center col-12 col-lg-6">
             <form
               action=""
-              className="form-shipping-rates col-6 d-flex flex-wrap justify-content-center p-5 "
+              className="form-shipping-rates  d-flex flex-wrap justify-content-center p-5 "
             >
-              <div className="d-flex flex-column col-12 col-md-6 p-2 gap-3">
+              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="name">
                   TYPE OF GOODS
                 </label>
@@ -36,7 +36,7 @@ function ShippingRatesSection() {
                   placeholder="Select"
                 />
               </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-2 gap-3">
+              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="email">
                   WEIGHT
                 </label>
@@ -48,7 +48,7 @@ function ShippingRatesSection() {
                   placeholder="Weight"
                 />
               </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-2 gap-3">
+              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="address">
                   WIDTH
                 </label>
@@ -60,7 +60,7 @@ function ShippingRatesSection() {
                   placeholder="Width"
                 />
               </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-2 gap-3">
+              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="city">
                   HEIGH
                 </label>
@@ -72,7 +72,7 @@ function ShippingRatesSection() {
                   placeholder="Heigh"
                 />
               </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-2 gap-3">
+              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="state">
                   FROM
                 </label>
@@ -84,7 +84,7 @@ function ShippingRatesSection() {
                   placeholder="City"
                 />
               </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-2 gap-3">
+              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="zip">
                   TO
                 </label>

@@ -1,6 +1,9 @@
 .header-rates h2 span {
   color: #01aa5a;
 }
+.img-rates img{
+    width: 350px;
+}
 .form-shipping-rates {
   width: 80%;
   background-color: #fff;
@@ -12,7 +15,13 @@
     border: 1px solid #000;
     border-radius: 50px;
   }
-  input[type="text"]:hover{
+  input[type="text"]:hover {
     outline: #01aa5a;
+  }
+}
+
+@media (max-width: 810px) {
+  .form-shipping-rates {
+    width: 100%;
   }
 }

@@ -13,7 +13,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 375px) {
   .card-benefit {
     width: 90%;
   }

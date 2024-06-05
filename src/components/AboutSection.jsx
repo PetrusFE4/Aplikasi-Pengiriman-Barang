@@ -14,7 +14,7 @@ function AboutSection() {
       <div className="image-about ps-3 pe-3 ps-sm-1 pe-sm-1 ps-lg-5 pe-lg-5 col-12 col-lg-4 d-flex justify-content-center">
         <img src={ImageAbout} alt="about" />
       </div>
-      <div className="content-about d-flex  justify-content-center pb-sm-3  pt-sm-3 align-items-center ps-2  col-12 col-lg-8">
+      <div className="content-about d-flex  justify-content-center pb-sm-3  pt-sm-3 align-items-center ps-2  col-12 col-lg-6">
         <div className="content-container d-flex flex-column gap-3 ">
         <h2 className="fs-2 fw-bold">
           <span>About</span> Us
