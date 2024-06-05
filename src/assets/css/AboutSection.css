@@ -8,15 +8,7 @@
 .image-about img{
     width: 400px;
 }
-.button-about{
-    padding: 7px 0;
-    width: 120px;
-    background-color: #01aa5a;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 7px;
-}
+
 
 @media (max-width: 810px) {
 

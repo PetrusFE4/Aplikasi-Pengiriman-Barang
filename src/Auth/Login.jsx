@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import "./assets/css/Login.css";
-import { ButtonStyle } from './StyledComponents';
-import ImageLogin from "../assets/image-login.png";
-import { StyledIcon } from './StyledIcon';
+// import React, { useState } from 'react';
+import "../assets/css/Login.css";
+import { ButtonStyle } from '../components/StyledComponents';
+import ImageLogin from "../assets/img/image-login.png";
+import { StyledIcon } from '../components/StyledIcon';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -49,7 +49,7 @@ const Login = () => {
                     <label htmlFor="password"><StyledIcon icon={faLock} size="20px" color="black" />Password</label>
                     <input type="password" placeholder="Enter your password"/>
 
-                    <ButtonStyle type="submit"><b>Sign in</b></ButtonStyle>
+                    <ButtonStyle padding={"10px 90px"} type="submit"><b>Sign in</b></ButtonStyle>
                     <p class="no-account">Don't have an account?<Link to="/register" class="sign-up-link"><b> Sign up.</b></Link></p>
                     </center>
                     </form>

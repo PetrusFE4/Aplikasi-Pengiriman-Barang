@@ -5,6 +5,7 @@ import motor1 from "../assets/img/motor1-hero.svg";
 import motor2 from "../assets/img/motor2-hero.svg";
 import { IoIosSearch } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { ButtonStyle } from "./StyledComponents";
 
 function HeroSection() {
   return (
@@ -21,10 +22,10 @@ function HeroSection() {
           <IoIosSearch size={35} color={"#808080"} />
 
           <input type="text" placeholder="Track your package now" />
-          <button type="submit" className="d-flex align-items-center gap-2 ">
+          <ButtonStyle padding={"10px 15px"} type="submit">
             <span className="d-none d-md-block">Track Now</span>
             <FaArrowRightLong />
-          </button>
+          </ButtonStyle>
         </form>
         <div className="statistik d-flex flex-wrap justify-content-center align-item-center gap-3 gap-sm-5 mt-3 pb-5 pb-sm-0">
           <div className="statistik-item lh-1 text-center">

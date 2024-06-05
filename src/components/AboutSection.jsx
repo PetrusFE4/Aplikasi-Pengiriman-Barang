@@ -3,6 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/AboutSection.css";
 import ImageAbout from "../assets/img/image-about.svg";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { ButtonStyle } from "./StyledComponents";
 
 function AboutSection() {
   return (
@@ -23,12 +24,15 @@ function AboutSection() {
           similique delectus odit voluptatem sit iusto, fuga temporibus!
           Aspernatur, quis eligendi!
         </p>
-        <button
-          className="button-about d-flex justify-content-around align-items-center"
-          onClick={() => (window.location.href = "/support")}
-        >
-          Support <FaArrowRightLong />
-        </button>
+        <div className="button-container">
+          <ButtonStyle
+            padding={"10px 25px"}
+            className="button-about d-flex justify-content-around align-items-center"
+            onClick={() => (window.location.href = "/support")}
+          >
+            Support <FaArrowRightLong />
+          </ButtonStyle>
+        </div>
       </div>
     </section>
   );

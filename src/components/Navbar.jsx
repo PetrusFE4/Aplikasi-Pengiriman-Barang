@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/Navbar.css";
+import { ButtonStyle } from "./StyledComponents";
 import { IoIosCloseCircle } from "react-icons/io";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 
@@ -103,7 +104,9 @@ function Header() {
                 </ul>
               </li>
             </ul>
-            <button className="login">Login</button>
+            <ButtonStyle className="login" padding={"7px 40px"}>
+              Login
+            </ButtonStyle>
           </div>
         </div>
       </nav>
@@ -182,8 +185,10 @@ function Header() {
             </ul>
           </li>
         </ul>
-        <div className="button-login">
-          <button className="login">Login</button>
+        <div className="button-login d-flex justify-content-center mt-4">
+          <ButtonStyle className="login" padding={"8px 100px"}>
+            Login
+          </ButtonStyle>
         </div>
       </div>
     </header>
