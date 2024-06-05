@@ -97,8 +97,7 @@ function ShippingRatesSection() {
                 />
               </div>
               <ButtonStyle
-                width={"100%"}
-                borderRadius={"50px"}
+                style={{width:"100%"}}
                 className="mt-4 ms-2 me-2 d-flex justify-content-between align-item-center"
               >
                 Estimate <FaArrowRightLong/>

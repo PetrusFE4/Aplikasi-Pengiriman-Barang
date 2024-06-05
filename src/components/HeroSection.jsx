@@ -22,7 +22,7 @@ function HeroSection() {
           <IoIosSearch size={35} color={"#808080"} />
 
           <input type="text" placeholder="Track your package now" />
-          <ButtonStyle padding={"10px 15px"} type="submit">
+          <ButtonStyle style={{ padding: "10px 15px" }} type="submit">
             <span className="d-none d-md-block">Track Now</span>
             <FaArrowRightLong />
           </ButtonStyle>

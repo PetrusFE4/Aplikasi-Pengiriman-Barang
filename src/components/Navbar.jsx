@@ -105,7 +105,7 @@ function Header() {
                 </ul>
               </li>
             </ul>
-            <ButtonStyle className="login" padding={"7px 40px"} onClick={() => (window.location.href = "/login")}>
+            <ButtonStyle className="login" style={{ padding: "7px 40px" }} onClick={() => (window.location.href = "/login")}>
                 Login
             </ButtonStyle>
           </div>
@@ -187,7 +187,7 @@ function Header() {
           </li>
         </ul>
         <div className="button-login d-flex justify-content-center mt-4">
-          <ButtonStyle className="login" padding={"8px 100px"}>
+          <ButtonStyle className="login" style={{ padding: "8px 100px" }}>
             Login
           </ButtonStyle>
         </div>

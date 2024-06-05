@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const ButtonStyle = styled.button`
-  padding: ${(props) => props.padding || "10px 40px"};
+  padding: 10px 40px;
   border-radius: ${(props) => props.borderRadius || "10px"};
   background: ${(props) => props.background || "#01aa5a"};
   font-weight: ${(props) => props.fontWeight || "600"};
@@ -17,5 +17,4 @@ export const ButtonStyle = styled.button`
     color: #fff;
     font-weight: bold;
   }
-
 `;

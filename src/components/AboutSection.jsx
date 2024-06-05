@@ -27,7 +27,7 @@ function AboutSection() {
         </p>
         <div className="button-container">
           <ButtonStyle
-            padding={"10px 25px"}
+            style={{ padding: "10px 25px" }}
             className="button-about"
             onClick={() => (window.location.href = "/support")}
           >
