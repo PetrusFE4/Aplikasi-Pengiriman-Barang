@@ -22,7 +22,7 @@ function HeroSection() {
 
           <input type="text" placeholder="Track your package now" />
           <button type="submit" className="d-flex align-items-center gap-2 ">
-            <span className="d-none d-md-block">Track Now</span>{" "}
+            <span className="d-none d-md-block">Track Now</span>
             <FaArrowRightLong />
           </button>
         </form>
