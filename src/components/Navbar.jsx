@@ -105,10 +105,8 @@ function Header() {
                 </ul>
               </li>
             </ul>
-            <ButtonStyle className="login" padding={"7px 40px"}>
-              <Link to="/login" class="sign-up-link" style={{textDecoration: 'none', color:'white'}}>
+            <ButtonStyle className="login" padding={"7px 40px"} onClick={() => (window.location.href = "/login")}>
                 Login
-              </Link>
             </ButtonStyle>
           </div>
         </div>

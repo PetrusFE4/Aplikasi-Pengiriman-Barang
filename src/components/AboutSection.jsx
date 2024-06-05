@@ -28,7 +28,7 @@ function AboutSection() {
         <div className="button-container">
           <ButtonStyle
             padding={"10px 25px"}
-            className="button-about d-flex justify-content-around align-items-center"
+            className="button-about"
             onClick={() => (window.location.href = "/support")}
           >
             Support <FaArrowRightLong />
