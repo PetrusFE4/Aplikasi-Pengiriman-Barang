@@ -12,8 +12,8 @@ function HeroSection() {
     <section className="hero d-flex align-items-center justify-content-center pb-5 pb-sm-0">
       <div className="hero-content d-flex flex-column justify-content-center align-items-center gap-3">
         <h2 className="text-center fw-bold fs-1 ">
-          Delivering Expeditions, <br /> <span>Safely</span> and
-          <span>Swiftly</span>
+          Delivering Expeditions, <br /> <span>Safely </span>and
+          <span> Swiftly</span>
         </h2>
         <p className="text-center ps-5 pe-5 mx-auto">
           Track your package delivery here easily and accurately
