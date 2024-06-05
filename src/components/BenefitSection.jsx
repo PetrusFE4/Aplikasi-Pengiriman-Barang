@@ -8,7 +8,7 @@ function BenefitSection() {
   return (
     <section className="benefit container-fluid pt-5 pb-5  d-flex align-items-center">
       <div className="benefit-container container-fluid d-flex flex-column flex-lg-row justify-content-beetwen">
-        <div className="benefit-content col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center order-2 order-lg-1 pt-5 pb-1">
+        <div className="benefit-content col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center order-2 order-lg-1 pt-5 pb-1 ">
           <div className="header-content text-center">
             <h2 className="fs-2 fw-bold">
               Our <span>Benefit</span>
@@ -42,7 +42,7 @@ function BenefitSection() {
             </div>
           </div>
         </div>
-        <div className="benefit-image col-12 col-lg-6 d-flex justify-content-center order-1 order-lg-2 pt-5">
+        <div className="benefit-image col-12 col-lg-4 d-flex justify-content-center order-1 order-lg-2 pt-5">
           <img src={ImageBenefit} alt="benefit section" />
         </div>
       </div>
