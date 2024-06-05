@@ -18,29 +18,28 @@ function BenefitSection() {
           <div className="body-content d-flex flex-wrap ps-sm-5 pe-sm-5 pt-4 pb-4 gap-4  gap-sm-3 justify-content-center">
             <div className="card-benefit d-flex gap-1">
               <IoMdCheckmarkCircle size={"30px"} color={"#01aa5a"} />
-              <p className="fw-semibold fs-5">Fast and reliable deelivery</p>
+              <p className="fw-semibold fs-5">Fast and Reliable Delivery</p>
             </div>
             <div className="card-benefit d-flex gap-1">
               <IoMdCheckmarkCircle size={"30px"} color={"#01aa5a"} />
-              <p className="fw-semibold fs-5">Fast and reliable deelivery</p>
+              <p className="fw-semibold fs-5">Secure Shipments</p>
             </div>
             <div className="card-benefit d-flex gap-1">
               <IoMdCheckmarkCircle size={"30px"} color={"#01aa5a"} />
-              <p className="fw-semibold fs-5">Fast and reliable deelivery</p>
+              <p className="fw-semibold fs-5">Wide Coverage Area</p>
             </div>
             <div className="card-benefit d-flex gap-1">
               <IoMdCheckmarkCircle size={"30px"} color={"#01aa5a"} />
-              <p className="fw-semibold fs-5">Fast and reliable deelivery</p>
+              <p className="fw-semibold fs-5">Excellent Customer Support</p>
             </div>
             <div className="card-benefit d-flex gap-1">
               <IoMdCheckmarkCircle size={"30px"} color={"#01aa5a"} />
-              <p className="fw-semibold fs-5">Fast and reliable deelivery</p>
+              <p className="fw-semibold fs-5">Multiple Delivery Options</p>
             </div>
             <div className="card-benefit d-flex gap-1">
               <IoMdCheckmarkCircle size={"30px"} color={"#01aa5a"} />
-              <p className="fw-semibold fs-5">Fast and reliable deelivery</p>
+              <p className="fw-semibold fs-5">Affordable Rates</p>
             </div>
-            
           </div>
         </div>
         <div className="benefit-image col-12 col-lg-6 d-flex justify-content-center order-1 order-lg-2 pt-5">
