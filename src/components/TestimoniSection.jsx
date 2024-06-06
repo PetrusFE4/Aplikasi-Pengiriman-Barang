@@ -29,8 +29,8 @@ function TestimoniSection() {
               <div
                 className="image-card d-flex align-items-end justify-content-center"
                 style={{
-                  width: "75px",
-                  height: "75px",
+                  width: "55px",
+                  height: "55px",
                   backgroundColor: "#e2e2e3",
                   borderRadius: "50px",
                   overflow: "hidden",
@@ -73,8 +73,8 @@ function TestimoniSection() {
               <div
                 className="image-card d-flex align-items-end justify-content-center"
                 style={{
-                  width: "75px",
-                  height: "75px",
+                  width: "55px",
+                  height: "55px",
                   backgroundColor: "#e2e2e3",
                   borderRadius: "50px",
                   overflow: "hidden",
@@ -117,8 +117,8 @@ function TestimoniSection() {
               <div
                 className="image-card d-flex align-items-end justify-content-center"
                 style={{
-                  width: "75px",
-                  height: "75px",
+                  width: "55px",
+                  height: "55px",
                   backgroundColor: "#e2e2e3",
                   borderRadius: "50px",
                   overflow: "hidden",
