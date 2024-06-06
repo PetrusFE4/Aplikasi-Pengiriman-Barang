@@ -4,7 +4,7 @@ import "../assets/css/Navbar.css";
 import { ButtonStyle } from "./StyledComponents";
 import { IoIosCloseCircle } from "react-icons/io";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -12,102 +12,102 @@ function Header() {
       <nav className="navbar navbar-expand-lg pt-0 pb-0" id="nav-dekstop">
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
-            <a className="navbar-brand" href="#home">
+            <Link className="navbar-brand" to="/#home">
               <h1 className="fw-bold">
                 Febe<span>Express</span>
               </h1>
-            </a>
+            </Link>
           </div>
           <button
             className="navbar-toggler custom-toggler"
             type="button"
             aria-expanded="false"
+            onClick={openNav}
           >
-            <span onClick={openNav}>
-              <AiOutlineMenuUnfold size={35} color="#000" />
-            </span>
+            <AiOutlineMenuUnfold size={35} color="#000" />
           </button>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav mx-lg-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="#home">
+                <Link className="nav-link" to="/#home">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="#order"
+                  to="/#order"
                   id="navbarDropdownHome"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Order
-                </a>
+                </Link>
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownHome"
                 >
                   <li>
-                    <a className="dropdown-item" href="#cek-ongkir">
+                    <Link className="dropdown-item" to="/cek-ongkir">
                       Cek Ongkir
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#order">
+                    <Link className="dropdown-item" to="/order">
                       Order
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
-
               <li className="nav-item">
-                <a className="nav-link" href="#tracking">
+                <Link className="nav-link" to="/tracking">
                   Tracking
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#service">
+                <Link className="nav-link" to="/#service">
                   Service
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="#information"
+                  to="/#information"
                   id="navbarDropdownHome"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Information
-                </a>
+                </Link>
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownHome"
                 >
                   <li>
-                    <a className="dropdown-item" href="support-center">
+                    <Link className="dropdown-item" to="/support-center">
                       Support Center
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="call-center">
+                    <Link className="dropdown-item" to="/call-center">
                       Call Center
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="faq">
+                    <Link className="dropdown-item" to="/#faq">
                       FAQ
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
             </ul>
-            <ButtonStyle className="login" style={{ padding: "7px 40px" }} onClick={() => (window.location.href = "/login")}>
+            <Link to="/login">
+              <ButtonStyle className="login" style={{ padding: "7px 40px" }}>
                 Login
-            </ButtonStyle>
+              </ButtonStyle>
+            </Link>
           </div>
         </div>
       </nav>
@@ -120,76 +120,74 @@ function Header() {
         </div>
         <ul className="navbar-nav ps-4 fw-semibold">
           <li className="nav-item">
-            <a className="nav-link" href="#home">
+            <Link className="nav-link" to="/#home">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item dropdown">
-            <a
+            <Link
               className="nav-link dropdown-toggle"
-              href="#ordermenu"
+              to="/#ordermenu"
               data-bs-toggle="collapse"
             >
               Order
-            </a>
+            </Link>
             <ul className="nav collapse" id="ordermenu" data-bs-parent="menu">
               <li className="nav-item">
-                <a className="nav-link" href="cek-ongkir" aria-current="page">
+                <Link className="nav-link" to="/cek-ongkir">
                   Cek Ongkir
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="order">
+                <Link className="nav-link" to="/order">
                   Order
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#tracking">
+            <Link className="nav-link" to="/tracking">
               Tracking
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#service">
+            <Link className="nav-link" to="/#service">
               Service
-            </a>
+            </Link>
           </li>
           <li className="nav-item dropdown">
-            <a
+            <Link
               className="nav-link dropdown-toggle"
-              href="#informationmenu"
+              to="/#informationmenu"
               data-bs-toggle="collapse"
             >
               Information
-            </a>
-            <ul
-              className="nav collapse"
-              id="informationmenu"
-              data-bs-parent="menu"
-            >
+            </Link>
+            <ul className="nav collapse" id="informationmenu" data-bs-parent="menu">
               <li className="nav-item">
-                <a className="nav-link" href="support-center">
+                <Link className="nav-link" to="/support-center">
                   Support Center
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="call-center">
+                <Link className="nav-link" to="/call-center">
                   Call Center
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="faq">
+                <Link className="nav-link" to="/#faq">
                   FAQ
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
         </ul>
         <div className="button-login d-flex justify-content-center mt-4">
-          <ButtonStyle className="login" style={{ padding: "8px 100px" }}>
-            Login
-          </ButtonStyle>
+          <Link to="/login">
+            <ButtonStyle className="login" style={{ padding: "8px 100px" }}>
+              Login
+            </ButtonStyle>
+          </Link>
         </div>
       </div>
     </header>
@@ -208,4 +206,5 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
 export default Header;
