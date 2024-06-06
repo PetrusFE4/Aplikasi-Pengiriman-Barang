@@ -5,6 +5,7 @@ import ServiceSection from "../components/ServiceSection";
 import AboutSection from "../components/AboutSection";
 import BenefitSection from "../components/BenefitSection";
 import ShippingRatesSection from "../components/ShippingRatesSection";
+import TestimoniSection from "../components/TestimoniSection";
 
 function HomePage() {
   return (
@@ -15,6 +16,7 @@ function HomePage() {
       <AboutSection />
       <BenefitSection />
       <ShippingRatesSection />
+      <TestimoniSection />
       <Footer />
     </div>
   );
