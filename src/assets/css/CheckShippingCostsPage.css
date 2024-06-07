@@ -4,10 +4,10 @@
     text-align: center;
     margin-bottom: 40px;
 }
-.form-control, .input-group-text{
+.form-input-shipping-cost, .input-group-text{
     border-radius: 50px;
 }
-.form-control, .input-group{
+.form-input-shipping-cost, .input-group{
     width: 300px;
 }
 .row{

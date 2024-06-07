@@ -32,7 +32,7 @@ function ShippingRatesSection() {
                   type="text"
                   id="type"
                   name="type"
-                  className="form-control"
+                  className="form-control input-form-shipping-rate-section"
                   placeholder="Select"
                 />
               </div>
@@ -44,7 +44,7 @@ function ShippingRatesSection() {
                   type="number"
                   id="weight"
                   name="weight"
-                  className="form-control"
+                  className="form-control input-form-shipping-rate-section"
                   placeholder="Weight"
                 />
               </div>
@@ -56,7 +56,7 @@ function ShippingRatesSection() {
                   type="number"
                   id="width"
                   name="width"
-                  className="form-control"
+                  className="form-control input-form-shipping-rate-section"
                   placeholder="Width"
                 />
               </div>
@@ -68,7 +68,7 @@ function ShippingRatesSection() {
                   type="number"
                   id="height"
                   name="number"
-                  className="form-control"
+                  className="form-control input-form-shipping-rate-section"
                   placeholder="Heigh"
                 />
               </div>
@@ -80,7 +80,7 @@ function ShippingRatesSection() {
                   type="text"
                   id="from"
                   name="from"
-                  className="form-control"
+                  className="form-control input-form-shipping-rate-section"
                   placeholder="City"
                 />
               </div>
@@ -92,7 +92,7 @@ function ShippingRatesSection() {
                   type="text"
                   id="to"
                   name="to"
-                  className="form-control"
+                  className="form-control input-form-shipping-rate-section"
                   placeholder="City"
                 />
               </div>

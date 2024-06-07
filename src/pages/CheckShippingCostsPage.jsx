@@ -19,16 +19,16 @@ const CheckShippingCostsPage = () => {
                     {/* Baris pertama */}
                     <div class="col-md-4">
                         <label><StyledIcon icon={faMapMarkerAlt} size="20px" color="black" /> From</label>
-                        <input type="text" class="form-control" placeholder="City" />
+                        <input type="text" class="form-control form-input-shipping-cost" placeholder="City" />
                     </div>
                     <div class="col-md-4">
                         <label><StyledIcon icon={faMapPin} size="20px" color="black" /> To</label>
-                        <input type="text" class="form-control" placeholder="City" />
+                        <input type="text" class="form-control form-input-shipping-cost" placeholder="City" />
                     </div>
                     <div class="col-md-4">
                         <label><StyledIcon icon={faWeightHanging} size="20px" color="black" /> Weight</label>
                         <div class="input-group mb-3">
-                            <input type="number" class="form-control" placeholder="1" aria-label="Weight" />
+                            <input type="number" class="form-control form-input-shipping-cost" placeholder="1" aria-label="Weight" />
                             <span class="input-group-text">kg</span>
                         </div>
                     </div>     
