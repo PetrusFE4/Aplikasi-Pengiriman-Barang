@@ -15,25 +15,25 @@ const testimonies = [
   {
     name: "Dimas Pratama",
     username: "@dimaspratama",
-    text: "Pelayanan pengiriman yang sangat cepat dan profesional. Paket saya sampai dalam kondisi sempurna dan tepat waktu.",
+    text: "The delivery service is very fast and professional. My package arrived in perfect condition and on time.",
     avatar: FotoDimas,
   },
   {
     name: "Sari Puspita",
     username: "@saripuspita",
-    text: "Saya terkesan dengan layanan dan update yang konstan selama pengiriman.",
+    text: "I am impressed with the constant updates and service during the delivery.",
     avatar: FotoSari,
   },
   {
     name: "Budi Raharjo",
     username: "@budiraharjo",
-    text: "Customer service sangat membantu apabila terdapat masalah saat pengiriman.",
+    text: "Customer service is very helpful when there are issues during delivery.",
     avatar: FotoBudi,
   },
   {
     name: "Anita Lestari",
     username: "@anitalestari",
-    text: "Biaya pengiriman yang terjangkau dengan layanan yang tidak mengurangi kualitas. Sangat puas!",
+    text: "The shipping cost is affordable with a service that does not compromise on quality. Very satisfied!",
     avatar: FotoAnita,
   },
 ];
@@ -75,7 +75,7 @@ const renderTestimoniCard = (testimoni, index) => (
         className="identitas d-flex flex-column"
         style={{ lineHeight: "0.5em" }}
       >
-        <p>{testimoni.name}</p>
+        <p className="fw-semibold">{testimoni.name}</p>
         <p>{testimoni.username}</p>
       </div>
     </div>
