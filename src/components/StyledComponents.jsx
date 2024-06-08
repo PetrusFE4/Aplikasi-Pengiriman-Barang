@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const ButtonStyle = styled.button`
   padding: 10px 40px;
   border-radius: ${(props) => props.borderRadius || "10px"};
@@ -12,9 +13,11 @@ export const ButtonStyle = styled.button`
   gap: ${(props) => props.gap || "20px"};
   align-items: ${(props) => props.alignItems || "center"};
   width: ${(props) => props.width || "auto"};
+  transition: background 0.3s, color 0.3s, font-weight 0.3s;
+
   &:hover {
-    background: #01aa5ae6;
-    color: #fff;
-    font-weight: bold;
+    background: ${(props) => props.hoverBackground || "#01aa5ae6"};
+    color: ${(props) => props.hoverColor || "#fff"};
+    font-weight: ${(props) => props.hoverFontWeight || "bold"};
   }
 `;

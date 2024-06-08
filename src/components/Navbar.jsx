@@ -5,11 +5,29 @@ import { ButtonStyle } from "./StyledComponents";
 import { IoIosCloseCircle } from "react-icons/io";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 function Header() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector(".header");
+      if (window.scrollY > 100) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header className="header">
-      <nav className="navbar navbar-expand-lg pt-0 pb-0" id="nav-dekstop">
+      <nav className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0 " id="nav-dekstop">
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
             <Link className="navbar-brand" to="/#home">
@@ -50,7 +68,7 @@ function Header() {
                 >
                   <li>
                     <Link className="dropdown-item" to="/cek-ongkir">
-                      Cek Ongkir
+                      Shipping Rates
                     </Link>
                   </li>
                   <li>
@@ -103,11 +121,15 @@ function Header() {
                 </ul>
               </li>
             </ul>
-            <Link to="/login">
-              <ButtonStyle className="login" style={{ padding: "7px 40px" }}>
-                Login
-              </ButtonStyle>
-            </Link>
+            <div className="nav-button-container">
+              <Link to="/login" style={{ textDecoration: "none" }}>
+                <ButtonStyle
+                  className="nav-button"
+                >
+                  Login
+                </ButtonStyle>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -135,7 +157,7 @@ function Header() {
             <ul className="nav collapse" id="ordermenu" data-bs-parent="menu">
               <li className="nav-item">
                 <Link className="nav-link" to="/cek-ongkir">
-                  Cek Ongkir
+                  Shipping Rates
                 </Link>
               </li>
               <li className="nav-item">
@@ -163,7 +185,11 @@ function Header() {
             >
               Information
             </Link>
-            <ul className="nav collapse" id="informationmenu" data-bs-parent="menu">
+            <ul
+              className="nav collapse"
+              id="informationmenu"
+              data-bs-parent="menu"
+            >
               <li className="nav-item">
                 <Link className="nav-link" to="/support-center">
                   Support Center
@@ -182,9 +208,12 @@ function Header() {
             </ul>
           </li>
         </ul>
-        <div className="button-login d-flex justify-content-center mt-4">
-          <Link to="/login">
-            <ButtonStyle className="login" style={{ padding: "8px 100px" }}>
+        <div className="d-flex justify-content-center mt-4 ">
+          <Link to="/login" style={{ textDecoration: "none" }}>
+            <ButtonStyle
+              className="sidenav-button"
+              style={{ padding: "8px 100px" }}
+            >
               Login
             </ButtonStyle>
           </Link>
@@ -202,7 +231,6 @@ function openNav() {
   }
 }
 
-/* Set the width of the side navigation to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
