@@ -8,7 +8,7 @@ function NotFoundPage() {
         <div>
             <Navbar />
             <main className="error-page">
-                <div className="container">
+                <div className="container-error">
                     <div className="eyes">
                         <div className="eye">
                             <div className="eye__pupil eye__pupil--left"></div>
