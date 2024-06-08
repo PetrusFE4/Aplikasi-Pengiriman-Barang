@@ -10,7 +10,7 @@ let con = mysql.createConnection({
 });
 
 //untuk mengecek database berjalan dengan aman atau tidak
-con.connect(function(error){
+con.connect(function(error){cd 
     if(!!error){
         console.log(error);
     } else {
