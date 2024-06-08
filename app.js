@@ -1,24 +1,15 @@
-const createError = require('http-errors');
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const cors = require('cors');
-const PORT = process.env.PORT || 5000;
-
-// const apiRouter = require('./routes/userRoutes');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+var authRoutes = require('./routes/authRoutes');
 
 var indexRouter = require('./routes/index');
-var usersRoutes = require('./routes/usersRoutes');
-// var bodyParser = require('body-parser');
+// var usersRouter = require('./routes/users');
 
-const app = express();
-
-
-app.use('/routes/register', usersRoutes);
-
-// app.use(express.json());
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,20 +21,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//middleware to 
-app.use(cors());
 app.use(bodyParser.json());
+app.use('/api/auth', authRoutes);
 
-//routes setup
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () =>{
+  console.log(`Server is running on port ${PORT}`);
+})
+
 app.use('/', indexRouter);
-app.use('/users', usersRoutes);
-// app.use('/api', apiRouter);
-
-//servers
-// app.listen(PORT, () =>{
-//   console.log(`server is running on http://localhost:${PORT}`);
-// })
-
+// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -18,10 +18,4 @@ con.connect(function(error){
     }
 });
 
-module.exports = {
-    multipleStatements: true,
-    host              : 'localhost',
-    user              : 'root',
-    password          : 'root',
-    database          : 'aplikasi-pengiriman-barang'
-};
+module.exports = con;
