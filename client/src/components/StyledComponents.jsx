@@ -21,3 +21,24 @@ export const ButtonStyle = styled.button`
     font-weight: ${(props) => props.hoverFontWeight || "bold"};
   }
 `;
+
+export const WhiteButton = styled.button`
+  padding: 10px 40px;
+  border-radius: ${(props) => props.borderRadius || "10px"};
+  background: ${(props) => props.background || "#fff"};
+  font-weight: ${(props) => props.fontWeight || "600"};
+  border: ${(props) => props.border || "2px solid #01aa5a"}; 
+  color: ${(props) => props.color || "#01aa5a"};
+  cursor: ${(props) => props.cursor || "pointer"};
+  display: ${(props) => props.display || "flex"};
+  justify-content: ${(props) => props.justifyContent || "center"};
+  gap: ${(props) => props.gap || "20px"};
+  align-items: ${(props) => props.alignItems || "center"};
+  width: ${(props) => props.width || "auto"};
+  &:hover {
+    background: #fff;
+    color: #01aa5ae6;
+    font-weight: bold;
+  }
+`;
+

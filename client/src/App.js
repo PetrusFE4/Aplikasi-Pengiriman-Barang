@@ -6,6 +6,7 @@ import CheckShippingCostsPage from "./pages/CheckShippingCostsPage";
 import CallCenter from "./pages/CallCenter";
 import NotFoundPage from "./pages/NotFoundPage";
 import TrackingPage from "./pages/TrackingPage";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/call-center" element={<CallCenter />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/tracking" element={<TrackingPage />}/>
+          <Route path="/order" element={<OrderPage/>} />
         </Routes>
       </Router>
     </div>
