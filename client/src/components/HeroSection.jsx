@@ -6,8 +6,8 @@ import motor2 from "../assets/img/motor2-hero.svg";
 import { IoIosSearch } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ButtonStyle } from "./StyledComponents";
-
-import { useSpring, animated } from 'react-spring';
+// import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
 
 function HeroSection() {

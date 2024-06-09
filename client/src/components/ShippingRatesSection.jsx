@@ -4,7 +4,8 @@ import "../assets/css/ShippingRatesSection.css";
 import ImageShippingRates from "../assets/img/image-shipping-rates.svg";
 import { ButtonStyle } from "./StyledComponents";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { useSpring, animated } from "react-spring";
+// import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from '@react-spring/web';
 import { useInView } from "react-intersection-observer";
 
 function ShippingRatesSection() {

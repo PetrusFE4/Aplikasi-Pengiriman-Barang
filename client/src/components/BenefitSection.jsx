@@ -3,7 +3,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/BenefitSection.css";
 import ImageBenefit from "../assets/img/image-benefit.svg";
 import { IoMdCheckmarkCircle } from "react-icons/io";
-import { useSpring, animated } from 'react-spring';
+// import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
 
 function BenefitCard({ benefit, index }) {

@@ -4,7 +4,8 @@ import "../assets/css/AboutSection.css";
 import ImageAbout from "../assets/img/image-about.svg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ButtonStyle } from "./StyledComponents";
-import { useSpring, animated } from 'react-spring';
+// import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
 
 

@@ -3,7 +3,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/ServiceSection.css";
 import { IoDocumentText } from "react-icons/io5";
 import { FaTruckFast, FaTruckPlane } from "react-icons/fa6";
-import { useSpring, animated } from 'react-spring';
+// import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
 
 
