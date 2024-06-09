@@ -20,8 +20,7 @@
     }
 }
 img{
-    height: 600px;
-    width: 600px;
+    
 
     @media (max-width: 768px) {
         height: 250px;
