@@ -105,7 +105,7 @@ function Header() {
                   aria-labelledby="navbarDropdownHome"
                 >
                   <li>
-                    <Link className="dropdown-item" to="/cek-ongkir">
+                    <Link className="dropdown-item" to="/shipping-rates">
                       Shipping Rates
                     </Link>
                   </li>
