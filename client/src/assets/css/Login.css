@@ -42,7 +42,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (max-width: 450px) {
     padding: 10px;
     margin: 0px 20px;
   }
@@ -58,7 +58,7 @@
       font-size: 48px;
       margin-left: 25px;
       margin-bottom: 0px;
-      margin-top: 50px;
+      margin-top: 40px;
     }
     @media (min-width: 768px) and (max-width: 1024px) {
       font-size: 90px;
@@ -73,7 +73,7 @@
     @media (max-width: 768px) {
       font-size: 16px;
       margin-left: 25px;
-      margin-top: -50px;
+      margin-top: 20px;
     }
     @media (min-width: 768px) and (max-width: 1024px) {
       font-size: 20px;
@@ -151,6 +151,7 @@
 
     @media (max-width: 768px) {
       font-size: 24px;
+      margin-top: 10px;
     }
   }
 

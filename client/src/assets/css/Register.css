@@ -13,7 +13,7 @@
     @media (max-width: 768px) {
       flex-direction: column-reverse; 
       align-items: center;
-      margin-top: 290px;
+      margin-top: 550px;
     }
   
     @media (min-width: 768px) and (max-width: 1024px){
@@ -131,9 +131,9 @@
     padding: 0px;
 
     @media (max-width: 768px) {
-      height: 100%;
+      margin-top: 600px;
     }
-    @media (min-width: 768px) and (max-width: 1024px) {
+    @media (max-width: 1024px) {
       margin-left: 0px;
     }
   
@@ -149,7 +149,7 @@
   
     @media (max-width: 768px) {
       padding: 50px;
-      margin: 0px 0px;
+      margin: 0px ;
     }
     @media (max-width: 1024px) {
       padding: 0px;
@@ -164,7 +164,7 @@
       @media (max-width: 768px) {
         font-size: 40px;
         margin-right: 8px;
-        margin-top: 500px;
+        margin-top: 50px;
       }
       @media (min-width: 768px) and (max-width: 1024px) {
         font-size: 70px;
