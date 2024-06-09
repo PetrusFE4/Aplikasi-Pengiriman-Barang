@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import "../assets/css/OrderPage.css";
+import "../assets/css/OrderPageDashboard.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
