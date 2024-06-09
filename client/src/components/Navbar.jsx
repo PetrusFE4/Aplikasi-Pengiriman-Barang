@@ -27,14 +27,17 @@ function Header() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    const scrollTo = sessionStorage.getItem('scrollTo');
+    const scrollTo = sessionStorage.getItem("scrollTo");
     if (scrollTo) {
       const element = document.getElementById(scrollTo);
       if (element) {
         flushSync(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const yOffset = -120; // Mengatur offset jarak
+          const y =
+            element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
         });
-        sessionStorage.removeItem('scrollTo');
+        sessionStorage.removeItem("scrollTo");
       }
     }
 
@@ -45,16 +48,23 @@ function Header() {
 
   const handleClick = (e, path, hash) => {
     e.preventDefault();
-    sessionStorage.setItem('scrollTo', hash);
+    sessionStorage.setItem("scrollTo", hash);
     navigate(path);
   };
 
   return (
     <header className="header">
-      <nav className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
+      <nav
+        className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0"
+        id="nav-dekstop"
+      >
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
-            <Link className="navbar-brand" to="/" onClick={(e) => handleClick(e, '/', 'home')}>
+            <Link
+              className="navbar-brand"
+              to="/"
+              onClick={(e) => handleClick(e, "/", "home")}
+            >
               <h1 className="fw-bold">
                 Febe<span>Express</span>
               </h1>
@@ -71,7 +81,11 @@ function Header() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav mx-lg-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/" onClick={(e) => handleClick(e, '/', 'home')}>
+                <Link
+                  className="nav-link"
+                  to="/"
+                  onClick={(e) => handleClick(e, "/", "home")}
+                >
                   Home
                 </Link>
               </li>
@@ -86,7 +100,10 @@ function Header() {
                 >
                   Order
                 </Link>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdownHome">
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="navbarDropdownHome"
+                >
                   <li>
                     <Link className="dropdown-item" to="/cek-ongkir">
                       Shipping Rates
@@ -108,7 +125,7 @@ function Header() {
                 <Link
                   className="nav-link"
                   to="/"
-                  onClick={(e) => handleClick(e, '/', 'service-section')}
+                  onClick={(e) => handleClick(e, "/", "service-section")}
                 >
                   Service
                 </Link>
@@ -124,7 +141,10 @@ function Header() {
                 >
                   Information
                 </Link>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdownHome">
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="navbarDropdownHome"
+                >
                   <li>
                     <Link className="dropdown-item" to="/support-center">
                       Support Center
@@ -139,7 +159,7 @@ function Header() {
                     <Link
                       className="dropdown-item"
                       to="/"
-                      onClick={(e) => handleClick(e, '/', 'faq-section')}
+                      onClick={(e) => handleClick(e, "/", "faq-section")}
                     >
                       FAQ
                     </Link>
