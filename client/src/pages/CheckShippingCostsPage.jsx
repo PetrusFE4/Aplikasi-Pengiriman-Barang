@@ -35,33 +35,33 @@ const CheckShippingCostsPage = () => {
     return(
         <div>
         <Navbar />
-        <div className="container mt-4">
-            <p className="title">Check Shipping Cost</p>
+        <div class="container mt-4">
+            <p class="title">Check Shipping Cost</p>
             <form onSubmit={handleSubmit}>
-                <div className="row g-3">
+                <div class="row g-3">
                     {/* Baris pertama */}
-                    <div className="col-md-3">
+                    <div class="col-md-3">
                         <label><StyledIcon icon={faMapMarkerAlt} size="20px" color="black" /> From</label>
-                        <input type="text" className="form-control form-input-shipping-cost" placeholder="City" name="from" value={formValues.from} onChange={handleChange}  />
+                        <input type="text" class="form-control form-input-shipping-cost" placeholder="City" name="from" value={formValues.from} onChange={handleChange}  />
                     </div>
-                    <div className="col-md-3">
+                    <div class="col-md-3">
                         <label><StyledIcon icon={faMapPin} size="20px" color="black" /> To</label>
-                        <input type="text" className="form-control form-input-shipping-cost" placeholder="City" name="to"value={formValues.to} onChange={handleChange} />
+                        <input type="text" class="form-control form-input-shipping-cost" placeholder="City" name="to"value={formValues.to} onChange={handleChange} />
                     </div>
-                    <div className="col-md-3">
+                    <div class="col-md-3">
                         <label><StyledIcon icon={faBox} size="20px" color="black" /> Service</label>
-                        <select className="form-select form-input-shipping-cost" name="service" value={formValues.service} onChange={handleChange}>
+                        <select class="form-select form-input-shipping-cost" name="service" value={formValues.service} onChange={handleChange}>
                             <option selected>Choose Service</option>
                             <option value="Document Delivery">Document Delivery</option>
                             <option value="Goods Delivery">Goods Delivery</option>
                             <option value="Cargo Delivery">Cargo Delivery (*min. 10 kg)</option>
                         </select>
                     </div>
-                    <div className="col-md-3">
+                    <div class="col-md-3">
                         <label><StyledIcon icon={faWeightHanging} size="20px" color="black" /> Weight</label>
-                        <div className="input-group mb-3">
-                            <input type="number" className="form-control form-input-shipping-cost" placeholder="1" name="weight" value={formValues.weight} onChange={handleChange}  />
-                            <span className="input-group-text">kg</span>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control form-input-shipping-cost" placeholder="1" name="weight" value={formValues.weight} onChange={handleChange}  />
+                            <span class="input-group-text">kg</span>
                         </div>
                     </div>     
                 </div>
@@ -71,8 +71,8 @@ const CheckShippingCostsPage = () => {
             </form>
             {/* Menampilkan input */}
             {submittedValues && (
-            <div className="input-container">
-                <table className="tbl-input">
+            <div class="input-container">
+                <table class="tbl-input">
                     <tr>
                         <td>From</td>
                         <td>:</td>
@@ -96,9 +96,9 @@ const CheckShippingCostsPage = () => {
                 </table>
             </div>
             )}
-            <div className="result-container"> 
-            <table className="table">
-                <thead className=" table-secondary">
+            <div class="result-container"> 
+            <table class="table">
+                <thead class=" table-secondary">
                     <tr>
                         <th>Service</th>
                         <th>Weight</th>

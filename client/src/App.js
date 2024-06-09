@@ -5,6 +5,7 @@ import Register from "./Auth/Register";
 import CheckShippingCostsPage from "./pages/CheckShippingCostsPage";
 import CallCenter from "./pages/CallCenter";
 import NotFoundPage from "./pages/NotFoundPage";
+import TrackingPage from "./pages/TrackingPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/cek-ongkir" element={<CheckShippingCostsPage />} />
           <Route path="/call-center" element={<CallCenter />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/tracking" element={<TrackingPage />}/>
         </Routes>
       </Router>
     </div>
