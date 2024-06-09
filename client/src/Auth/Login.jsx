@@ -44,7 +44,7 @@ const Login = () => {
                     <p>Sign in to <b>Febe</b><b className="brand">Express</b></p>
 
                     <label htmlFor="email"><StyledIcon icon={faEnvelope} size="20px" color="black" />Email</label>
-                    <input type="text" placeholder="Email address"/>
+                    <input type="email" placeholder="Email address"/>
 
                     <label htmlFor="password"><StyledIcon icon={faLock} size="20px" color="black" />Password</label>
                     <input type="password" placeholder="Enter your password"/>
