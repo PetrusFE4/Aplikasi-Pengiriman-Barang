@@ -8,13 +8,29 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 function Header() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector(".header");
+      if (window.scrollY > 100) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="header">
-      <nav className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0 " id="nav-dekstop">
+    <header className="header position-top">
+      <nav className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
-            <Link className="navbar-brand" to="/#home">
+            <Link className="navbar-brand" to="/">
               <h1 className="fw-bold">
                 Febe<span>Express</span>
               </h1>

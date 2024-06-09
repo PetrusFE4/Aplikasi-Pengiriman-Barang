@@ -149,7 +149,7 @@ const TestimoniSection = () => {
     >
       <div className="testimoni-container container-fluid d-flex flex-column justify-content-center">
         <div className="testimoni-header text-center">
-          <h2>
+          <h2 className="fs-2 fw-bold">
             Our <span style={{ color: "#01aa5a" }}>Testimonial</span>
           </h2>
           <p className="text-center">
