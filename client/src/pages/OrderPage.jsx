@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 import { ButtonStyle, WhiteButton } from "../components/StyledComponents";
 
-function Order() {
+function OrderPage() {
   const [senderName, setSenderName] = useState("");
   const [senderPhone, setSenderPhone] = useState("");
   const [senderCity, setSenderCity] = useState("");
@@ -404,4 +404,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default OrderPage;
