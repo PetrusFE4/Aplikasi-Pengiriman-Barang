@@ -7,11 +7,31 @@ import { IoIosSearch } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ButtonStyle } from "./StyledComponents";
 
+import { useSpring, animated } from 'react-spring';
+import { useInView } from 'react-intersection-observer';
+
 function HeroSection() {
+  const [refHero, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  const animasiHero1 = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0)' : 'translateX(-50px)',
+    config: { duration: 1000 }
+  });
+
+  const animasiHero2 = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0)' : 'translateX(50px)',
+    config: { duration: 1000 }
+  });
+
   return (
     <section className="hero d-flex align-items-center justify-content-center pb-5 pb-sm-0">
       <div className="hero-content d-flex flex-column justify-content-center align-items-center gap-3">
-        <h2 className="text-center fw-bold fs-1 ">
+        <h2 className="text-center fw-bold fs-1">
           Delivering Expeditions, <br /> <span>Safely </span>and
           <span> Swiftly</span>
         </h2>
@@ -46,13 +66,13 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="motor container-fluid d-flex justify-content-end justify-content-sm-between position-absolute bottom-0">
-        <div className="motor-1 d-none d-sm-block">
+      <div ref={refHero} className="motor container-fluid d-flex justify-content-end justify-content-sm-between position-absolute bottom-0">
+        <animated.div style={animasiHero1} className="motor-1 d-none d-sm-block">
           <img src={motor1} alt="motor-hero-section" />
-        </div>
-        <div className="motor-2">
+        </animated.div>
+        <animated.div style={animasiHero2} className="motor-2">
           <img src={motor2} alt="motor-hero-section" />
-        </div>
+        </animated.div>
       </div>
     </section>
   );
