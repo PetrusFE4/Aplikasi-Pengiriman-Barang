@@ -7,6 +7,7 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
+
 function Header() {
   useEffect(() => {
     const handleScroll = () => {
@@ -81,12 +82,12 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
+                <a
                   className="nav-link"
-                  to="/#service-section"
+                  href="/#service-section"
                 >
                   Service
-                </Link>
+                </a>
               </li>
               <li className="nav-item dropdown">
                 <Link
@@ -111,12 +112,12 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                  <Link
+                  <a
                   className="dropdown-item"
-                  to="/#faq-section"
+                  href="/#faq-section"
                 >
                   FAQ
-                </Link>
+                </a>
                   </li>
                 </ul>
               </li>
@@ -187,7 +188,7 @@ function Header() {
               data-bs-parent="menu"
             >
               <li className="nav-item">
-                <Link className="nav-link" to="/support-center">
+                <Link className="nav-link" to="/#support-center">
                   Support Center
                 </Link>
               </li>
