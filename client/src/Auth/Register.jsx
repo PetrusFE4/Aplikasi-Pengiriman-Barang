@@ -7,77 +7,94 @@ import { Link } from 'react-router-dom';
 import { ButtonStyle } from "../components/StyledComponents";
 
 const Register = () => {
-  // const [fullname, setFullname] = useState('');
-  // const [username, setUsername] = useState('');
-  // const [phone, setPhone] = useState('');
-  // const [address, setAddress] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+  const [fullname, setFullname] = useState('');
+  const [username, setUsername] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const handleFullnameChange = (e) => {
+    setFullname(e.target.value);
+  };
 
-  // const handleFullnameChange = (e) => {
-  //   setFullname(e.target.value);
-  // };
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
 
-  // const handleUsernameChange = (e) => {
-  //   setUsername(e.target.value);
-  // };
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
 
-  // const handlePhoneChange = (e) => {
-  //   setPhone(e.target.value);
-  // };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-  // const handleEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  // };
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
 
-  // const handleAddressChange = (e) => {
-  //   setAddress(e.target.value);
-  // };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-  // const handlePasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    e.preventDefault();
+    const userData = {
+      fullname: fullname, 
+      username: username, 
+      phone: phone, 
+      address: address, 
+      email: email, 
+      password: password,
+      role: 'user' 
+    };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Lakukan sesuatu dengan username dan password, seperti mengirimnya ke server
-  //   console.log('Fullname:', fullname);
-  //   console.log('Username:', username);
-  //   console.log('Phone:', phone);
-  //   console.log('Email:', email);
-  //   console.log('Address:', address);
-  //   console.log('Password:', password);
-  // };
+    // Kirim data ke server
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
+      const data = await response.json();
+      console.log(data.message);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
     return(
         <div className="register-container">
             <section className="register-box">
                  {/* Grid sebelah kiri */}
                 <div className="register-form">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <center>
                         <p>Create an Account</p>
 
                         <label htmlFor="fullname"><StyledIcon icon={faUser} size="20px" color="black" />Fullname</label>
-                        <input type="text" placeholder="Your fullname" />
+                        <input type="text" placeholder="Your fullname" value={fullname} onChange={handleFullnameChange}/>
 
                         <label htmlFor="username"><StyledIcon icon={faUser} size="20px" color="black" />Username</label>
-                        <input type="text" placeholder="Your username" />
+                        <input type="text" placeholder="Your username" value={username} onChange={handleUsernameChange} />
 
                         <label htmlFor="phone"><StyledIcon icon={faPhone} size="20px" color="black" />Phone Number</label>
-                        <input type="text" placeholder="Your active phone number"/>
+                        <input type="text" placeholder="Your active phone number" value={phone} onChange={handlePhoneChange}/>
 
                         <label htmlFor="email"><StyledIcon icon={faEnvelope} size="20px" color="black" />Email</label>
-                        <input type="text" placeholder="Email address"/>
+                        <input type="text" placeholder="Email address" value={email} onChange={handleEmailChange}/>
 
                         <label htmlFor="address"><StyledIcon icon={faLocationDot} size="20px" color="black" />Address</label>
-                        <input type="text" placeholder="Your address" />
+                        <input type="text" placeholder="Your address" value={address} onChange={handleAddressChange} />
 
                         <label htmlFor="password"><StyledIcon icon={faLock} size="20px" color="black" />Password</label>
-                        <input type="password" placeholder="Enter your password"/>
+                        <input type="password" placeholder="Enter your password" value={password} onChange={handlePasswordChange}/>
 
-                        <ButtonStyle type="submit" style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width:'100%'}}><b>Sign up</b></ButtonStyle>
+                        <ButtonStyle  onSubmit={handleSubmit} type="submit" style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width:'100%'}}><b>Sign up</b></ButtonStyle>
                         <p className="no-account">Already have an account?<Link to="/login" className="sign-up-link"><b> Sign in.</b></Link></p>
                         </center>
                     </form>

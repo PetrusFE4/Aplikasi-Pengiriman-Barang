@@ -72,7 +72,7 @@ const FaqSection = () => {
   };
 
   return (
-    <section className="faq-section container-fluid pt-5 pb-5">
+    <section className="faq-section container-fluid pt-5 pb-5" id="faq-section">
       <div className="container-faq d-flex flex-column">
         <div className="header-rates d-flex flex-column justify-content-center align-items-center">
           <h2 className="fw-bold fs-2">

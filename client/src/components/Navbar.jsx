@@ -8,29 +8,10 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 function Header() {
-  useEffect(() => {
-    const handleScroll = () => {
-      const header = document.querySelector(".header");
-      if (window.scrollY > 100) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <header className="header">
-      <nav
-        className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0 "
-        id="nav-dekstop"
-      >
+      <nav className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0 " id="nav-dekstop">
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
             <Link className="navbar-brand" to="/#home">
@@ -50,7 +31,7 @@ function Header() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav mx-lg-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/#home">
+                <Link className="nav-link" to="/">
                   Home
                 </Link>
               </li>
@@ -65,12 +46,9 @@ function Header() {
                 >
                   Order
                 </Link>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownHome"
-                >
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownHome">
                   <li>
-                    <Link className="dropdown-item" to="/cek-ongkir">
+                    <Link className="dropdown-item" to="/shipping-rates">
                       Shipping Rates
                     </Link>
                   </li>
@@ -90,13 +68,6 @@ function Header() {
                 <Link
                   className="nav-link"
                   to="/#service-section"
-                  onClick={() => {
-                    const serviceSection =
-                      document.getElementById("service-section");
-                    if (serviceSection) {
-                      serviceSection.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
                 >
                   Service
                 </Link>
@@ -112,10 +83,7 @@ function Header() {
                 >
                   Information
                 </Link>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownHome"
-                >
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownHome">
                   <li>
                     <Link className="dropdown-item" to="/support-center">
                       Support Center
@@ -127,9 +95,12 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/#faq">
-                      FAQ
-                    </Link>
+                  <Link
+                  className="dropdown-item"
+                  to="/#faq-section"
+                >
+                  FAQ
+                </Link>
                   </li>
                 </ul>
               </li>
@@ -151,7 +122,7 @@ function Header() {
         </div>
         <ul className="navbar-nav ps-4 fw-semibold">
           <li className="nav-item">
-            <Link className="nav-link" to="/#home">
+            <Link className="nav-link" to="/">
               Home
             </Link>
           </li>
@@ -165,7 +136,7 @@ function Header() {
             </Link>
             <ul className="nav collapse" id="ordermenu" data-bs-parent="menu">
               <li className="nav-item">
-                <Link className="nav-link" to="/cek-ongkir">
+                <Link className="nav-link" to="/shipping-rates">
                   Shipping Rates
                 </Link>
               </li>
@@ -210,7 +181,7 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/#faq">
+                <Link className="nav-link" to="/#faq-section">
                   FAQ
                 </Link>
               </li>

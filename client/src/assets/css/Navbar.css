@@ -31,12 +31,11 @@ nav {
     display: flex;
   }
 
-  .navbar-nav > li {
+  .navbar-nav  li {
     padding: 0;
     margin: 0;
   }
-
-  .navbar-nav > li:hover {
+  .navbar-nav li:hover {
     font-size: 17px;
   }
 
@@ -50,6 +49,9 @@ nav {
 
   .navbar-nav li:hover .dropdown-menu {
     display: block;
+  }
+  .dropdown-item:active{
+  background-color: #01aa5a;  
   }
 }
 
