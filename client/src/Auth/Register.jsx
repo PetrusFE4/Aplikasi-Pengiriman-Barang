@@ -76,22 +76,33 @@ const Register = () => {
                         <center>
                         <p>Create an Account</p>
 
-                        <label htmlFor="fullname"><StyledIcon icon={faUser} size="20px" color="black" />Fullname</label>
+                        <label htmlFor="fullname"><StyledIcon icon={faUser} size="20px" color="black" />
+                          Fullname<span className="text-danger">*</span> <span className="text-muted">(required)</span>
+                        </label>
                         <input type="text" placeholder="Your fullname" value={fullname} onChange={handleFullnameChange}/>
 
-                        <label htmlFor="username"><StyledIcon icon={faUser} size="20px" color="black" />Username</label>
+                        <label htmlFor="username"><StyledIcon icon={faUser} size="20px" color="black" />
+                          Username<span className="text-danger">*</span> <span className="text-muted">(required)</span>
+                        </label>
                         <input type="text" placeholder="Your username" value={username} onChange={handleUsernameChange} />
 
-                        <label htmlFor="phone"><StyledIcon icon={faPhone} size="20px" color="black" />Phone Number</label>
-                        <input type="text" placeholder="Your active phone number" value={phone} onChange={handlePhoneChange}/>
+                        <label htmlFor="phone"><StyledIcon icon={faPhone} size="20px" color="black" />
+                          Phone Number<span className="text-danger">*</span> <span className="text-muted">(required)</span>
+                        </label>
+                        <input type="number" placeholder="Your active phone number" value={phone} onChange={handlePhoneChange}/>
 
-                        <label htmlFor="email"><StyledIcon icon={faEnvelope} size="20px" color="black" />Email</label>
-                        <input type="text" placeholder="Email address" value={email} onChange={handleEmailChange}/>
+                        <label htmlFor="email"><StyledIcon icon={faEnvelope} size="20px" color="black" />
+                          Email<span className="text-danger">*</span> <span className="text-muted">(required)</span>
+                        </label>
+                        <input type="email" placeholder="Email address" value={email} onChange={handleEmailChange}/>
 
-                        <label htmlFor="address"><StyledIcon icon={faLocationDot} size="20px" color="black" />Address</label>
-                        <input type="text" placeholder="Your address" value={address} onChange={handleAddressChange} />
-
-                        <label htmlFor="password"><StyledIcon icon={faLock} size="20px" color="black" />Password</label>
+                        <label htmlFor="address"><StyledIcon icon={faLocationDot} size="20px" color="black" />
+                          Address<span className="text-danger">*</span> <span className="text-muted">(required)</span>
+                        </label>
+                        <textarea placeholder="Your address" value={address} onChange={handleAddressChange} ></textarea> 
+                        <label htmlFor="password"><StyledIcon icon={faLock} size="20px" color="black" />
+                          Password<span className="text-danger">*</span> <span className="text-muted">(required)</span>
+                        </label>
                         <input type="password" placeholder="Enter your password" value={password} onChange={handlePasswordChange}/>
 
                         <ButtonStyle  onSubmit={handleSubmit} type="submit" style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width:'100%'}}><b>Sign up</b></ButtonStyle>
