@@ -17,13 +17,13 @@ function HeroSection() {
   });
 
   const animasiHero1 = useSpring({
-    opacity: inView ? 1 : 0,
+    opacity:1,
     transform: inView ? 'translateX(0)' : 'translateX(-50px)',
     config: { duration: 1000 }
   });
 
   const animasiHero2 = useSpring({
-    opacity: inView ? 1 : 0,
+    opacity: 1,
     transform: inView ? 'translateX(0)' : 'translateX(50px)',
     config: { duration: 1000 }
   });

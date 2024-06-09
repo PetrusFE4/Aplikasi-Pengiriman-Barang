@@ -4,8 +4,20 @@ import "../assets/css/ShippingRatesSection.css";
 import ImageShippingRates from "../assets/img/image-shipping-rates.svg";
 import { ButtonStyle } from "./StyledComponents";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
 function ShippingRatesSection() {
+  const [refShippingRates, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  const animasiShippingRates = useSpring({
+    opacity: inView ? 1 : 0,
+    config: { duration: 1000 },
+  });
+
   return (
     <section className="shipping-rates container-fluid pt-5 pb-5">
       <div className="container-rates d-flex flex-column">
@@ -16,10 +28,17 @@ function ShippingRatesSection() {
           <p>This is the estimated cost of shipping the package</p>
         </div>
         <div className="body-rates d-flex flex-column flex-lg-row p-3 p-sm-5 ">
-          <div className="img-rates d-flex justify-content-center align-items-center col-12 col-lg-6">
+          <animated.div
+            ref={refShippingRates}
+            style={animasiShippingRates}
+            className="img-rates d-flex justify-content-center align-items-center col-12 col-lg-6"
+          >
             <img src={ImageShippingRates} alt=" shipping rates section" />
-          </div>
+          </animated.div>
           <div className="form-container d-flex justify-content-center align-items-center col-12 col-lg-6">
+          <animated.div
+            ref={refShippingRates}
+            style={animasiShippingRates}>
             <form
               action=""
               className="form-shipping-rates  d-flex flex-wrap justify-content-center p-5 "
@@ -97,12 +116,13 @@ function ShippingRatesSection() {
                 />
               </div>
               <ButtonStyle
-                style={{width:"100%"}}
+                style={{ width: "100%" }}
                 className="mt-4 ms-2 me-2 d-flex justify-content-between align-item-center"
               >
-                Estimate <FaArrowRightLong/>
+                Estimate <FaArrowRightLong />
               </ButtonStyle>
             </form>
+            </animated.div>
           </div>
         </div>
       </div>

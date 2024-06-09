@@ -4,8 +4,22 @@ import "../assets/css/AboutSection.css";
 import ImageAbout from "../assets/img/image-about.svg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ButtonStyle } from "./StyledComponents";
+import { useSpring, animated } from 'react-spring';
+import { useInView } from 'react-intersection-observer';
+
 
 function AboutSection() {
+
+  const [refAbout, inView] = useInView({
+    triggerOnce: false, 
+    threshold: 0.1, 
+  });
+
+  const animasiAbout = useSpring({
+    opacity: inView ? 1 : 0,
+    config: { duration: 1000 }
+  });
+
   return (
     <section
       className="about container-fluid ps-3 pe-3 ps-sm-5 ps-sm-5 d-flex flex-column flex-lg-row pt-3 pb-5 pb-lg-0 justify-content-between align-items-center gap-5"
@@ -16,6 +30,7 @@ function AboutSection() {
       </div>
       <div className="content-about d-flex  justify-content-center pb-sm-3  pt-sm-3 align-items-center ps-2  col-12 col-lg-6">
         <div className="content-container d-flex flex-column gap-3 ">
+        <animated.div ref={refAbout} style={animasiAbout}>
         <h2 className="fs-2 fw-bold">
           <span>About</span> Us
         </h2>
@@ -34,6 +49,7 @@ function AboutSection() {
             Support <FaArrowRightLong />
           </ButtonStyle>
         </div>
+        </animated.div>
         </div>
       </div>
     </section>

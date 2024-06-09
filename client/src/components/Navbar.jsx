@@ -60,7 +60,7 @@ function Header() {
       >
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
-            <Link
+            <a
               className="navbar-brand"
               to="/"
               onClick={(e) => handleClick(e, "/", "home")}
@@ -68,7 +68,7 @@ function Header() {
               <h1 className="fw-bold">
                 Febe<span>Express</span>
               </h1>
-            </Link>
+            </a>
           </div>
           <button
             className="navbar-toggler custom-toggler"
