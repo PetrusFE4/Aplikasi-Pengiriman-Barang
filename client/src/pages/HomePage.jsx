@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import ServiceSection from "../components/ServiceSection";
@@ -10,16 +9,6 @@ import FaqSection from "../components/FaqSection";
 import Footer from "../components/Footer";
 
 function HomePage() {
-  useEffect(() => {
-    const hash = sessionStorage.getItem("scrollTo");
-    if (hash) {
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        sessionStorage.removeItem("scrollTo");
-      }
-    }
-  }, []);
 
   return (
     <div>
