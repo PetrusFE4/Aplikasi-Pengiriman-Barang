@@ -5,6 +5,7 @@
         "client": "npm start --prefix client"
     },
     "dependencies": {
-        "concurrently": "^8.2.2"
+        "concurrently": "^8.2.2",
+        "react-spring": "^9.7.3"
     }
 }
