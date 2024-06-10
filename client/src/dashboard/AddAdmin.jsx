@@ -8,13 +8,13 @@ function AddAdmin() {
   return (
     <>
       <NavbarDashboard />
-      <div className="container-add-admin d-flex justify-content-center align-items-center mt-5">
+      <div className="container-add-admin d-flex justify-content-center mt-sm-5">
         <form
           action=""
           className="p-5 d-flex flex-column gap-5"
           style={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}
         >
-          <div className="container-input-add-admin d-flex gap-5 rounded-2 ">
+          <div className="container-input-add-admin d-flex flex-column flex-sm-row gap-3 gap-sm-5 rounded-2 ">
             <div className="kiri-add-admin d-flex flex-column gap-2">
               <label>
                 Fullname<span className="text-danger">*</span>
