@@ -5,10 +5,7 @@ import { AiOutlineMenuUnfold, AiOutlineTruck } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { FaHome, FaUsers } from "react-icons/fa";
-import {
-  IoPersonCircleOutline,
-  IoLogOutOutline,
-} from "react-icons/io5";
+import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { CiBoxes } from "react-icons/ci";
 import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
@@ -37,7 +34,7 @@ function NavbarDashboard() {
         </div>
       </nav>
 
-      <div id="mySidenav" className="sidenav">
+      <div id="mySidenav" className="sidenavDashboard">
         <ul className="navbar-nav ps-4 fw-semibold">
           <li className="nav-item">
             <Link className="nav-link d-flex gap-2" to="/dashboard">
@@ -116,7 +113,7 @@ function openNav() {
     if (window.innerWidth >= 400 && window.innerWidth <= 810) {
       sidebar.style.width = "60%";
     } else if (window.innerWidth >= 810) {
-      sidebar.style.width = "300px";
+      sidebar.style.width = "200px";
     } else {
       sidebar.style.width = "100%";
     }
