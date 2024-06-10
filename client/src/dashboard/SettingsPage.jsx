@@ -1,0 +1,22 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "../assets/css/SettingsPage.css";
+import { ButtonStyle } from "../components/StyledComponents";
+
+const SettingsPage = () => {
+    return(
+        <div class="container mt-5">
+            <div class="settings-card shadow">
+                <p class="setting-title">Settings</p>
+                <from>
+                    <label>Change Password</label>
+                    <input class="form-control" type="password" placeholder="Enter new password"/>
+                    <input class="form-control" type="password" placeholder="Confirm password"/>
+                    <ButtonStyle>Update</ButtonStyle>
+                </from>
+            </div>
+        </div>
+    );
+}
+
+export default SettingsPage;

@@ -7,6 +7,7 @@ import CallCenter from "./pages/CallCenter";
 import NotFoundPage from "./pages/NotFoundPage";
 import TrackingPage from "./pages/TrackingPage";
 import OrderPage from "./dashboard/OrderPage";
+import SettingsPage from "./dashboard/SettingsPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/tracking" element={<TrackingPage />}/>
           <Route path="/dashboard/order" element={<OrderPage/>} />
+          <Route path="/dashboard/settings" element={<SettingsPage/>} />
         </Routes>
       </Router>
     </div>
