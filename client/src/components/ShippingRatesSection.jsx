@@ -4,7 +4,6 @@ import "../assets/css/ShippingRatesSection.css";
 import ImageShippingRates from "../assets/img/image-shipping-rates.svg";
 import { ButtonStyle } from "./StyledComponents";
 import { FaArrowRightLong } from "react-icons/fa6";
-// import { useSpring, animated } from "react-spring";
 import { useSpring, animated } from '@react-spring/web';
 import { useInView } from "react-intersection-observer";
 
@@ -26,7 +25,7 @@ function ShippingRatesSection() {
           <h2 className="fw-bold fs-2">
             Shipping <span>Rates</span>
           </h2>
-          <p>This is the estimated cost of shipping the package</p>
+          <p className="text-center">This is the estimated cost of shipping the package</p>
         </div>
         <div className="body-rates d-flex flex-column flex-lg-row p-3 p-sm-5 ">
           <animated.div
@@ -46,7 +45,7 @@ function ShippingRatesSection() {
             >
               <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="name">
-                  TYPE OF GOODS
+                  TYPE OF SERVICE
                 </label>
                 <input
                   type="text"

@@ -17,7 +17,7 @@ const TrackingPage = () => {
             <div class="container mt-4">
                 <div class="row">
                     <div class="col md-6">
-                        <img src={ImgTracking} alt="Images" width={'600px'} height={'600px'}></img>
+                        <img className='image-tracking' src={ImgTracking} alt="Images" width={'600px'} height={'600px'}></img>
                     </div>
                     <div class="col md-6" style={{margin: '30px 20px'}}>
                         <p class="tracking-title">Track Your Order</p>

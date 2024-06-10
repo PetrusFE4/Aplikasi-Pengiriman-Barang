@@ -182,7 +182,7 @@ function Header() {
             <IoIosCloseCircle size={35} style={{ color: "#01aa5a" }} />
           </div>
         </div>
-        <ul className=" ps-4 fw-semibold">
+        <ul className="navbar-nav ps-4 fw-semibold">
           <li className="nav-item">
             <Link className="nav-link" to="/#home">
               Home
