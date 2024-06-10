@@ -46,7 +46,7 @@ function MyProfilePage() {
           </h2>
           <form onSubmit={saveProfile}>
             <div className="row mb-3">
-              <div className="col-md-12">
+              <div className="col-md-6 mb-3">
                 <label htmlFor="firstName" className="form-label">
                   First Name
                 </label>
@@ -65,7 +65,7 @@ function MyProfilePage() {
                   <div>{formData.firstName}</div>
                 )}
               </div>
-              <div className="col-md-12">
+              <div className="col-md-6 mb-3">
                 <label htmlFor="lastName" className="form-label">
                   Last Name
                 </label>
@@ -84,7 +84,7 @@ function MyProfilePage() {
                   <div>{formData.lastName}</div>
                 )}
               </div>
-              <div className="col-md-12">
+              <div className="col-md-6 mb-3">
                 <label htmlFor="username" className="form-label">
                   Username
                 </label>
@@ -103,7 +103,7 @@ function MyProfilePage() {
                   <div>{formData.username}</div>
                 )}
               </div>
-              <div className="col-md-12">
+              <div className="col-md-6 mb-3">
                 <label htmlFor="email" className="form-label">
                   Email Address
                 </label>
@@ -122,7 +122,7 @@ function MyProfilePage() {
                   <div>{formData.email}</div>
                 )}
               </div>
-              <div className="col-md-12">
+              <div className="col-md-6 mb-3">
                 <label htmlFor="phoneNumber" className="form-label">
                   Phone Number
                 </label>
@@ -141,7 +141,7 @@ function MyProfilePage() {
                   <div>{formData.phoneNumber}</div>
                 )}
               </div>
-              <div className="col-md-12">
+              <div className="col-md-6 mb-3">
                 <label htmlFor="address" className="form-label">
                   Address
                 </label>
@@ -162,7 +162,7 @@ function MyProfilePage() {
               </div>
             </div>
             {editMode ? (
-              <div className="col-md-12 d-flex justify-content-left text-center">
+              <div className="col-md-6 d-flex justify-content-left text-center">
                 <ButtonStyle
                   type="submit"
                   className="btn-update"
