@@ -10,6 +10,7 @@ const UserListPage = () => {
       <NavbarDashboard />
       <div class="container mt-5">
         <p class="userlist-title">User List</p>
+        <div className="table-responsive">
         <table class="table table-user shadow">
           <thead class="table">
             <tr>
@@ -64,6 +65,7 @@ const UserListPage = () => {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </>
   );
