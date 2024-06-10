@@ -13,6 +13,7 @@ import UserListPage from "./dashboard/UserListPage";
 import OrderListPage from "./dashboard/OrderListPage";
 import MyProfilePage from "./dashboard/MyProfilePage";
 import AddAdmin from "./dashboard/AddAdmin";
+import TrackingPageDashboard from "./dashboard/TrackingPageDashboard";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/dashboard/order-list" element={<OrderListPage/>} />
           <Route path="/dashboard/myprofile" element={<MyProfilePage/>} />
           <Route path="/dashboard/add-admin" element={<AddAdmin/>} />
+          <Route path="/dashboard/tracking" element={<TrackingPageDashboard/>} />
 
         </Routes>
       </Router>

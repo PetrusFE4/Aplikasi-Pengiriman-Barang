@@ -51,7 +51,7 @@ function NavbarDashboard() {
           {userType === "customer" && (
             <>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard">
+                <Link className="nav-link d-flex gap-2" to="/dashboard/tracking">
                   <AiOutlineTruck size={25} color={"#01aa5a"} />
                   Tracking
                 </Link>
