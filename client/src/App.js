@@ -12,7 +12,6 @@ import ShipmentDetailsPage from "./dashboard/ShipmentDetailsPage";
 import UserListPage from "./dashboard/UserListPage";
 import OrderListPage from "./dashboard/OrderListPage";
 import MyProfilePage from "./dashboard/MyProfilePage";
-import NavbarDashboard from "./componentDashboard/NavbarDashboard";
 
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
           <Route path="/dashboard/user-list" element={<UserListPage/>} />
           <Route path="/dashboard/order-list" element={<OrderListPage/>} />
           <Route path="/dashboard/myprofile" element={<MyProfilePage/>} />
-          <Route path="/dashboard/sidebar" element={<NavbarDashboard/>} />
 
         </Routes>
       </Router>

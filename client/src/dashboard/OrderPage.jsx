@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/OrderPageDashboard.css";
 
-import Navbar from "../components/Navbar";
+import NavbarDashboard from "../componentDashboard/NavbarDashboard";
 import Footer from "../components/Footer";
 
 import { ButtonStyle, WhiteButton } from "../components/StyledComponents";
@@ -72,7 +72,7 @@ function OrderPage() {
 
   return (
     <div>
-      <Navbar />
+      <NavbarDashboard/>
       <div className="container mt-5">
         <h2 className="title">Order</h2>
         <form onSubmit={handleSubmit}>

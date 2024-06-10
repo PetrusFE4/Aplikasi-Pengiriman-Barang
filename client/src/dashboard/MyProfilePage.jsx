@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { ButtonStyle, WhiteButton } from "../components/StyledComponents";
+import NavbarDashboard from "../componentDashboard/NavbarDashboard";
 
 function MyProfilePage() {
   const [initialValues] = useState({
@@ -29,7 +30,9 @@ function MyProfilePage() {
   };
 
   return (
-    <div className="container mt-5">
+<>
+<NavbarDashboard/>
+<div className="container mt-5">
       <div
         className="card shadow"
         style={{ border: "none", borderRadius: "0" }}
@@ -188,6 +191,7 @@ function MyProfilePage() {
         </div>
       </div>
     </div>
+</>
   );
 }
 

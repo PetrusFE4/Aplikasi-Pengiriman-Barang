@@ -43,7 +43,7 @@ function NavbarDashboard() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link d-flex gap-2" to="/dashboard">
+            <Link className="nav-link d-flex gap-2" to="/dashboard/myprofile">
               <IoPersonCircleOutline size={25} color={"#01aa5a"} />
               Profil
             </Link>
@@ -57,7 +57,7 @@ function NavbarDashboard() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard">
+                <Link className="nav-link d-flex gap-2" to="/dashboard/order">
                   <CiBoxes size={25} color={"#01aa5a"} />
                   Order
                 </Link>
@@ -67,13 +67,13 @@ function NavbarDashboard() {
           {userType === "admin" && (
             <>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard">
+                <Link className="nav-link d-flex gap-2" to="/dashboard/user-list">
                   <FaUsers size={25} color={"#01aa5a"} />
                   User List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard">
+                <Link className="nav-link d-flex gap-2" to="/dashboard/order-list">
                   <CiBoxes size={25} color={"#01aa5a"} />
                   Order List
                 </Link>
@@ -87,7 +87,7 @@ function NavbarDashboard() {
             </>
           )}
           <li className="nav-item">
-            <Link className="nav-link d-flex gap-2" to="/dashboard">
+            <Link className="nav-link d-flex gap-2" to="/dashboard/settings">
               <MdOutlineSettings size={25} color={"#01aa5a"} />
               Setting
             </Link>
