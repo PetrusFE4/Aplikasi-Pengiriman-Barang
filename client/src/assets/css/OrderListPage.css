@@ -1,0 +1,57 @@
+/* .table-order{
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    th{
+        vertical-align: middle;
+        color: white;
+        background-color: #01AA5A;
+    }
+}
+.orderlist-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px;
+} */
+
+/* UserListPage.css */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    margin-left: 260px;
+}
+
+.userlist-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.table-order th,
+.table-order td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-order .btn {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.table-order .btn:last-child {
+    margin-bottom: 0;
+}
+
+.time, .date {
+    font-size: 14px;
+    color: #6c757d;
+}
