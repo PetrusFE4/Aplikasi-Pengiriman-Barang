@@ -46,7 +46,7 @@ const CheckShippingCostsPage = () => {
           <div class="row g-3">
             {/* Baris pertama */}
             <div class="col-md-3">
-              <label>
+              <label className="label-checkshiping">
                 <StyledIcon icon={faMapMarkerAlt} size="20px" color="black" />{" "}
                 From
               </label>
@@ -60,7 +60,7 @@ const CheckShippingCostsPage = () => {
               />
             </div>
             <div class="col-md-3">
-              <label>
+              <label className="label-checkshiping">
                 <StyledIcon icon={faMapPin} size="20px" color="black" /> To
               </label>
               <input
@@ -73,7 +73,7 @@ const CheckShippingCostsPage = () => {
               />
             </div>
             <div class="col-md-3">
-              <label>
+              <label className="label-checkshiping">
                 <StyledIcon icon={faBox} size="20px" color="black" /> Service
               </label>
               <select
@@ -91,7 +91,7 @@ const CheckShippingCostsPage = () => {
               </select>
             </div>
             <div class="col-md-3">
-              <label>
+              <label className="label-checkshiping">
                 <StyledIcon icon={faWeightHanging} size="20px" color="black" />{" "}
                 Weight
               </label>
