@@ -15,21 +15,12 @@ function MyProfilePage() {
 
   const [formData, setFormData] = useState({ ...initialValues });
 
-  const [profilePicture, setProfilePicture] = useState(null);
   const [editMode, setEditMode] = useState(false);
 
-  // Fungsi untuk menyimpan data profil
   const saveProfile = (event) => {
     event.preventDefault();
-    console.log("Profile updated:", {
-      ...formData,
-      profilePicture,
-    });
+    console.log("Profile updated:", formData);
     setEditMode(false);
-  };
-
-  const handleProfilePictureChange = (event) => {
-    setProfilePicture(event.target.files[0]);
   };
 
   const cancelEdit = () => {
@@ -50,25 +41,6 @@ function MyProfilePage() {
           >
             My Profile
           </h2>
-          <div className="text-center mb-3">
-            <img
-              src={
-                profilePicture
-                  ? URL.createObjectURL(profilePicture)
-                  : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrwMvUgClCnBNDMfiBcopM8BgT74epXtu0g&s"
-                }
-              alt=""
-              className="img-fluid rounded-circle"
-              style={{ width: 100, height: 100, marginLeft: "0" }}
-            />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleProfilePictureChange}
-              className="form-control mt-2"
-              disabled={!editMode}
-            />
-          </div>
           <form onSubmit={saveProfile}>
             <div className="row mb-3">
               <div className="col-md-12">
