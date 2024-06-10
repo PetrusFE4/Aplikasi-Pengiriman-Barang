@@ -3,8 +3,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 exports.register = (req, res) => {
-    const { fullname, username, password, email, phone, address, role } = req.body;
-    User.create({fullname, username, password, email, phone, address, role}, (err, result)=> {
+    const { fullname, username, password, email, phone, address } = req.body;
+    const useRole = 'user'; //sebagai default 'user'
+    User.create({fullname, username, password, email, phone, address, role: useRole}, (err, result)=> {
         if(err){
            return res.status(400).json({message: 'Failed to register user'});
         }
@@ -26,6 +27,15 @@ exports.login = (req, res) => {
         }
 
         const token = jwt.sign({userID: user.userID, role: user.role}, 'secretKey', {expiresIn: '1h'});
-        res.status(200).json({message: 'Authentication succesfully', token});
+        
+        if(user.role === 'admin') {
+            return res.status(200).json({message: 'Admin logged in successfully', token, redirect: 'admiin'})
+        } else {
+            return res.status(200).json({message: 'User logged in successfully', token, redirect: 'user'});
+        }
     });
 };
+
+exports.logout = (req, res) => {
+    res.status(200).json({message: 'LOGout sukses'});
+}
