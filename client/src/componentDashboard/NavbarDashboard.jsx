@@ -11,7 +11,7 @@ import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
 
 function NavbarDashboard() {
-  const [userType, setUserType] = useState("customer");
+  const [userType, setUserType] = useState("admin");
   return (
     <header className="header">
       <nav className="navbar  pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
@@ -79,7 +79,7 @@ function NavbarDashboard() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard">
+                <Link className="nav-link d-flex gap-2" to="/dashboard/add-admin">
                   <LuUserPlus size={25} color={"#01aa5a"} />
                   Add Admin
                 </Link>
