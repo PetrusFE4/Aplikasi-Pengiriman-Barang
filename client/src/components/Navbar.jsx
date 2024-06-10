@@ -14,8 +14,8 @@ function Header() {
 
   const handleScroll = useCallback(() => {
     const header = document.querySelector(".header");
-    console.log("Scroll event detected", window.scrollY);
-    if (header) {
+    if (header && header.contains) {
+      console.log("Scroll event detected", window.scrollY);
       if (window.scrollY > 100) {
         header.classList.add("scrolled");
       } else {
