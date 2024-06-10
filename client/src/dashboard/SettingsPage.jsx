@@ -8,23 +8,23 @@ const SettingsPage = () => {
   return (
     <>
       <NavbarDashboard />
-      <div class="container mt-5">
-        <div class="settings-card shadow">
-          <p class="setting-title">Settings</p>
-          <from>
-            <label>Change Password</label>
+      <div className="container mt-5">
+        <div className="settings-card shadow">
+          <p className="setting-title">Settings</p>
+          <form>
+            <label className="label-password" style={{marginLeft: "0"}}>Change Password</label>
             <input
-              class="form-control"
+              className="form-control"
               type="password"
               placeholder="Enter new password"
             />
             <input
-              class="form-control"
+              className="form-control"
               type="password"
               placeholder="Confirm password"
             />
             <ButtonStyle>Update</ButtonStyle>
-          </from>
+          </form>
         </div>
       </div>
     </>
