@@ -17,6 +17,7 @@ const SettingsPage = () => {
               className="form-control"
               type="password"
               placeholder="Enter new password"
+              required autoFocus
             />
             <input
               className="form-control"

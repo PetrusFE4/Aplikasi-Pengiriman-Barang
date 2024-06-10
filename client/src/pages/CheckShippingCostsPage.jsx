@@ -57,6 +57,7 @@ const CheckShippingCostsPage = () => {
                 name="from"
                 value={formValues.from}
                 onChange={handleChange}
+                required autoFocus
               />
             </div>
             <div class="col-md-3">
@@ -70,6 +71,7 @@ const CheckShippingCostsPage = () => {
                 name="to"
                 value={formValues.to}
                 onChange={handleChange}
+                required
               />
             </div>
             <div class="col-md-3">
@@ -81,6 +83,7 @@ const CheckShippingCostsPage = () => {
                 name="service"
                 value={formValues.service}
                 onChange={handleChange}
+                required
               >
                 <option selected>Choose Service</option>
                 <option value="Document Delivery">Document Delivery</option>
@@ -103,6 +106,7 @@ const CheckShippingCostsPage = () => {
                   name="weight"
                   value={formValues.weight}
                   onChange={handleChange}
+                  required
                 />
                 <span class="input-group-text">kg</span>
               </div>

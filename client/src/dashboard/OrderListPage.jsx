@@ -1,9 +1,17 @@
+import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/OrderListPage.css";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
 
 const OrderListPage = () => {
+   // State untuk menyimpan status
+   const [orderStatus, setOrderStatus] = useState('Delivered');
+
+   // Event handler untuk mengubah status
+   const handleStatusChange = (status) => {
+     setOrderStatus(status);
+   };
   return (
     <>
     <NavbarDashboard/>
@@ -44,24 +52,30 @@ const OrderListPage = () => {
                 <div className="d-flex flex-column ">
                   <button
                     type="button"
-                    className="btn btn-success btn-sm me-1"
+                    className="btn-delivered btn-sm me-1"
                     style={{ marginBottom: "5px" }}
+                    onClick={() => handleStatusChange('Delivered')}
                   >
                     Delivered
                   </button>
                   <button
                     type="button"
-                    className="btn btn-warning btn-sm me-1"
+                    className="btn-pending btn-sm me-1"
                     style={{ marginBottom: "5px" }}
+                    onClick={() => handleStatusChange('Pending')}
                   >
                     Pending
                   </button>
-                  <button type="button" className="btn btn-info btn-sm">
+                  <button
+                    type="button"
+                    className="btn-shipment btn-sm"
+                    onClick={() => handleStatusChange('Shipment')}
+                    >
                     Shipment
                   </button>
                 </div>
               </td>
-              <td>Delivered</td>
+              <td>{orderStatus}</td>
             </tr>
           </tbody>
         </table>

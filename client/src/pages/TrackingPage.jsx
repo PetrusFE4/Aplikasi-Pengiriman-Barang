@@ -21,7 +21,7 @@ const TrackingPage = () => {
                     </div>
                     <div class="col md-6" style={{margin: '30px 20px'}}>
                         <p class="tracking-title">Track Your Order</p>
-                        <input class="form-control tracking-form-control" type="text" placeholder="Enter your order ID"></input><br/>
+                        <input class="form-control tracking-form-control" type="text" placeholder="Enter your order ID" required autoFocus></input><br/>
                         <div class="d-flex justify-content-center">
                             <ButtonStyle style={{ borderRadius: '50px' }}>Track</ButtonStyle>
                         </div>

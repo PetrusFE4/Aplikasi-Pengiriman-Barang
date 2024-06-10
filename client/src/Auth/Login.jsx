@@ -44,10 +44,10 @@ const Login = () => {
                     <p>Sign in to <b>Febe</b><b className="brand">Express</b></p>
 
                     <label htmlFor="email"><StyledIcon icon={faEnvelope} size="20px" color="black" />Email</label>
-                    <input type="text" placeholder="Email address"/>
+                    <input type="text" placeholder="Email address" required autoFocus/>
 
                     <label htmlFor="password"><StyledIcon icon={faLock} size="20px" color="black" />Password</label>
-                    <input type="password" placeholder="Enter your password"/>
+                    <input type="password" placeholder="Enter your password" required/>
 
                     {/* Bagian button kalau sudah login langsung mengarah ke homepage, ini tak kasih <Link to="/"> buat cek nanti dibuah ya */}
                     <ButtonStyle style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width:'100%' }} type="submit"><Link to="/" style={{textDecoration: 'none', color:'white'}}><b>Sign in</b></Link></ButtonStyle> 

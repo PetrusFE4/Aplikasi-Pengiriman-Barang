@@ -10,7 +10,7 @@ const UserListPage = () => {
       <NavbarDashboard />
       <div class="container mt-5">
         <p class="userlist-title">User List</p>
-        <table class="table table-user shadow-sm">
+        <table class="table table-user shadow">
           <thead class="table">
             <tr>
               <th scope="col">#</th>
