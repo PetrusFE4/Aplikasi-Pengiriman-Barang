@@ -53,6 +53,7 @@ function ShippingRatesSection() {
                   name="type"
                   className="form-control input-form-shipping-rate-section"
                   placeholder="Select"
+                  required
                 />
               </div>
               <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
@@ -65,6 +66,7 @@ function ShippingRatesSection() {
                   name="weight"
                   className="form-control input-form-shipping-rate-section"
                   placeholder="Weight"
+                  required
                 />
               </div>
               <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
@@ -77,6 +79,7 @@ function ShippingRatesSection() {
                   name="width"
                   className="form-control input-form-shipping-rate-section"
                   placeholder="Width"
+                  required
                 />
               </div>
               <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
@@ -89,6 +92,7 @@ function ShippingRatesSection() {
                   name="number"
                   className="form-control input-form-shipping-rate-section"
                   placeholder="Heigh"
+                  required
                 />
               </div>
               <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
@@ -101,6 +105,7 @@ function ShippingRatesSection() {
                   name="from"
                   className="form-control input-form-shipping-rate-section"
                   placeholder="City"
+                  required
                 />
               </div>
               <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
@@ -113,6 +118,7 @@ function ShippingRatesSection() {
                   name="to"
                   className="form-control input-form-shipping-rate-section"
                   placeholder="City"
+                  required
                 />
               </div>
               <ButtonStyle

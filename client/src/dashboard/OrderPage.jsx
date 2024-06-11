@@ -83,7 +83,7 @@ function OrderPage() {
               <div className="form-group">
                 <label htmlFor="senderName" className="form-label">
                   Name<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <input
                   type="text"
@@ -92,6 +92,8 @@ function OrderPage() {
                   value={senderName}
                   onChange={(e) => setSenderName(e.target.value)}
                   placeholder="Enter name"
+                  required
+                  autoFocus
                 />
               </div>
               <div className="form-group">
@@ -104,13 +106,13 @@ function OrderPage() {
                   id="senderPhone"
                   value={senderPhone}
                   onChange={(e) => setSenderPhone(e.target.value)}
-                  placeholder="Enterphone number"
+                  placeholder="Enterphone number" required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="senderCity" className="form-label">
                   Origin City<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <input
                   type="text"
@@ -118,13 +120,13 @@ function OrderPage() {
                   id="senderCity"
                   value={senderCity}
                   onChange={(e) => setSenderCity(e.target.value)}
-                  placeholder="Enter origin city"
+                  placeholder="Enter origin city" required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="senderPostCode" className="form-label">
                   Post Code<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <input
                   type="text"
@@ -132,13 +134,13 @@ function OrderPage() {
                   id="senderPostCode"
                   value={senderPostCode}
                   onChange={(e) => setSenderPostCode(e.target.value)}
-                  placeholder="Enter post code"
+                  placeholder="Enter post code" required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="senderAddress" className="form-label">
                   Address<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <textarea
                   className="form-control"
@@ -147,6 +149,7 @@ function OrderPage() {
                   value={senderAddress}
                   onChange={(e) => setSenderAddress(e.target.value)}
                   placeholder="Enter address"
+                  required
                 />
               </div>
             </div>
@@ -156,7 +159,7 @@ function OrderPage() {
               <div className="form-group">
                 <label htmlFor="recipientName" className="form-label">
                   Name<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <input
                   type="text"
@@ -165,12 +168,13 @@ function OrderPage() {
                   value={recipientName}
                   onChange={(e) => setRecipientName(e.target.value)}
                   placeholder="Enter name"
+                  required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="recipientPhone" className="form-label">
                   Phone Number<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <input
                   type="text"
@@ -179,12 +183,13 @@ function OrderPage() {
                   value={recipientPhone}
                   onChange={(e) => setRecipientPhone(e.target.value)}
                   placeholder="Enter phone number"
+                  required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="recipientCity" className="form-label">
                   Destination City<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <input
                   type="text"
@@ -193,12 +198,13 @@ function OrderPage() {
                   value={recipientCity}
                   onChange={(e) => setRecipientCity(e.target.value)}
                   placeholder="Enter destination city"
+                  required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="recipientPostCode" className="form-label">
                   Post Code<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <input
                   type="text"
@@ -207,12 +213,13 @@ function OrderPage() {
                   value={recipientPostCode}
                   onChange={(e) => setRecipientPostCode(e.target.value)}
                   placeholder="Enter post code"
+                  required
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="recipientAddress" className="form-label">
                   Address<span className="text-danger">*</span>{" "}
-                  <span className="text-muted">(required)</span>
+                  <span className="text-muted"></span>
                 </label>
                 <textarea
                   className="form-control"
@@ -221,6 +228,7 @@ function OrderPage() {
                   value={recipientAddress}
                   onChange={(e) => setRecipientAddress(e.target.value)}
                   placeholder="Enter address"
+                  required
                 />
               </div>
             </div>
@@ -234,7 +242,7 @@ function OrderPage() {
                   <div className="form-group">
                     <label htmlFor="itemType" className="form-label">
                       Items Type<span className="text-danger">*</span>{" "}
-                      <span className="text-muted">(required)</span>
+                      <span className="text-muted"></span>
                     </label>
                     <select
                       className="form-control"
@@ -252,7 +260,7 @@ function OrderPage() {
                   <div className="form-group">
                     <label htmlFor="itemName" className="form-label">
                       Item Name <span className="text-danger">*</span>{" "}
-                      <span className="text-muted">(required)</span>
+                      <span className="text-muted"></span>
                     </label>
                     <input
                       type="text"
@@ -268,7 +276,7 @@ function OrderPage() {
                   <div className="form-group">
                     <label htmlFor="serviceType" className="form-label">
                       Service Type <span className="text-danger">*</span>{" "}
-                      <span className="text-muted">(required)</span>
+                      <span className="text-muted"></span>
                     </label>
                     <select
                       className="form-control"
@@ -286,7 +294,7 @@ function OrderPage() {
                   <div className="form-group ">
                     <label htmlFor="quantity" className="form-label">
                       Quantity <span className="text-danger">*</span>{" "}
-                      <span className="text-muted">(required)</span>
+                      <span className="text-muted"></span>
                     </label>
                     <input
                       type="number"
@@ -304,7 +312,7 @@ function OrderPage() {
                   <div className="form-group">
                     <label htmlFor="weight" className="form-label">
                       Weight <span className="text-danger">*</span>{" "}
-                      <span className="text-muted">(required)</span>
+                      <span className="text-muted"></span>
                     </label>
                     <input
                       type="number"
@@ -320,7 +328,7 @@ function OrderPage() {
                   <div className="form-group">
                     <label htmlFor="itemValue" className="form-label">
                       Item value <span className="text-danger">*</span>{" "}
-                      <span className="text-muted">(required)</span>
+                      <span className="text-muted"></span>
                     </label>
                     <input
                       type="number"

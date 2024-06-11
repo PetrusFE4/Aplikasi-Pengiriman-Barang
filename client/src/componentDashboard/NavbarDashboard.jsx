@@ -11,7 +11,7 @@ import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
 
 function NavbarDashboard() {
-  const [userType, setUserType] = useState("admin");
+  const [userType, setUserType] = useState("customer");
   return (
     <header className="header">
       <nav className="navbar  pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">

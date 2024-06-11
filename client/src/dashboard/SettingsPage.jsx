@@ -23,6 +23,7 @@ const SettingsPage = () => {
               className="form-control"
               type="password"
               placeholder="Confirm password"
+              required
             />
             <ButtonStyle>Update</ButtonStyle>
           </form>

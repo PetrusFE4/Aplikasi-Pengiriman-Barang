@@ -60,6 +60,7 @@ function MyProfilePage() {
                     }
                     className="form-control"
                     placeholder="Enter first name"
+                    autoFocus
                   />
                 ) : (
                   <div>{formData.firstName}</div>
