@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 import "../assets/css/Register.css";
 import ImageRegister from "../assets/img/image-register.png";
 import { StyledIcon } from '../components/StyledIcon';
-import { faEnvelope, faLock, faPhone, faUser, faLocationDot, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faPhone, faUser, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { ButtonStyle } from "../components/StyledComponents";
 
@@ -40,89 +42,106 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    e.preventDefault();
     const userData = {
-      fullname: fullname, 
-      username: username, 
-      phone: phone, 
-      address: address, 
-      email: email, 
-      password: password,
-      role: 'user' 
+      fullname, 
+      username, 
+      phone, 
+      address, 
+      email, 
+      password,
     };
 
-    // Kirim data ke server
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
-        method: 'POST',
+      const response = await axios.post('/api/auth/register', userData, {
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
+        }
       });
-      const data = await response.json();
-      console.log(data.message);
+      if (response.status === 201) {
+        Swal.fire({
+          title: "Good job!",
+          text: response.data.message,
+          icon: "success",
+          iconColor: "#01aa5a",
+          confirmButtonColor:"#01aa5a"
+        }).then(() => {
+          window.location.href = '/login';
+        });
+      }
+      else{
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "response.data.message",
+        });
+      }
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
-    return(
-        <div className="register-container">
-            <section className="register-box">
-                 {/* Grid sebelah kiri */}
-                <div className="register-form">
-                    <form onSubmit={handleSubmit}>
-                        <center>
-                        <p>Create an Account</p>
+  return (
+    <div className="register-container">
+      <section className="register-box">
+        <div className="register-form">
+          <form onSubmit={handleSubmit}>
+            <center>
+              <p>Create an Account</p>
 
-                        <label htmlFor="fullname"><StyledIcon icon={faUser} size="20px" color="black" />
-                          Fullname<span className="text-danger">*</span>  
-                        </label>
-                        <input type="text" placeholder="Your fullname" value={fullname} onChange={handleFullnameChange} required autoFocus/>
+              <label htmlFor="fullname">
+                <StyledIcon icon={faUser} size="lg" color="black" />
+                Fullname<span className="text-danger">*</span>  
+              </label>
+              <input type="text" placeholder="Your fullname" value={fullname} onChange={handleFullnameChange} required autoFocus/>
 
-                        <label htmlFor="username"><StyledIcon icon={faUser} size="20px" color="black" />
-                          Username<span className="text-danger">*</span>  
-                        </label>
-                        <input type="text" placeholder="Your username" value={username} onChange={handleUsernameChange} required/>
+              <label htmlFor="username">
+                <StyledIcon icon={faUser} size="lg" color="black" />
+                Username<span className="text-danger">*</span>  
+              </label>
+              <input type="text" placeholder="Your username" value={username} onChange={handleUsernameChange} required/>
 
-                        <label htmlFor="phone"><StyledIcon icon={faPhone} size="20px" color="black" />
-                          Phone Number<span className="text-danger">*</span>  
-                        </label>
-                        <input type="number" placeholder="Your active phone number" value={phone} onChange={handlePhoneChange} required/>
+              <label htmlFor="phone">
+                <StyledIcon icon={faPhone} size="lg" color="black" />
+                Phone Number<span className="text-danger">*</span>  
+              </label>
+              <input type="number" placeholder="Your active phone number" value={phone} onChange={handlePhoneChange} required/>
 
-                        <label htmlFor="email"><StyledIcon icon={faEnvelope} size="20px" color="black" />
-                          Email<span className="text-danger">*</span>  
-                        </label>
-                        <input type="email" placeholder="Email address" value={email} onChange={handleEmailChange} required/>
+              <label htmlFor="email">
+                <StyledIcon icon={faEnvelope} size="lg" color="black" />
+                Email<span className="text-danger">*</span>  
+              </label>
+              <input type="email" placeholder="Email address" value={email} onChange={handleEmailChange} required/>
 
-                        <label htmlFor="address"><StyledIcon icon={faLocationDot} size="20px" color="black" />
-                          Address<span className="text-danger">*</span>  
-                        </label>
-                        <textarea placeholder="Your address" value={address} onChange={handleAddressChange} required></textarea> 
-                        <label htmlFor="password"><StyledIcon icon={faLock} size="20px" color="black" />
-                          Password<span className="text-danger">*</span>  
-                        </label>
-                        <input type="password" placeholder="Enter your password" value={password} onChange={handlePasswordChange} required/>
+              <label htmlFor="address">
+                <StyledIcon icon={faLocationDot} size="lg" color="black" />
+                Address<span className="text-danger">*</span>  
+              </label>
+              <textarea placeholder="Your address" value={address} onChange={handleAddressChange} required></textarea> 
 
-                        <ButtonStyle  onSubmit={handleSubmit} type="submit" style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width:'100%'}}><b>Sign up</b></ButtonStyle>
-                        <p className="no-account">Already have an account?<Link to="/login" className="sign-up-link"><b> Sign in.</b></Link></p>
-                        </center>
-                    </form>
-                </div>
-            
+              <label htmlFor="password">
+                <StyledIcon icon={faLock} size="lg" color="black" />
+                Password<span className="text-danger">*</span>  
+              </label>
+              <input type="password" placeholder="Enter your password" value={password} onChange={handlePasswordChange} required/>
 
-                {/* Grid sebelah kanan */}
-                <div className="right-grid">
-                    <div className="register-img">
-                    <p className="welcome"><b>Let's Join Us!</b></p>
-                    <p className="welcome-sub">To connected with us, please login with your personal info.</p>
-                    <img src={ImageRegister} alt="Welcome" />
-                    </div>
-                </div>
-            </section>
+              <ButtonStyle type="submit" style={{ padding: '10px 90px', margin: '10px auto', maxWidth: '440px', width: '100%' }}>
+                <b>Sign up</b>
+              </ButtonStyle>
+              <p className="no-account">Already have an account?<Link to="/login" className="sign-up-link"><b> Sign in.</b></Link></p>
+            </center>
+          </form>
         </div>
-    );
-}
+      
+        <div className="right-grid">
+          <div className="register-img">
+            <p className="welcome"><b>Let's Join Us!</b></p>
+            <p className="welcome-sub">To connect with us, please login with your personal info.</p>
+            <img src={ImageRegister} alt="Welcome" />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
 export default Register;
