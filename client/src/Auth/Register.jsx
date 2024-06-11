@@ -68,15 +68,14 @@ const Register = () => {
           window.location.href = '/login';
         });
       }
-      else{
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "response.data.message",
-        });
-      }
     } catch (error) {
       console.error('Error:', error);
+      Swal.fire({
+        icon: "error",
+        title: "Register Failed!",
+        text: error.response.data.message,
+        confirmButtonColor:"#f27474"
+    });
     }
   };
 
