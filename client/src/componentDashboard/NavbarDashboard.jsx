@@ -9,7 +9,8 @@ import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { CiBoxes } from "react-icons/ci";
 import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
-import {jwtDecode} from "jwt-decode";  // Impor jwtDecode dengan benar
+import {jwtDecode} from "jwt-decode";  // Pastikan impor jwtDecode dengan benar
+import axios from "axios"; // Tambahkan impor axios
 
 function NavbarDashboard() {
   const [userRole, setUserRole] = useState('');
@@ -27,9 +28,18 @@ function NavbarDashboard() {
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post('/api/auth/logout');
+      if (response.status === 200) {
+        console.log(response.data.message);  // Menampilkan pesan logout sukses di console
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        navigate('/');
+      }
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
   };
 
   return (
