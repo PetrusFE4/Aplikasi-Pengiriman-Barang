@@ -7,8 +7,8 @@ import { IoIosSearch } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ButtonStyle } from "./StyledComponents";
 // import { useSpring, animated } from 'react-spring';
-import { useSpring, animated } from '@react-spring/web';
-import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from "@react-spring/web";
+import { useInView } from "react-intersection-observer";
 
 function HeroSection() {
   const [refHero, inView] = useInView({
@@ -17,15 +17,15 @@ function HeroSection() {
   });
 
   const animasiHero1 = useSpring({
-    opacity:1,
-    transform: inView ? 'translateX(0)' : 'translateX(-50px)',
-    config: { duration: 1000 }
+    opacity: 1,
+    transform: inView ? "translateX(0)" : "translateX(-50px)",
+    config: { duration: 1000 },
   });
 
   const animasiHero2 = useSpring({
     opacity: 1,
-    transform: inView ? 'translateX(0)' : 'translateX(50px)',
-    config: { duration: 1000 }
+    transform: inView ? "translateX(0)" : "translateX(50px)",
+    config: { duration: 1000 },
   });
 
   return (
@@ -38,7 +38,7 @@ function HeroSection() {
         <p className="text-center ps-5 pe-5 mx-auto">
           Track your package delivery here easily and accurately
         </p>
-        <form action="" className="d-flex p-3 align-items-center">
+        <form action="" className="track-form d-flex p-3 align-items-center">
           <IoIosSearch size={35} color={"#808080"} />
 
           <input type="text" placeholder="Track your package now" />
@@ -66,8 +66,14 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <div ref={refHero} className="motor container-fluid d-flex justify-content-end justify-content-sm-between position-absolute bottom-0">
-        <animated.div style={animasiHero1} className="motor-1 d-none d-sm-block">
+      <div
+        ref={refHero}
+        className="motor container-fluid d-flex justify-content-end justify-content-sm-between position-absolute bottom-0"
+      >
+        <animated.div
+          style={animasiHero1}
+          className="motor-1 d-none d-sm-block"
+        >
           <img src={motor1} alt="motor-hero-section" />
         </animated.div>
         <animated.div style={animasiHero2} className="motor-2">

@@ -13,7 +13,7 @@
       color: #01aa5a;
     }
   }
-  form {
+  .track-form {
     border: none;
     background-color: #fff;
     border-radius: 10px;
@@ -39,13 +39,16 @@
       padding: 8px 16px;
     }
   }
+  .track-form{
+    width: 100%;
+  }
   .motor img {
     width: 160px;
     height: auto;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .hero {
     padding-bottom: 100px;
   }
@@ -57,6 +60,9 @@
     input {
       font-size: 14px;
     }
+  }
+  .track-form{
+    width: 100%;
   }
   .motor img {
     width: 120px;
