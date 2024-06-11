@@ -2,15 +2,42 @@ const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-exports.register = (req, res) => {
+exports.register = async(req, res) => {
     const { fullname, username, password, email, phone, address } = req.body;
     const useRole = 'user'; //sebagai default 'user'
-    User.create({fullname, username, password, email, phone, address, role: useRole}, (err, result)=> {
-        if(err){
-           return res.status(400).json({message: 'Failed to register user'});
+    
+    try{
+        //jika user sudah ada
+        //12-Juni 2024
+        //time: 12.39 AM
+        const usernameReady = await new Promise((resolve, reject)=>{
+            User.findUsername(username, (err, result) => {
+                if(err) return reject(err);
+                resolve(result);
+            });
+        });
+
+        if(usernameReady.length > 0) {
+            return res.status(400).json({ message: 'username sudah terdaftar' });
         }
-             return      res.status(201).json({message: 'User registered  succesfully'});
-    });
+
+        //jika username belum ada, hass password
+        const hassPaass = await bcrypt.hash(password, 10);
+
+        //bikin username baru
+        await new Promise((resolve, reject)=>{
+            User.create({fullname, username, password, email, phone, address, role: useRole}, (err, result)=> {
+                if(err) return reject(err);
+                resolve(result);
+            });
+
+        });
+
+        return res.status(201).json({message: 'Pendaftaran Sukses'});
+    } catch(error){
+        console.error("Terjadi Kesalahan ketika pendaftaran", error);
+        return res.status(500).json({ message: 'Error Register' });
+    }
 };
 
 exports.login = (req, res) => {
