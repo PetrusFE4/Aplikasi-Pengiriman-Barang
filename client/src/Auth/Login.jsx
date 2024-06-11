@@ -81,7 +81,8 @@ const Login = () => {
               </p>
 
               <label htmlFor="email">
-                <StyledIcon icon={faEnvelope} size="20px" color="black" />
+                {/* Mengganti size="20px" dengan size="lg" */}
+                <StyledIcon icon={faEnvelope} size="lg" color="black" />
                 Email
               </label>
               <input
@@ -94,7 +95,8 @@ const Login = () => {
               />
 
               <label htmlFor="password">
-                <StyledIcon icon={faLock} size="20px" color="black" />
+                {/* Mengganti size="20px" dengan size="lg" */}
+                <StyledIcon icon={faLock} size="lg" color="black" />
                 Password
               </label>
               <input
