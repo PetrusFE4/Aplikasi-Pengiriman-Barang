@@ -5,17 +5,18 @@ import { ButtonStyle } from "./StyledComponents";
 import { IoIosCloseCircle } from "react-icons/io";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { flushSync } from "react-dom";
+import {jwtDecode} from "jwt-decode"; 
 
 function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleScroll = useCallback(() => {
     const header = document.querySelector(".header");
     if (header && header.contains) {
-      console.log("Scroll event detected", window.scrollY);
       if (window.scrollY > 100) {
         header.classList.add("scrolled");
       } else {
@@ -26,6 +27,18 @@ function Header() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decodedToken = jwtDecode(token);
+        if (decodedToken) {
+          setIsLoggedIn(true); // Set status login jika token valid
+        }
+      } catch (error) {
+        console.error("Token decoding error:", error);
+      }
+    }
 
     const scrollTo = sessionStorage.getItem("scrollTo");
     if (scrollTo) {
@@ -168,8 +181,10 @@ function Header() {
               </li>
             </ul>
             <div className="nav-button-container">
-              <Link to="/login" style={{ textDecoration: "none" }}>
-                <ButtonStyle className="nav-button">Login</ButtonStyle>
+              <Link to={isLoggedIn ? "/dashboard" : "/login"} style={{ textDecoration: "none" }}>
+                <ButtonStyle className="nav-button">
+                  {isLoggedIn ? "Dashboard" : "Login"}
+                </ButtonStyle>
               </Link>
             </div>
           </div>
@@ -251,12 +266,12 @@ function Header() {
           </li>
         </ul>
         <div className="d-flex justify-content-center mt-4 ">
-          <Link to="/login" style={{ textDecoration: "none" }}>
+          <Link to={isLoggedIn ? "/dashboard" : "/login"} style={{ textDecoration: "none" }}>
             <ButtonStyle
               className="sidenav-button"
               style={{ padding: "8px 100px" }}
             >
-              Login
+            {isLoggedIn ? "Dashboard" : "Login"}
             </ButtonStyle>
           </Link>
         </div>
