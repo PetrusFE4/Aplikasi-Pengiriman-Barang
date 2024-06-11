@@ -40,33 +40,34 @@ const CheckShippingCostsPage = () => {
   return (
     <div>
       <Navbar />
-      <div class="container mt-4">
-        <p class="title">Check Shipping Cost</p>
+      <div className="container mt-4">
+        <p className="title">Check Shipping Cost</p>
         <form onSubmit={handleSubmit}>
-          <div class="row g-3">
+          <div className="row g-3">
             {/* Baris pertama */}
-            <div class="col-md-3">
+            <div className="col-md-3">
               <label className="label-checkshiping">
                 <StyledIcon icon={faMapMarkerAlt} size="20px" color="black" />{" "}
                 From
               </label>
               <input
                 type="text"
-                class="form-control form-input-shipping-cost"
+                className="form-control form-input-shipping-cost"
                 placeholder="City"
                 name="from"
                 value={formValues.from}
                 onChange={handleChange}
-                required autoFocus
+                required
+                autoFocus
               />
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               <label className="label-checkshiping">
                 <StyledIcon icon={faMapPin} size="20px" color="black" /> To
               </label>
               <input
                 type="text"
-                class="form-control form-input-shipping-cost"
+                className="form-control form-input-shipping-cost"
                 placeholder="City"
                 name="to"
                 value={formValues.to}
@@ -74,12 +75,12 @@ const CheckShippingCostsPage = () => {
                 required
               />
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               <label className="label-checkshiping">
                 <StyledIcon icon={faBox} size="20px" color="black" /> Service
               </label>
               <select
-                class="form-select form-input-shipping-cost"
+                className="form-select form-input-shipping-cost"
                 name="service"
                 value={formValues.service}
                 onChange={handleChange}
@@ -93,22 +94,22 @@ const CheckShippingCostsPage = () => {
                 </option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               <label className="label-checkshiping">
                 <StyledIcon icon={faWeightHanging} size="20px" color="black" />{" "}
                 Weight
               </label>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="number"
-                  class="form-control form-input-shipping-cost"
+                  className="form-control form-input-shipping-cost"
                   placeholder="1"
                   name="weight"
                   value={formValues.weight}
                   onChange={handleChange}
                   required
                 />
-                <span class="input-group-text">kg</span>
+                <span className="input-group-text">kg</span>
               </div>
             </div>
           </div>
@@ -127,8 +128,8 @@ const CheckShippingCostsPage = () => {
         </form>
         {/* Menampilkan input */}
         {submittedValues && (
-          <div class="input-container">
-            <table class="tbl-input">
+          <div className="input-container">
+            <table className="tbl-input">
               <tr>
                 <td>From</td>
                 <td>:</td>
@@ -152,9 +153,9 @@ const CheckShippingCostsPage = () => {
             </table>
           </div>
         )}
-        <div class="result-container">
-          <table class="table">
-            <thead class=" table-secondary">
+        <div className="result-container">
+          <table className="table">
+            <thead className=" table-secondary">
               <tr>
                 <th>Service</th>
                 <th>Weight</th>

@@ -167,11 +167,11 @@ const TestimoniSection = () => {
             keyBoardControl={true}
             customTransition="all 1s"
             transitionDuration={1000}
-            containerClass="carousel-container"
+            containerclassName="carousel-container"
             removeArrowOnDeviceType={["tablet", "mobile"]}
             deviceType={"desktop"}
-            dotListClass="none"
-            itemClass="carousel-item-padding-20-px"
+            dotListclassName="none"
+            itemclassName="carousel-item-padding-20-px"
             centerMode={false}
             autoPlay={true}
             autoPlaySpeed={3000}
