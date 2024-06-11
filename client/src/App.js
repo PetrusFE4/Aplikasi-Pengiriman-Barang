@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Login from "./Auth/Login";
@@ -14,7 +15,9 @@ import OrderListPage from "./dashboard/OrderListPage";
 import MyProfilePage from "./dashboard/MyProfilePage";
 import AddAdmin from "./dashboard/AddAdmin";
 import TrackingPageDashboard from "./dashboard/TrackingPageDashboard";
-
+import Dashboard from "./dashboard/DashboardPage";
+import Unauthorized from "./dashboard/Unauthorized";
+import ProtectedRoute from "./Auth/ProtectedRoute";
 
 function App() {
   return (
@@ -27,16 +30,64 @@ function App() {
           <Route path="/shipping-rates" element={<CheckShippingCostsPage />} />
           <Route path="/call-center" element={<CallCenter />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/tracking" element={<TrackingPage />}/>
-          <Route path="/dashboard/order" element={<OrderPage/>} />
-          <Route path="/dashboard/settings" element={<SettingsPage/>} />
-          <Route path="/dashboard/shipment-details" element={<ShipmentDetailsPage/>} />
-          <Route path="/dashboard/user-list" element={<UserListPage/>} />
-          <Route path="/dashboard/order-list" element={<OrderListPage/>} />
-          <Route path="/dashboard/myprofile" element={<MyProfilePage/>} />
-          <Route path="/dashboard/add-admin" element={<AddAdmin/>} />
-          <Route path="/dashboard/tracking" element={<TrackingPageDashboard/>} />
+          <Route path="/tracking" element={<TrackingPage />} />
 
+          {/* Dashboard */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute element={Dashboard} roles={["user", "admin"]} />
+            }
+          />
+
+          <Route
+            path="/dashboard/order"
+            element={<ProtectedRoute element={OrderPage} roles={["user"]} />}
+          />
+          <Route
+            path="/dashboard/settings"
+            element={
+              <ProtectedRoute
+                element={SettingsPage}
+                roles={["user", "admin"]}
+              />
+            }
+          />
+          <Route
+            path="/dashboard/user-list"
+            element={
+              <ProtectedRoute element={UserListPage} roles={["admin"]} />
+            }
+          />
+          <Route
+            path="/dashboard/order-list"
+            element={
+              <ProtectedRoute element={OrderListPage} roles={["admin"]} />
+            }
+          />
+          <Route
+            path="/dashboard/add-admin"
+            element={<ProtectedRoute element={AddAdmin} roles={["admin"]} />}
+          />
+          <Route
+            path="/dashboard/myprofile"
+            element={
+              <ProtectedRoute
+                element={MyProfilePage}
+                roles={["user", "admin"]}
+              />
+            }
+          />
+          <Route
+            path="/dashboard/tracking"
+            element={
+              <ProtectedRoute
+                element={TrackingPageDashboard}
+                roles={["user"]}
+              />
+            }
+          />
+          <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
       </Router>
     </div>

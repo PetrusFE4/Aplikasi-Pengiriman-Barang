@@ -2,16 +2,36 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/NavbarDashboard.css";
 import { AiOutlineMenuUnfold, AiOutlineTruck } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { FaHome, FaUsers } from "react-icons/fa";
 import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { CiBoxes } from "react-icons/ci";
 import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
+import {jwtDecode} from "jwt-decode";  // Impor jwtDecode dengan benar
 
 function NavbarDashboard() {
-  const [userType, setUserType] = useState("customer");
+  const [userRole, setUserRole] = useState('');
+  const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken = jwtDecode(token);
+        setUserRole(decodedToken.role);
+      } catch (error) {
+        console.error('Token decoding error:', error);
+      }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/');
+  };
+
   return (
     <header className="header">
       <nav className="navbar  pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
@@ -48,7 +68,7 @@ function NavbarDashboard() {
               Profil
             </Link>
           </li>
-          {userType === "customer" && (
+          {userRole === "user" && (
             <>
               <li className="nav-item">
                 <Link
@@ -67,7 +87,7 @@ function NavbarDashboard() {
               </li>
             </>
           )}
-          {userType === "admin" && (
+          {userRole === "admin" && (
             <>
               <li className="nav-item">
                 <Link
@@ -105,10 +125,10 @@ function NavbarDashboard() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link d-flex gap-2" to="/dashboard">
+            <button className="nav-link d-flex gap-2" onClick={handleLogout} style={{ background: 'none', border: 'none', padding: 0 }}>
               <IoLogOutOutline size={25} color={"#01aa5a"} />
               Logout
-            </Link>
+            </button>
           </li>
         </ul>
         <div className="d-flex justify-content-center mt-4 "></div>
