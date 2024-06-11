@@ -53,13 +53,6 @@ nav {
   box-shadow: 0 0 4px #beb8b8;
   margin-top: 70px;
 
-  .close-menu {
-    display: flex;
-    justify-content: end;
-    padding: 20px;
-    border-bottom: 1px solid #939dae;
-  }
-
   ul {
     padding: 2em;
     list-style: none;
@@ -77,23 +70,6 @@ nav {
         color: #000;
         text-decoration: none;
       }
-    }
-  }
-
-  #ordermenu,
-  #informationmenu {
-    border-radius: 10px;
-    padding: 10px 15px;
-    width: 80%;
-    box-shadow: 0px 4px 8px #f0eded;
-
-    .nav-link {
-      padding: 5px;
-      color: #000;
-    }
-
-    .nav-item:hover {
-      background-color: rgba(1, 170, 90, 0.17);
     }
   }
 }

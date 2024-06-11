@@ -8,8 +8,8 @@ const SettingsPage = () => {
   return (
     <>
       <NavbarDashboard />
-      <div className="container mt-5">
-        <div className="settings-card shadow">
+      <div className="container-settings d-flex justify-content-center align-items-center">
+        <div className="settings-card shadow-sm mt-2 mt-sm-5 p-4 p-sm-5">
           <p className="setting-title">Settings</p>
           <form>
             <label className="label-password" style={{marginLeft: "0"}}>Change Password</label>

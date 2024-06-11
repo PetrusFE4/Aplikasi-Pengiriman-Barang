@@ -51,7 +51,10 @@ function NavbarDashboard() {
           {userType === "customer" && (
             <>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/tracking">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/tracking"
+                >
                   <AiOutlineTruck size={25} color={"#01aa5a"} />
                   Tracking
                 </Link>
@@ -67,19 +70,28 @@ function NavbarDashboard() {
           {userType === "admin" && (
             <>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/user-list">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/user-list"
+                >
                   <FaUsers size={25} color={"#01aa5a"} />
                   User List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/order-list">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/order-list"
+                >
                   <CiBoxes size={25} color={"#01aa5a"} />
                   Order List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/add-admin">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/add-admin"
+                >
                   <LuUserPlus size={25} color={"#01aa5a"} />
                   Add Admin
                 </Link>
@@ -124,13 +136,6 @@ function openNav() {
   }
 }
 
-function closeNav() {
-  const sidebar = document.getElementById("mySidenav");
-  if (sidebar) {
-    sidebar.style.width = "0";
-  }
-}
-
 document.addEventListener("click", function (event) {
   const sidebar = document.getElementById("mySidenav");
   const navbarToggle = document.querySelector(".navbar-toggler");
@@ -142,7 +147,8 @@ document.addEventListener("click", function (event) {
     event.target !== navbarToggle &&
     !navbarToggle.contains(event.target)
   ) {
-    closeNav();
+    sidebar.style.width = "0";
+    isSidebarOpen = false;
   }
 });
 
