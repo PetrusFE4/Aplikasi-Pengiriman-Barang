@@ -30,7 +30,7 @@ function HeroSection() {
 
   return (
     <section className="hero d-flex align-items-center justify-content-center pb-5 pb-sm-0">
-      <div className="hero-content d-flex flex-column justify-content-center align-items-center gap-3">
+      <div className="hero-content d-flex flex-column justify-content-center align-items-center gap-2">
         <h2 className="text-center fw-bold fs-1">
           Delivering Expeditions, <br /> <span>Safely </span>and
           <span> Swiftly</span>
@@ -38,7 +38,7 @@ function HeroSection() {
         <p className="text-center ps-5 pe-5 mx-auto">
           Track your package delivery here easily and accurately
         </p>
-        <form action="" className="track-form d-flex p-3 align-items-center">
+        <form action="" className="track-form d-flex p-3 p-sm-0 align-items-center">
           <IoIosSearch size={35} color={"#808080"} />
 
           <input type="text" placeholder="Track your package now" />

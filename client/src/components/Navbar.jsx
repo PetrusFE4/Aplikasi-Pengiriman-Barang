@@ -7,13 +7,15 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { flushSync } from "react-dom";
-import {jwtDecode} from "jwt-decode"; 
+import { jwtDecode } from "jwt-decode";
+import Swal from "sweetalert2";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
+  // ini buat scroll menu
   const handleScroll = useCallback(() => {
     const header = document.querySelector(".header");
     if (header && header.contains) {
@@ -25,9 +27,36 @@ function Header() {
     }
   }, []);
 
+  const scrollTo = sessionStorage.getItem("scrollTo");
+  if (scrollTo) {
+    const element = document.getElementById(scrollTo);
+    if (element) {
+      flushSync(() => {
+        const yOffset = -120; // Mengatur offset jarak
+        const y =
+          element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      });
+      sessionStorage.removeItem("scrollTo");
+    }
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll, location]);
+
+  const handleClick = (e, path, hash) => {
+    e.preventDefault();
+    sessionStorage.setItem("scrollTo", hash);
+    navigate(path);
+  };
+
+  // mengecek sudah login atau belum
+  useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
@@ -39,30 +68,27 @@ function Header() {
         console.error("Token decoding error:", error);
       }
     }
+  }, []);
 
-    const scrollTo = sessionStorage.getItem("scrollTo");
-    if (scrollTo) {
-      const element = document.getElementById(scrollTo);
-      if (element) {
-        flushSync(() => {
-          const yOffset = -120; // Mengatur offset jarak
-          const y =
-            element.getBoundingClientRect().top + window.scrollY + yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        });
-        sessionStorage.removeItem("scrollTo");
-      }
+  // ini buat kalau user klik menu order tapi belum login, nanti diarahin kehalaman login
+  const handleClickOrder = (e) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      e.preventDefault();
+      Swal.fire({
+        title: "Login to Order!",
+        text: "Login now to start ordering! 👋",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#01aa5a",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
     }
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll, location]);
-
-  const handleClick = (e, path, hash) => {
-    e.preventDefault();
-    sessionStorage.setItem("scrollTo", hash);
-    navigate(path);
   };
 
   return (
@@ -91,7 +117,10 @@ function Header() {
           >
             <AiOutlineMenuUnfold size={35} color="#000" />
           </button>
-          <div className="collapse navbar-collapse">
+          <div
+            className="collapse navbar-collapse"
+            style={{ boxSizing: "border-box" }}
+          >
             <ul className="navbar-nav mx-lg-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
@@ -123,7 +152,11 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/order">
+                    <Link
+                      className="dropdown-item"
+                      to="/dashboard/order"
+                      onClick={handleClickOrder}
+                    >
                       Order
                     </Link>
                   </li>
@@ -181,7 +214,10 @@ function Header() {
               </li>
             </ul>
             <div className="nav-button-container">
-              <Link to={isLoggedIn ? "/dashboard" : "/login"} style={{ textDecoration: "none" }}>
+              <Link
+                to={isLoggedIn ? "/dashboard" : "/login"}
+                style={{ textDecoration: "none" }}
+              >
                 <ButtonStyle className="nav-button">
                   {isLoggedIn ? "Dashboard" : "Login"}
                 </ButtonStyle>
@@ -208,6 +244,7 @@ function Header() {
               className="nav-link dropdown-toggle"
               to="/#ordermenu"
               data-bs-toggle="collapse"
+              onClick={handleClickOrder}
             >
               Order
             </Link>
@@ -218,7 +255,11 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/order">
+                <Link
+                  className="nav-link"
+                  to="/dashboard/order"
+                  onClick={handleClickOrder}
+                >
                   Order
                 </Link>
               </li>
@@ -266,12 +307,15 @@ function Header() {
           </li>
         </ul>
         <div className="d-flex justify-content-center mt-4 ">
-          <Link to={isLoggedIn ? "/dashboard" : "/login"} style={{ textDecoration: "none" }}>
+          <Link
+            to={isLoggedIn ? "/dashboard" : "/login"}
+            style={{ textDecoration: "none" }}
+          >
             <ButtonStyle
               className="sidenav-button"
               style={{ padding: "8px 100px" }}
             >
-            {isLoggedIn ? "Dashboard" : "Login"}
+              {isLoggedIn ? "Dashboard" : "Login"}
             </ButtonStyle>
           </Link>
         </div>
