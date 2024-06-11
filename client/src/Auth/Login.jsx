@@ -3,7 +3,7 @@ import "../assets/css/Login.css";
 import ImageLogin from "../assets/img/image-login.png";
 import { StyledIcon } from "../components/StyledIcon";
 import { ButtonStyle } from "../components/StyledComponents";
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -82,12 +82,12 @@ const Login = () => {
 
               <label htmlFor="email">
                 {/* Mengganti size="20px" dengan size="lg" */}
-                <StyledIcon icon={faEnvelope} size="lg" color="black" />
-                Email
+                <StyledIcon icon={faUser} size="lg" color="black" />
+                Username
               </label>
               <input
                 type="text"
-                placeholder="Email address"
+                placeholder="Username"
                 required
                 autoFocus
                 value={username}
