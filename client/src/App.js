@@ -36,7 +36,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <ProtectedRoute element={Dashboard} roles={["user", "admin"]} />
+              <ProtectedRoute element={Dashboard} roles={["user", "admin","superadmin"]} />
             }
           />
 
@@ -56,25 +56,25 @@ function App() {
           <Route
             path="/dashboard/user-list"
             element={
-              <ProtectedRoute element={UserListPage} roles={["admin"]} />
+              <ProtectedRoute element={UserListPage} roles={["admin","superadmin"]} />
             }
           />
           <Route
             path="/dashboard/order-list"
             element={
-              <ProtectedRoute element={OrderListPage} roles={["admin"]} />
+              <ProtectedRoute element={OrderListPage} roles={["admin","superadmin"]} />
             }
           />
           <Route
             path="/dashboard/add-admin"
-            element={<ProtectedRoute element={AddAdmin} roles={["admin"]} />}
+            element={<ProtectedRoute element={AddAdmin} roles={["superadmin"]} />}
           />
           <Route
             path="/dashboard/myprofile"
             element={
               <ProtectedRoute
                 element={MyProfilePage}
-                roles={["user", "admin"]}
+                roles={["user", "admin","superadmin"]}
               />
             }
           />

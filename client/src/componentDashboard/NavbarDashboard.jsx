@@ -9,46 +9,49 @@ import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { CiBoxes } from "react-icons/ci";
 import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
-import {jwtDecode} from "jwt-decode";  
-import axios from "axios"; 
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 function NavbarDashboard() {
-  const [userRole, setUserRole] = useState('');
+  const [userRole, setUserRole] = useState("");
   const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
         setUserRole(decodedToken.role);
       } catch (error) {
-        console.error('Token decoding error:', error);
+        console.error("Token decoding error:", error);
       }
     }
   }, []);
 
   const handleLogout = async () => {
     try {
-        const token = localStorage.getItem('token');
-        const response = await axios.post('/api/auth/logout', {}, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-        if (response.status === 200) {
-            console.log(response.data.message);  // Menampilkan pesan logout sukses di console
-            localStorage.removeItem('token');
-            localStorage.removeItem('role');
-            navigate('/');
-        } else {
-            console.error('Error logging out:', response.data.message);
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "/api/auth/logout",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
+      );
+      if (response.status === 200) {
+        console.log(response.data.message); // Menampilkan pesan logout sukses di console
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        navigate("/");
+      } else {
+        console.error("Error logging out:", response.data.message);
+      }
     } catch (error) {
-        console.error('Error logging out:', error);
+      console.error("Error logging out:", error);
     }
-};
-
+  };
 
   return (
     <header className="header">
@@ -125,6 +128,28 @@ function NavbarDashboard() {
                   Order List
                 </Link>
               </li>
+            </>
+          )}
+          {userRole === "superadmin" && (
+            <>
+              <li className="nav-item">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/user-list"
+                >
+                  <FaUsers size={25} color={"#01aa5a"} />
+                  User List
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/order-list"
+                >
+                  <CiBoxes size={25} color={"#01aa5a"} />
+                  Order List
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   className="nav-link d-flex gap-2"
@@ -143,7 +168,11 @@ function NavbarDashboard() {
             </Link>
           </li>
           <li className="nav-item">
-            <button className="nav-link d-flex gap-2" onClick={handleLogout} style={{ background: 'none', border: 'none', padding: 0 }}>
+            <button
+              className="nav-link d-flex gap-2"
+              onClick={handleLogout}
+              style={{ background: "none", border: "none", padding: 0 }}
+            >
               <IoLogOutOutline size={25} color={"#01aa5a"} />
               Logout
             </button>

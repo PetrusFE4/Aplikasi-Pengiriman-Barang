@@ -7,6 +7,7 @@ import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import {jwtDecode} from "jwt-decode";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -33,7 +34,12 @@ const Login = () => {
         }
       );
       if (response.status === 200) {
-        localStorage.setItem("token", response.data.token); // Simpan token ke localStorage
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+
+        const decodedToken = jwtDecode(token);
+        const userType = decodedToken.role;
+
         Swal.fire({
           title: "Good job!",
           text: response.data.message,
@@ -41,15 +47,22 @@ const Login = () => {
           iconColor: "#01aa5a",
           confirmButtonColor: "#01aa5a",
         }).then(() => {
-          window.location.href = `/`;
+          if (userType === "admin" || userType === "superadmin") {
+            console.log("Redirecting to /dashboard");
+            window.location.href = `/dashboard`;
+          } else {
+            console.log("Redirecting to /");
+            window.location.href = `/`;
+          }
         });
       }
     } catch (error) {
       console.error("Error:", error);
+      const errorMessage = error.response ? error.response.data.message : "Login failed. Please try again.";
       Swal.fire({
         icon: "error",
         title: "Login Failed!",
-        text: error.response.data.message,
+        text: errorMessage,
         confirmButtonColor: "#f27474",
       });
     }
