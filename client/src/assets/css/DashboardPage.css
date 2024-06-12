@@ -1,0 +1,18 @@
+.welcome-dashboard{
+    font-size: 36px;
+    font-weight: 400;
+    text-align: right;
+}
+.card1{
+    height: 200px;
+}
+.table-dashboard{
+    th{
+        background-color: #01AA5A;
+        color: white;
+    }
+    
+}
+body {
+    background-color: #f8f9fa;
+}
