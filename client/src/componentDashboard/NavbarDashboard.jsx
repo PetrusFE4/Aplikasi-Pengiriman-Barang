@@ -30,17 +30,25 @@ function NavbarDashboard() {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('/api/auth/logout');
-      if (response.status === 200) {
-        console.log(response.data.message);  // Menampilkan pesan logout sukses di console
-        localStorage.removeItem('token');
-        localStorage.removeItem('role');
-        navigate('/');
-      }
+        const token = localStorage.getItem('token');
+        const response = await axios.post('/api/auth/logout', {}, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        if (response.status === 200) {
+            console.log(response.data.message);  // Menampilkan pesan logout sukses di console
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            navigate('/');
+        } else {
+            console.error('Error logging out:', response.data.message);
+        }
     } catch (error) {
-      console.error('Error logging out:', error);
+        console.error('Error logging out:', error);
     }
-  };
+};
+
 
   return (
     <header className="header">
