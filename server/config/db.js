@@ -5,7 +5,7 @@ let mysql = require("mysql2");
 let con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root", //punyaku pake password
+  password: "", //punyaku pake password
   database: "aplikasi-pengiriman-barang",
 });
 

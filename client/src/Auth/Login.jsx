@@ -41,7 +41,7 @@ const Login = () => {
           iconColor: "#01aa5a",
           confirmButtonColor: "#01aa5a",
         }).then(() => {
-          window.location.href = `/dashboard`;
+          window.location.href = `/`;
         });
       }
     } catch (error) {
