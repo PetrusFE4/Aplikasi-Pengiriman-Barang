@@ -7,11 +7,12 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { flushSync } from "react-dom";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode"; // Perbaiki import untuk jwtDecode
 import Swal from "sweetalert2";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); // Tambahkan state untuk peran admin
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -63,6 +64,7 @@ function Header() {
         const decodedToken = jwtDecode(token);
         if (decodedToken) {
           setIsLoggedIn(true); // Set status login jika token valid
+          setIsAdmin(decodedToken.role === "admin"); // Set status admin jika peran adalah admin
         }
       } catch (error) {
         console.error("Token decoding error:", error);
@@ -88,6 +90,13 @@ function Header() {
           navigate("/login");
         }
       });
+    } else {
+      const decodedToken = jwtDecode(token);
+      if (decodedToken.role === "admin") {
+        navigate("/dashboard/order-list");
+      } else {
+        navigate("/dashboard/order");
+      }
     }
   };
 
@@ -152,13 +161,13 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link
+                    <a
                       className="dropdown-item"
-                      to="/dashboard/order"
+                      href="#"
                       onClick={handleClickOrder}
                     >
                       Order
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -215,7 +224,7 @@ function Header() {
             </ul>
             <div className="nav-button-container">
               <Link
-                to={isLoggedIn ? "/dashboard" : "/login"}
+                to={isLoggedIn ? (isAdmin ? "/dashboard/order-list" : "/dashboard/order") : "/login"}
                 style={{ textDecoration: "none" }}
               >
                 <ButtonStyle className="nav-button">
@@ -255,13 +264,13 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
+                <a
                   className="nav-link"
-                  to="/dashboard/order"
+                  href="#"
                   onClick={handleClickOrder}
                 >
                   Order
-                </Link>
+                </a>
               </li>
             </ul>
           </li>
@@ -308,7 +317,7 @@ function Header() {
         </ul>
         <div className="d-flex justify-content-center mt-4 ">
           <Link
-            to={isLoggedIn ? "/dashboard" : "/login"}
+            to={isLoggedIn ? (isAdmin ? "/dashboard/order-list" : "/dashboard/order") : "/login"}
             style={{ textDecoration: "none" }}
           >
             <ButtonStyle
