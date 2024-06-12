@@ -33,7 +33,7 @@ exports.register = async(req, res) => {
 
         });
 
-        return res.status(201).json({message: 'Pendaftaran Sukses'});
+        return res.status(201).json({message: 'Selamat!!! Pendaftaran Sukses'});
     } catch(error){
         console.error("Terjadi Kesalahan ketika pendaftaran", error);
         return res.status(500).json({ message: 'Error Register' });
@@ -56,13 +56,19 @@ exports.login = (req, res) => {
         const token = jwt.sign({userID: user.userID, role: user.role}, 'secretKey', {expiresIn: '1h'});
         
         if(user.role === 'admin') {
-            return res.status(200).json({message: 'Admin logged in successfully', token, redirect: 'admiin'})
+            return res.status(200).json({message: 'Login Admin!!!', token, redirect: 'admin'})
         } else {
-            return res.status(200).json({message: 'User logged in successfully', token, redirect: 'user'});
+            return res.status(200).json({message: 'Login', token, redirect: 'user'});
         }
     });
 };
 
 exports.logout = (req, res) => {
-    res.status(200).json({message: 'LOGout sukses'});
+    const role = req.user.role;
+    if(role === 'admin') {
+       return res.status(200).json({message: 'Logout admin sukses'});
+    } else {
+       return res.status(200).json({message: 'Logout!!!'});
+    }
+    
 }
