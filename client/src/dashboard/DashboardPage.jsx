@@ -77,7 +77,7 @@ function DashboardPage() {
                         </tbody>
                         </table>
                         </div>
-                        <ButtonStyle style={{width:'30%'}}>See Details</ButtonStyle>
+                        <ButtonStyle className="see-detail-order">See Details</ButtonStyle>
                     </div>
                 </div>
             </div>

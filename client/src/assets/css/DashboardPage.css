@@ -13,6 +13,13 @@
     }
     
 }
-body {
-    background-color: #f8f9fa;
+.see-detail-order{
+    width: 30%;
+  }
+
+
+@media (max-width: 810px) {
+  .see-detail-order{
+    width: 40%;
+  }
 }
