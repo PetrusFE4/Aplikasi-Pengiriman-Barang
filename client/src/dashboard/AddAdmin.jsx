@@ -81,22 +81,22 @@ function AddAdmin() {
   return (
     <>
       <NavbarDashboard />
-      <div class="container mt-5">
-      <div className="container-add-admin d-flex justify-content-center mt-sm-5">
+      <div className="container mt-5">
       <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
                 <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/add-admin" style={{color:'grey'}}>Add Admin</Link></li>
             </ol>
         </nav>
+      <div className="container-add-admin">
         <form
           action=""
-          className="p-5 d-flex flex-column gap-5"
+          className="form-add-admin p-5 d-flex flex-column gap-5"
           onSubmit={handleSubmit}
           style={{ boxShadow: "0 0 10px rgba(0,0,0,0.1)" }}
         >
-          <div className="container-input-add-admin d-flex flex-column flex-sm-row gap-3 gap-sm-5 rounded-2 ">
-            <div className="kiri-add-admin d-flex flex-column gap-2">
+          <div className="container-input-add-admin d-flex flex-column flex-sm-row gap-3 gap-sm-5 rounded-2 justify-content-between">
+            <div className="container1-add-admin d-flex flex-column gap-2">
               <label>
                 Fullname<span className="text-danger" >*</span>
               </label>
@@ -106,7 +106,7 @@ function AddAdmin() {
                 placeholder="Fullname"
                 value={fullname} onChange={handleFullnameChange}
                 required
-                autoFocus
+                autoFocus 
               />
               <label>
                 Username<span className="text-danger">*</span>
@@ -118,12 +118,12 @@ function AddAdmin() {
                 value={username} onChange={handleUsernameChange}
                 required
               />
-              <label>
+            </div>
+            <div className="container2-add-admin d-flex flex-column gap-2">
+            <label>
                 Password<span className="text-danger">*</span>
               </label>
               <input type="password" className="form-control" placeholder="Password" value={password} onChange={handlePasswordChange} required />
-            </div>
-            <div className="kanan-add-admin d-flex flex-column gap-2">
               <label>
                 Phone<span className="text-danger">*</span>
               </label>
@@ -135,6 +135,8 @@ function AddAdmin() {
                 onChange={handlePhoneChange}
                 required
               />
+              </div>
+              <div className="container3-add-admin d-flex flex-column gap-2">
               <label>
                 Email<span className="text-danger">*</span>
               </label>
@@ -157,9 +159,11 @@ function AddAdmin() {
                 onChange={handleAddressChange}
                 required
               />
-            </div>
+              </div>
           </div>
-          <ButtonStyle type="submit">Add Admin</ButtonStyle>
+          <div className="container-button-add-admin">
+          <ButtonStyle type="submit" className='button-add-admin'>Add Admin</ButtonStyle>
+          </div>
         </form>
       </div>
       </div>
