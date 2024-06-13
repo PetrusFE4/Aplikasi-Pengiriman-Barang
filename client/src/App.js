@@ -9,7 +9,6 @@ import NotFoundPage from "./pages/NotFoundPage";
 import TrackingPage from "./pages/TrackingPage";
 import OrderPage from "./dashboard/OrderPage";
 import SettingsPage from "./dashboard/SettingsPage";
-import ShipmentDetailsPage from "./dashboard/ShipmentDetailsPage";
 import UserListPage from "./dashboard/UserListPage";
 import OrderListPage from "./dashboard/OrderListPage";
 import MyProfilePage from "./dashboard/MyProfilePage";
@@ -49,7 +48,7 @@ function App() {
             element={
               <ProtectedRoute
                 element={SettingsPage}
-                roles={["user", "admin"]}
+                roles={["user", "admin","superadmin"]}
               />
             }
           />

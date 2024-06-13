@@ -9,12 +9,12 @@ import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { CiBoxes } from "react-icons/ci";
 import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function NavbarDashboard() {
-  const [userRole, setUserRole] = useState("");
+  const [userRole, setUserRole] = useState(""); // State untuk menyimpan peran pengguna
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,14 +22,14 @@ function NavbarDashboard() {
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        const currentTime = Date.now() / 1000; // Current time in seconds
+        const currentTime = Date.now() / 1000; // Waktu saat ini dalam detik
         if (decodedToken.exp < currentTime) {
-          // Token expired
+          // Token sudah kadaluarsa
           localStorage.removeItem("token");
           localStorage.removeItem("role");
           navigate("/login");
         } else {
-          setUserRole(decodedToken.role);
+          setUserRole(decodedToken.role); // Set peran pengguna
         }
       } catch (error) {
         console.error("Token decoding error:", error);
@@ -42,6 +42,7 @@ function NavbarDashboard() {
     }
   }, [navigate]);
 
+  // Fungsi untuk menangani logout
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -67,14 +68,14 @@ function NavbarDashboard() {
       if (error.response && error.response.status === 401) {
         localStorage.removeItem("token");
         localStorage.removeItem("role");
-        window.location.href = "/login";
+        window.location.href = "/";
       }
     }
   };
 
   return (
     <header className="header">
-      <nav className="navbar  pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
+      <nav className="navbar pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
             <a className="navbar-brand" href="/">
@@ -111,10 +112,7 @@ function NavbarDashboard() {
           {userRole === "user" && (
             <>
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex gap-2"
-                  to="/dashboard/tracking"
-                >
+                <Link className="nav-link d-flex gap-2" to="/dashboard/tracking">
                   <AiOutlineTruck size={25} color={"#01aa5a"} />
                   Tracking
                 </Link>
@@ -130,19 +128,13 @@ function NavbarDashboard() {
           {userRole === "admin" && (
             <>
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex gap-2"
-                  to="/dashboard/user-list"
-                >
+                <Link className="nav-link d-flex gap-2" to="/dashboard/user-list">
                   <FaUsers size={25} color={"#01aa5a"} />
                   User List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex gap-2"
-                  to="/dashboard/order-list"
-                >
+                <Link className="nav-link d-flex gap-2" to="/dashboard/order-list">
                   <CiBoxes size={25} color={"#01aa5a"} />
                   Order List
                 </Link>
@@ -152,28 +144,19 @@ function NavbarDashboard() {
           {userRole === "superadmin" && (
             <>
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex gap-2"
-                  to="/dashboard/user-list"
-                >
+                <Link className="nav-link d-flex gap-2" to="/dashboard/user-list">
                   <FaUsers size={25} color={"#01aa5a"} />
                   User List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex gap-2"
-                  to="/dashboard/order-list"
-                >
+                <Link className="nav-link d-flex gap-2" to="/dashboard/order-list">
                   <CiBoxes size={25} color={"#01aa5a"} />
                   Order List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex gap-2"
-                  to="/dashboard/add-admin"
-                >
+                <Link className="nav-link d-flex gap-2" to="/dashboard/add-admin">
                   <LuUserPlus size={25} color={"#01aa5a"} />
                   Add Admin
                 </Link>
@@ -197,7 +180,7 @@ function NavbarDashboard() {
             </button>
           </li>
         </ul>
-        <div className="d-flex justify-content-center mt-4 "></div>
+        <div className="d-flex justify-content-center mt-4"></div>
       </div>
     </header>
   );
@@ -205,6 +188,7 @@ function NavbarDashboard() {
 
 let isSidebarOpen = false;
 
+// Fungsi untuk membuka dan menutup sidebar
 function openNav() {
   const sidebar = document.getElementById("mySidenav");
   if (!isSidebarOpen) {
@@ -222,6 +206,7 @@ function openNav() {
   }
 }
 
+// Event listener untuk menutup sidebar ketika klik di luar elemen sidebar
 document.addEventListener("click", function (event) {
   const sidebar = document.getElementById("mySidenav");
   const navbarToggle = document.querySelector(".navbar-toggler");

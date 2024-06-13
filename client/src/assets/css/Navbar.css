@@ -52,6 +52,7 @@ nav {
   }
   .dropdown-item:active {
     background-color: #01aa5a;
+    color: #fff;
   }
 }
 
