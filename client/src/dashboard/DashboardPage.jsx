@@ -44,7 +44,7 @@ function DashboardPage() {
         </div>
         <div className="row">
             <div className="col-md-8 mb-4">
-                <div className="dasboard-card card no-border shadow-sm" style={{ border: '1px solid   white'}}>
+                <div className="dasboard-card card no-border shadow" style={{ border: '1px solid   white'}}>
                     <div className="card-body">
                         <p><b>Latest Order</b></p>
                         <div className="table-responsive">
@@ -53,8 +53,8 @@ function DashboardPage() {
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">ID Order</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Fullname</th>
+                                <th scope="col">From</th>
+                                <th scope="col">To</th>
                                 <th scope="col">Total Payment</th>
                             </tr>
                         </thead>
@@ -62,22 +62,22 @@ function DashboardPage() {
                             <tr>
                                 <td>1</td>
                                 <td>#OD123</td>
-                                <td>Budi</td>
-                                <td>Budi Santosa</td>
+                                <td>Semarang</td>
+                                <td>Jakarta</td>
                                 <td>Rp 14.000</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>#OD123</td>
-                                <td>Budi</td>
-                                <td>Budi Santosa</td>
+                                <td>Semarang</td>
+                                <td>Jakarta</td>
                                 <td>Rp 14.000</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>#OD123</td>
-                                <td>Budi</td>
-                                <td>Budi Santosa</td>
+                                <td>Semarang</td>
+                                <td>Jakarta</td>
                                 <td>Rp 14.000</td>
                             </tr>
                         </tbody>
@@ -88,7 +88,7 @@ function DashboardPage() {
                 </div>
             </div>
             <div className="col-md-4 mb-4">
-                <div className="dasboard-card card no-border shadow-sm" style={{ border: '1px solid   white'}}>
+                <div className="dasboard-card card no-border shadow" style={{ border: '1px solid   white'}}>
                     <div className="card-body text-center">
                         <p><b>Role</b></p>
                         <p>Admin</p>
