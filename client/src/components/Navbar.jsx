@@ -15,7 +15,7 @@ function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State untuk status login
   const navigate = useNavigate();
   const location = useLocation();
-  const [dropdownVisible, setDropdownVisible] = useState(false); // State untuk dropdown visibility
+  const [dropdownVisible, setDropdownVisible] = useState(false); // State untuk visibilitas dropdown
   const dropdownRef = useRef(null);
 
   // Callback untuk menangani scroll
@@ -30,27 +30,29 @@ function Header() {
     }
   }, []);
 
-  // Scroll ke elemen tertentu berdasarkan sessionStorage
-  const scrollTo = sessionStorage.getItem("scrollTo");
-  if (scrollTo) {
-    const element = document.getElementById(scrollTo);
-    if (element) {
-      flushSync(() => {
-        const yOffset = -120;
-        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      });
-      sessionStorage.removeItem("scrollTo");
-    }
-  }
-
   // Efek untuk menambahkan event listener pada scroll
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [handleScroll, location]);
+  }, [handleScroll]);
+
+  // Efek untuk menggulir ke elemen berdasarkan sessionStorage
+  useEffect(() => {
+    const scrollTo = sessionStorage.getItem("scrollTo");
+    if (scrollTo) {
+      const element = document.getElementById(scrollTo);
+      if (element) {
+        flushSync(() => {
+          const yOffset = -120;
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        });
+        sessionStorage.removeItem("scrollTo");
+      }
+    }
+  }, [location]);
 
   // Fungsi untuk menangani klik dan menyimpan hash dalam sessionStorage
   const handleClick = (e, path, hash) => {
@@ -67,7 +69,7 @@ function Header() {
       return decodedToken.exp < currentTime; // Periksa apakah token sudah kadaluarsa
     } catch (error) {
       console.error("Token decoding error:", error);
-      return true; // Jika ada error, anggap token kadaluarsa
+      return true; // Anggap token kadaluarsa jika ada error
     }
   };
 
@@ -117,42 +119,40 @@ function Header() {
   };
 
   // Fungsi untuk menangani logout
-const handleLogout = async () => {
-  try {
-    // Ambil token dari localStorage
-    const token = localStorage.getItem("token");
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem("token");
 
-    const response = await axios.post(
-      "/api/auth/logout",
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      const response = await axios.post(
+        "/api/auth/logout",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Jika logout berhasil, hapus token dari localStorage dan arahkan ke halaman login
+      if (response.status === 200) {
+        console.log(response.data.message);
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        setIsLoggedIn(false); // Atur status login menjadi false
+        window.location.href = "/";
+      } else {
+        console.error("Error logging out:", response.data.message);
       }
-    );
-
-    // Jika logout berhasil, hapus token dari localStorage dan arahkan ke halaman login
-    if (response.status === 200) {
-      console.log(response.data.message); 
-      localStorage.removeItem("token");
-      localStorage.removeItem("role");
-      setIsLoggedIn(false); // Atur status login menjadi false
-      window.location.href = "/"; 
-    } else {
-      console.error("Error logging out:", response.data.message);
+    } catch (error) {
+      console.error("Error logging out:", error);
+      if (error.response && error.response.status === 401) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        setIsLoggedIn(false); // Atur status login menjadi false
+        window.location.href = "/";
+      }
     }
-  } catch (error) {
-    console.error("Error logging out:", error);
-    if (error.response && error.response.status === 401) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("role");
-      setIsLoggedIn(false); // Atur status login menjadi false
-      window.location.href = "/"; 
-    }
-  }
-};
-
+  };
 
   return (
     <header className="header">
@@ -249,7 +249,7 @@ const handleLogout = async () => {
             <Link className="nav-link dropdown-toggle" to="/#ordermenu" data-bs-toggle="collapse">Order</Link>
             <ul className="nav collapse" id="ordermenu" data-bs-parent="menu">
               <li className="nav-item">
-                <Link className="nav-link" to="/cek-ongkir">Shipping Rates</Link>
+                <Link className="nav-link" to="/shipping-rates">Shipping Rates</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="" onClick={handleClickOrder}>Order</a>
@@ -289,6 +289,7 @@ const handleLogout = async () => {
   );
 }
 
+// Fungsi untuk membuka navigasi sidebar
 function openNav() {
   if (window.innerWidth >= 400) {
     document.getElementById("mySidenav").style.width = "60%";
@@ -297,6 +298,7 @@ function openNav() {
   }
 }
 
+// Fungsi untuk menutup navigasi sidebar
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
