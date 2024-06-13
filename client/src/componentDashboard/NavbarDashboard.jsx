@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/NavbarDashboard.css";
 import { AiOutlineMenuUnfold, AiOutlineTruck } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { FaHome, FaUsers } from "react-icons/fa";
 import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
@@ -14,7 +14,7 @@ import axios from "axios";
 
 function NavbarDashboard() {
   const [userRole, setUserRole] = useState("");
-  const navigate = useNavigate(); // Menggunakan useNavigate untuk navigasi
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -44,7 +44,7 @@ function NavbarDashboard() {
         console.log(response.data.message); // Menampilkan pesan logout sukses di console
         localStorage.removeItem("token");
         localStorage.removeItem("role");
-        navigate("/");
+        window.location.href = "/";
       } else {
         console.error("Error logging out:", response.data.message);
       }

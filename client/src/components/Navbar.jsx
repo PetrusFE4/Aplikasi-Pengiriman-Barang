@@ -92,16 +92,6 @@ function Header() {
     }
   };
 
-  const handleMouseEnter = () => {
-    setDropdownVisible(true);
-  };
-
-  const handleMouseLeave = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget)) {
-      setDropdownVisible(false);
-    }
-  };
-
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -118,12 +108,22 @@ function Header() {
         console.log(response.data.message); // Menampilkan pesan logout sukses di console
         localStorage.removeItem("token");
         localStorage.removeItem("role");
-        window.location.reload();
+        window.location.href = "/";
       } else {
         console.error("Error logging out:", response.data.message);
       }
     } catch (error) {
       console.error("Error logging out:", error);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    setDropdownVisible(true);
+  };
+
+  const handleMouseLeave = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget)) {
+      setDropdownVisible(false);
     }
   };
 
