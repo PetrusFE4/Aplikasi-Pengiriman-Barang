@@ -2,12 +2,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/OrderListPage.css";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
+import { Link } from "react-router-dom";
 
 const OrderListPage = () => {
   return (
     <>
     <NavbarDashboard/>
       <div  className="container-fluid mt-5">
+      <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/order-list" style={{color:'grey'}}>Order List</Link></li>
+            </ol>
+        </nav>
         <p  className="orderlist-title">Order List</p>
         <div className="table-responsive">
         <table  className="table  table-bordered table-order shadow">

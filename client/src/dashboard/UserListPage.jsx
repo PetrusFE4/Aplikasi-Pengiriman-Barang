@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/UserListPage.css";
-
+import { Link } from "react-router-dom";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
 
 const UserListPage = () => {
@@ -9,6 +9,12 @@ const UserListPage = () => {
     <>
       <NavbarDashboard />
       <div className="container mt-5">
+      <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/user-list" style={{color:'grey'}}>User List</Link></li>
+            </ol>
+        </nav>
         <p className="userlist-title">User List</p>
         <div className="table-responsive">
           <table className="table table-user shadow">

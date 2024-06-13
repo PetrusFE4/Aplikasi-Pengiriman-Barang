@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { ButtonStyle, WhiteButton } from "../components/StyledComponents";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
+import { Link } from "react-router-dom";
 
 function MyProfilePage() {
   const [initialValues] = useState({
@@ -33,6 +34,12 @@ function MyProfilePage() {
 <>
 <NavbarDashboard/>
 <div className="container mt-5">
+<nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/myprofile" style={{color:'grey'}}>My Profile</Link></li>
+            </ol>
+        </nav>
       <div
         className="card shadow"
         style={{ border: "none", borderRadius: "0" }}

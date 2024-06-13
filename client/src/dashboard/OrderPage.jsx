@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/OrderPageDashboard.css";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
 import { ButtonStyle, WhiteButton } from "../components/StyledComponents";
+import { Link } from "react-router-dom";
 
 function OrderPage() {
   const [senderName, setSenderName] = useState("");
@@ -62,6 +63,12 @@ function OrderPage() {
     <>
       <NavbarDashboard />
       <div className="container mt-5">
+      <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/order" style={{color:'grey'}}>Order</Link></li>
+            </ol>
+        </nav>
       <div className="card shadow" style={{ border: "none", borderRadius: "0" }}>
       <p className="title-tracking" style={{ fontSize: "24px", fontWeight: "bold", margin: "20px" }}>Order</p>
         <form onSubmit={handleSubmit} style={{ padding: "20px" }}>

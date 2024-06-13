@@ -1,12 +1,19 @@
 import React from "react";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
 import "../assets/css/TrackingPageDashboard.css";
+import { Link } from "react-router-dom";
 
 function TrackingPageDashboard() {
   return (
     <>
       <NavbarDashboard />
       <div className="container-fluid mt-5">
+      <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/tracking" style={{color:'grey'}}>Tracking</Link></li>
+            </ol>
+        </nav>
         <div className="card shadow" style={{ border: "none", borderRadius: "0" }}>
         <h1 className="title-tracking" style={{ fontSize: "24px", fontWeight: "bold", margin: "20px" }}>Live Tracking</h1>
           <div className="card-body">

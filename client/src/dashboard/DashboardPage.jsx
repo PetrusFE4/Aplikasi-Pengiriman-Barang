@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/DashboardPage.css";
 import { ButtonStyle } from "../components/StyledComponents";
+import { Link } from "react-router-dom";
 
 function DashboardPage() {
   return (
@@ -10,6 +11,11 @@ function DashboardPage() {
       <NavbarDashboard />
       <div className="container mt-5">
         {/* <p class="welcome-dashboard">Welcome, Admin1!</p> */}
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
+            </ol>
+        </nav>
         <div className="row">
             <div className="col-md-4 mb-4">
                 <div className="dasboard-card card no-border shadow-sm" style={{backgroundColor: '#FEF5C5', border: '1px solid   #FEF5C5'}}>
