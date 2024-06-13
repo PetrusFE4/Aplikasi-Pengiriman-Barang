@@ -7,7 +7,7 @@ function TrackingPageDashboard() {
   return (
     <>
       <NavbarDashboard />
-      <div className="container-fluid mt-5">
+      <div className="container mt-5">
       <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>

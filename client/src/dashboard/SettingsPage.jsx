@@ -16,9 +16,9 @@ const SettingsPage = () => {
                 <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/settings" style={{color:'grey'}}>Settings</Link></li>
             </ol>
         </nav>
-      <div className="container-settings d-flex justify-content-center align-items-center">
      
-        <div className="settings-card shadow-sm mt-2 mt-sm-5 p-4 p-sm-5">
+     
+        <div className="settings-card shadow">
           <p className="setting-title">Settings</p>
           <form>
             <label className="label-password" style={{marginLeft: "0"}}>Change Password</label>
@@ -37,7 +37,6 @@ const SettingsPage = () => {
             <ButtonStyle>Update</ButtonStyle>
           </form>
         </div>
-      </div>
       </div>
     </>
   );
