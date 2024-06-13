@@ -38,12 +38,12 @@ function HeroSection() {
         <p className="text-center ps-5 pe-5 mx-auto">
           Track your package delivery here easily and accurately
         </p>
-        <form action="" className="track-form d-flex p-3 p-sm-0 align-items-center">
+        <form action="" className="track-form d-flex p-2 p-sm-3  align-items-center">
           <IoIosSearch size={35} color={"#808080"} />
 
           <input type="text" placeholder="Track your package now" />
           <ButtonStyle style={{ padding: "10px 15px" }} type="submit">
-            <span className="d-none d-md-block">Track Now</span>
+            <span className="d-none d-md-block ps-0 pe-0 ps-xl-0 pe-xl-0 ps-sm-2 pe-sm-2">Track Now</span>
             <FaArrowRightLong />
           </ButtonStyle>
         </form>
