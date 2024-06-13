@@ -1,48 +1,54 @@
-import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/Navbar.css";
 import { ButtonStyle } from "./StyledComponents";
 import { IoIosCloseCircle } from "react-icons/io";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
 import { flushSync } from "react-dom";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode"; // Perbaiki import untuk jwtDecode
 import Swal from "sweetalert2";
-import axios from "axios";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); // Tambahkan state untuk peran admin
   const navigate = useNavigate();
-  const dropdownRef = useRef(null);
+  const location = useLocation();
 
-  const handleScroll = () => {
-    console.log("Scrolling...");
-  };
+  // ini buat scroll menu
+  const handleScroll = useCallback(() => {
+    const header = document.querySelector(".header");
+    if (header && header.contains) {
+      if (window.scrollY > 100) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+  }, []);
+
+  const scrollTo = sessionStorage.getItem("scrollTo");
+  if (scrollTo) {
+    const element = document.getElementById(scrollTo);
+    if (element) {
+      flushSync(() => {
+        const yOffset = -120; // Mengatur offset jarak
+        const y =
+          element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      });
+      sessionStorage.removeItem("scrollTo");
+    }
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    const scrollTo = sessionStorage.getItem("scrollTo");
-    if (scrollTo) {
-      const element = document.getElementById(scrollTo);
-      if (element) {
-        flushSync(() => {
-          const yOffset = -120;
-          const y =
-            element.getBoundingClientRect().top + window.scrollY + yOffset;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        });
-        sessionStorage.removeItem("scrollTo");
-      }
-    }
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll, location]);
 
   const handleClick = (e, path, hash) => {
     e.preventDefault();
@@ -50,30 +56,23 @@ function Header() {
     navigate(path);
   };
 
+  // mengecek sudah login atau belum
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        const currentTime = Date.now() / 1000; // Current time in seconds
-        if (decodedToken.exp < currentTime) {
-          // Token expired
-          localStorage.removeItem("token");
-          setIsLoggedIn(false);
-          setIsAdmin(false);
-        } else {
-          setIsLoggedIn(true);
-          setIsAdmin(decodedToken.role === "admin");
+        if (decodedToken) {
+          setIsLoggedIn(true); // Set status login jika token valid
+          setIsAdmin(decodedToken.role === "admin"); // Set status admin jika peran adalah admin
         }
       } catch (error) {
         console.error("Token decoding error:", error);
-        localStorage.removeItem("token");
-        setIsLoggedIn(false);
-        setIsAdmin(false);
       }
     }
   }, []);
 
+  // ini buat kalau user klik menu order tapi belum login, nanti diarahin kehalaman login
   const handleClickOrder = (e) => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -85,78 +84,19 @@ function Header() {
         showCancelButton: true,
         confirmButtonColor: "#01aa5a",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Login!",
+        confirmButtonText: "Yes, Login!"
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/login");
         }
       });
     } else {
-      try {
-        const decodedToken = jwtDecode(token);
-        if (decodedToken.exp < Date.now() / 1000) {
-          // Token expired
-          localStorage.removeItem("token");
-          setIsLoggedIn(false);
-          setIsAdmin(false);
-          Swal.fire({
-            title: "Session Expired",
-            text: "Your session has expired. Please login again.",
-            icon: "warning",
-            confirmButtonColor: "#01aa5a",
-          }).then(() => {
-            navigate("/login");
-          });
-        } else {
-          if (decodedToken.role === "admin") {
-            navigate("/dashboard/order-list");
-          } else {
-            navigate("/dashboard/order");
-          }
-        }
-      } catch (error) {
-        console.error("Token decoding error:", error);
-      }
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "/api/auth/logout",
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (response.status === 200) {
-        console.log(response.data.message); // Menampilkan pesan logout sukses di console
-        localStorage.removeItem("token");
-        setIsLoggedIn(false);
-        setIsAdmin(false);
-        window.location.href = "/";
+      const decodedToken = jwtDecode(token);
+      if (decodedToken.role === "admin") {
+        navigate("/dashboard/order-list");
       } else {
-        console.error("Error logging out:", response.data.message);
+        navigate("/dashboard/order");
       }
-    } catch (error) {
-      console.error("Error logging out:", error);
-      localStorage.removeItem("token");
-      setIsLoggedIn(false);
-      setIsAdmin(false);
-      window.location.href = "/";
-    }
-  };
-
-  const handleMouseEnter = () => {
-    setDropdownVisible(true);
-  };
-
-  const handleMouseLeave = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget)) {
-      setDropdownVisible(false);
     }
   };
 
@@ -168,7 +108,11 @@ function Header() {
       >
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
-            <a className="navbar-brand" href="/">
+            <a
+              className="navbar-brand"
+              to="/"
+              onClick={(e) => handleClick(e, "/", "home")}
+            >
               <h1 className="fw-bold">
                 Febe<span>Express</span>
               </h1>
@@ -188,7 +132,11 @@ function Header() {
           >
             <ul className="navbar-nav mx-lg-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link
+                  className="nav-link"
+                  to="/"
+                  onClick={(e) => handleClick(e, "/", "home")}
+                >
                   Home
                 </Link>
               </li>
@@ -213,13 +161,13 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link
+                    <a
                       className="dropdown-item"
                       href="#"
                       onClick={handleClickOrder}
                     >
                       Order
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -274,39 +222,16 @@ function Header() {
                 </ul>
               </li>
             </ul>
-            {isLoggedIn && (
-              <div
-                className="nav-button-container"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                ref={dropdownRef}
+            <div className="nav-button-container">
+              <Link
+                to={isLoggedIn ? (isAdmin ? "/dashboard/order-list" : "/dashboard/order") : "/login"}
+                style={{ textDecoration: "none" }}
               >
-                <Link to="/dashboard" style={{ textDecoration: "none" }}>
-                  <ButtonStyle className="nav-button">Dashboard</ButtonStyle>
-                </Link>
-                {dropdownVisible && (
-                  <div className="dropdown-menu-custom">
-                    <Link className="dropdown-item" to="/dashboard/myprofile">
-                      Profile
-                    </Link>
-                    <Link
-                      className="dropdown-item"
-                      to="#"
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </Link>
-                  </div>
-                )}
-              </div>
-            )}
-            {!isLoggedIn && (
-              <div className="nav-button-container">
-                <Link to="/login" style={{ textDecoration: "none" }}>
-                  <ButtonStyle className="nav-button">Login</ButtonStyle>
-                </Link>
-              </div>
-            )}
+                <ButtonStyle className="nav-button">
+                  {isLoggedIn ? "Dashboard" : "Login"}
+                </ButtonStyle>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -339,9 +264,13 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="#" onClick={handleClickOrder}>
+                <a
+                  className="nav-link"
+                  href="#"
+                  onClick={handleClickOrder}
+                >
                   Order
-                </Link>
+                </a>
               </li>
             </ul>
           </li>
@@ -388,13 +317,7 @@ function Header() {
         </ul>
         <div className="d-flex justify-content-center mt-4 ">
           <Link
-            to={
-              isLoggedIn
-                ? isAdmin
-                  ? "/dashboard/order-list"
-                  : "/dashboard/order"
-                : "/login"
-            }
+            to={isLoggedIn ? (isAdmin ? "/dashboard/order-list" : "/dashboard/order") : "/login"}
             style={{ textDecoration: "none" }}
           >
             <ButtonStyle
