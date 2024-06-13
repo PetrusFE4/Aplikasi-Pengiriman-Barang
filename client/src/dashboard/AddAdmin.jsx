@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/AddAdmin.css";
 import { ButtonStyle } from "../components/StyledComponents";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
-
+import { Link } from 'react-router-dom';
 
 function AddAdmin() {
   
@@ -82,6 +82,12 @@ function AddAdmin() {
     <>
       <NavbarDashboard />
       <div className="container-add-admin d-flex justify-content-center mt-sm-5">
+      <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
+                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/add-admin" style={{color:'grey'}}>Add Admin</Link></li>
+            </ol>
+        </nav>
         <form
           action=""
           className="p-5 d-flex flex-column gap-5"

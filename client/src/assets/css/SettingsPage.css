@@ -7,7 +7,7 @@
 
 .settings-card {
   padding: 20px;
-  width: 50%;
+  width: 100%;
   @media (max-width: 810px) {
     width: 100%;
   }

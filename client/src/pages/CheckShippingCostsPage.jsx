@@ -90,7 +90,7 @@ const CheckShippingCostsPage = () => {
                 <option value="Document Delivery">Document Delivery</option>
                 <option value="Goods Delivery">Goods Delivery</option>
                 <option value="Cargo Delivery">
-                  Cargo Delivery (*min. 10 kg)
+                  Cargo Delivery (*min. 1000 gram)
                 </option>
               </select>
             </div>
@@ -109,7 +109,7 @@ const CheckShippingCostsPage = () => {
                   onChange={handleChange}
                   required
                 />
-                <span className="input-group-text">kg</span>
+                <span className="input-group-text">gram</span>
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@ const CheckShippingCostsPage = () => {
               <tr>
                 <td>Weight</td>
                 <td>:</td>
-                <td>{submittedValues.weight} kg</td>
+                <td>{submittedValues.weight} gram</td>
               </tr>
             </table>
           </div>
