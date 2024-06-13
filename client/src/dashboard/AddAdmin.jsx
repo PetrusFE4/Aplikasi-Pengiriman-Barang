@@ -81,6 +81,7 @@ function AddAdmin() {
   return (
     <>
       <NavbarDashboard />
+      <div class="container mt-5">
       <div className="container-add-admin d-flex justify-content-center mt-sm-5">
       <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -160,6 +161,7 @@ function AddAdmin() {
           </div>
           <ButtonStyle type="submit">Add Admin</ButtonStyle>
         </form>
+      </div>
       </div>
     </>
   );
