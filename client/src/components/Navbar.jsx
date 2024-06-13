@@ -55,12 +55,21 @@ function Header() {
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        if (decodedToken) {
+        const currentTime = Date.now() / 1000; // Current time in seconds
+        if (decodedToken.exp < currentTime) {
+          // Token expired
+          localStorage.removeItem("token");
+          setIsLoggedIn(false);
+          setIsAdmin(false);
+        } else {
           setIsLoggedIn(true);
           setIsAdmin(decodedToken.role === "admin");
         }
       } catch (error) {
         console.error("Token decoding error:", error);
+        localStorage.removeItem("token");
+        setIsLoggedIn(false);
+        setIsAdmin(false);
       }
     }
   }, []);
@@ -83,11 +92,30 @@ function Header() {
         }
       });
     } else {
-      const decodedToken = jwtDecode(token);
-      if (decodedToken.role === "admin") {
-        navigate("/dashboard/order-list");
-      } else {
-        navigate("/dashboard/order");
+      try {
+        const decodedToken = jwtDecode(token);
+        if (decodedToken.exp < Date.now() / 1000) {
+          // Token expired
+          localStorage.removeItem("token");
+          setIsLoggedIn(false);
+          setIsAdmin(false);
+          Swal.fire({
+            title: "Session Expired",
+            text: "Your session has expired. Please login again.",
+            icon: "warning",
+            confirmButtonColor: "#01aa5a",
+          }).then(() => {
+            navigate("/login");
+          });
+        } else {
+          if (decodedToken.role === "admin") {
+            navigate("/dashboard/order-list");
+          } else {
+            navigate("/dashboard/order");
+          }
+        }
+      } catch (error) {
+        console.error("Token decoding error:", error);
       }
     }
   };
@@ -107,13 +135,18 @@ function Header() {
       if (response.status === 200) {
         console.log(response.data.message); // Menampilkan pesan logout sukses di console
         localStorage.removeItem("token");
-        localStorage.removeItem("role");
+        setIsLoggedIn(false);
+        setIsAdmin(false);
         window.location.href = "/";
       } else {
         console.error("Error logging out:", response.data.message);
       }
     } catch (error) {
       console.error("Error logging out:", error);
+      localStorage.removeItem("token");
+      setIsLoggedIn(false);
+      setIsAdmin(false);
+      window.location.href = "/";
     }
   };
 

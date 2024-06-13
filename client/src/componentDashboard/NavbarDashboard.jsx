@@ -11,22 +11,36 @@ import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function NavbarDashboard() {
   const [userRole, setUserRole] = useState("");
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        setUserRole(decodedToken.role);
+        const currentTime = Date.now() / 1000; // Current time in seconds
+        if (decodedToken.exp < currentTime) {
+          // Token expired
+          localStorage.removeItem("token");
+          localStorage.removeItem("role");
+          navigate("/login");
+        } else {
+          setUserRole(decodedToken.role);
+        }
       } catch (error) {
         console.error("Token decoding error:", error);
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        navigate("/login");
       }
+    } else {
+      navigate("/login");
     }
-  }, []);
+  }, [navigate]);
 
   const handleLogout = async () => {
     try {
@@ -50,6 +64,11 @@ function NavbarDashboard() {
       }
     } catch (error) {
       console.error("Error logging out:", error);
+      if (error.response && error.response.status === 401) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        window.location.href = "/login";
+      }
     }
   };
 
