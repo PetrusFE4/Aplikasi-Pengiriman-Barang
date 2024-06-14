@@ -40,7 +40,7 @@ const CheckShippingCostsPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="container mt-4">
+      <div className="container mt-5 pt-5 min-vh-100">
         <p className="title">Check Shipping Cost</p>
         <form onSubmit={handleSubmit}>
           <div className="row g-3">
