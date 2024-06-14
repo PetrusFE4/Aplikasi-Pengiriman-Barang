@@ -45,7 +45,7 @@ function AboutSection() {
           <ButtonStyle
             style={{ padding: "10px 25px" }}
             className="button-about"
-            onClick={() => (window.location.href = "/support")}
+            onClick={() => (window.location.href = "/support-center")}
           >
             Support <FaArrowRightLong />
           </ButtonStyle>

@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import { Link} from "react-router-dom";
 
 function Footer() {
   return (
@@ -35,7 +36,7 @@ function Footer() {
               <li className="mb-2 list-unstyled">
                 <a
                   className="text-dark text-decoration-none fw-semibold fs-6"
-                  href="#service"
+                  href="#service-section"
                 >
                   Service
                 </a>
@@ -43,7 +44,7 @@ function Footer() {
               <li className="mb-2 list-unstyled">
                 <a
                   className="text-dark text-decoration-none fw-semibold fs-6"
-                  href="#faq"
+                  href="#faq-section"
                 >
                   FAQ
                 </a>
@@ -56,7 +57,7 @@ function Footer() {
               <li className="mb-2 list-unstyled">
                 <a
                   className="text-dark text-decoration-none fw-semibold fs-6"
-                  href="#document"
+                  href="#service-section"
                 >
                   Document
                 </a>
@@ -64,7 +65,7 @@ function Footer() {
               <li className="mb-2 list-unstyled">
                 <a
                   className="text-dark text-decoration-none fw-semibold fs-6"
-                  href="#goods"
+                  href="#service-section"
                 >
                   Goods
                 </a>
@@ -72,7 +73,7 @@ function Footer() {
               <li className="mb-2 list-unstyled">
                 <a
                   className="text-dark text-decoration-none fw-semibold fs-6"
-                  href="#cargo"
+                  href="#service-section"
                 >
                   Cargo
                 </a>
@@ -83,20 +84,20 @@ function Footer() {
             <p className="fs-5 fw-bold">Support</p>
             <ul className="p-0 m-0">
               <li className="mb-2 list-unstyled">
-                <a
+                <Link to="call-center"
                   className="text-dark text-decoration-none fw-semibold fs-6"
-                  href="#callcenter"
+                  
                 >
                   Call Center
-                </a>
+                </Link>
               </li>
               <li className="mb-2 list-unstyled">
-                <a
+                <Link to="/support-center"
                   className="text-dark text-decoration-none fw-semibold fs-6"
-                  href="#supportcenter"
+                
                 >
                   Support Center
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
