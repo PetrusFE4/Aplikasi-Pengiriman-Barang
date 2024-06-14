@@ -9,11 +9,19 @@ const UserListPage = () => {
     <>
       <NavbarDashboard />
       <div className="container mt-5">
-      <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
-                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/user-list" style={{color:'grey'}}>User List</Link></li>
-            </ol>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item active" aria-current="page">
+              <Link to="/dashboard" style={{ color: " #4caf50" }}>
+                Dashboard
+              </Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              <Link to="/dashboard/user-list" style={{ color: "grey" }}>
+                User List
+              </Link>
+            </li>
+          </ol>
         </nav>
         <p className="userlist-title">User List</p>
         <div className="table-responsive">

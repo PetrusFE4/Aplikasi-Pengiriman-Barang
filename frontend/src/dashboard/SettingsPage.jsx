@@ -10,23 +10,33 @@ const SettingsPage = () => {
     <>
       <NavbarDashboard />
       <div className="container mt-5">
-      <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
-                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/settings" style={{color:'grey'}}>Settings</Link></li>
-            </ol>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item active" aria-current="page">
+              <Link to="/dashboard" style={{ color: " #4caf50" }}>
+                Dashboard
+              </Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              <Link to="/dashboard/settings" style={{ color: "grey" }}>
+                Settings
+              </Link>
+            </li>
+          </ol>
         </nav>
-     
-     
+
         <div className="settings-card shadow">
           <p className="setting-title">Settings</p>
           <form>
-            <label className="label-password" style={{marginLeft: "0"}}>Change Password</label>
+            <label className="label-password" style={{ marginLeft: "0" }}>
+              Change Password
+            </label>
             <input
               className="form-control"
               type="password"
               placeholder="Enter new password"
-              required autoFocus
+              required
+              autoFocus
             />
             <input
               className="form-control"

@@ -31,175 +31,186 @@ function MyProfilePage() {
   };
 
   return (
-<>
-<NavbarDashboard/>
-<div className="container mt-5">
-<nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard" style={{color:' #4caf50'}}>Dashboard</Link></li>
-                <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/myprofile" style={{color:'grey'}}>My Profile</Link></li>
-            </ol>
+    <>
+      <NavbarDashboard />
+      <div className="container mt-5">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item active" aria-current="page">
+              <Link to="/dashboard" style={{ color: " #4caf50" }}>
+                Dashboard
+              </Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              <Link to="/dashboard/myprofile" style={{ color: "grey" }}>
+                My Profile
+              </Link>
+            </li>
+          </ol>
         </nav>
-      <div
-        className="card shadow"
-        style={{ border: "none", borderRadius: "0" }}
-      >
-        <div className="card-body">
-          <h2
-            className="title-profile"
-            style={{ fontSize: "24px", fontWeight: "bold", margin: "20px" }}
-          >
-            My Profile
-          </h2>
-          <form onSubmit={saveProfile}>
-            <div className="row mb-3">
-              <div className="col-md-6 mb-3">
-                <label htmlFor="firstName" className="form-label">
-                  First Name
-                </label>
-                {editMode ? (
-                  <input
-                    type="text"
-                    id="firstName"
-                    value={formData.firstName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
-                    }
-                    className="form-control"
-                    placeholder="Enter first name"
-                    autoFocus
-                  />
-                ) : (
-                  <div>{formData.firstName}</div>
-                )}
+        <div
+          className="card shadow"
+          style={{ border: "none", borderRadius: "0" }}
+        >
+          <div className="card-body">
+            <h2
+              className="title-profile"
+              style={{ fontSize: "24px", fontWeight: "bold", margin: "20px" }}
+            >
+              My Profile
+            </h2>
+            <form onSubmit={saveProfile}>
+              <div className="row mb-3">
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="firstName" className="form-label">
+                    First Name
+                  </label>
+                  {editMode ? (
+                    <input
+                      type="text"
+                      id="firstName"
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
+                      className="form-control"
+                      placeholder="Enter first name"
+                      autoFocus
+                    />
+                  ) : (
+                    <div>{formData.firstName}</div>
+                  )}
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="lastName" className="form-label">
+                    Last Name
+                  </label>
+                  {editMode ? (
+                    <input
+                      type="text"
+                      id="lastName"
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
+                      className="form-control"
+                      placeholder="Enter last name"
+                    />
+                  ) : (
+                    <div>{formData.lastName}</div>
+                  )}
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="username" className="form-label">
+                    Username
+                  </label>
+                  {editMode ? (
+                    <input
+                      type="text"
+                      id="username"
+                      value={formData.username}
+                      onChange={(e) =>
+                        setFormData({ ...formData, username: e.target.value })
+                      }
+                      className="form-control"
+                      placeholder="Enter username"
+                    />
+                  ) : (
+                    <div>{formData.username}</div>
+                  )}
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email Address
+                  </label>
+                  {editMode ? (
+                    <input
+                      type="email"
+                      id="email"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="form-control"
+                      placeholder="Enter email address"
+                    />
+                  ) : (
+                    <div>{formData.email}</div>
+                  )}
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="phoneNumber" className="form-label">
+                    Phone Number
+                  </label>
+                  {editMode ? (
+                    <input
+                      type="tel"
+                      id="phoneNumber"
+                      value={formData.phoneNumber}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          phoneNumber: e.target.value,
+                        })
+                      }
+                      className="form-control"
+                      placeholder="Enter phone number"
+                    />
+                  ) : (
+                    <div>{formData.phoneNumber}</div>
+                  )}
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="address" className="form-label">
+                    Address
+                  </label>
+                  {editMode ? (
+                    <input
+                      type="text"
+                      id="address"
+                      value={formData.address}
+                      onChange={(e) =>
+                        setFormData({ ...formData, address: e.target.value })
+                      }
+                      className="form-control"
+                      placeholder="Enter address"
+                    />
+                  ) : (
+                    <div>{formData.address}</div>
+                  )}
+                </div>
               </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="lastName" className="form-label">
-                  Last Name
-                </label>
-                {editMode ? (
-                  <input
-                    type="text"
-                    id="lastName"
-                    value={formData.lastName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, lastName: e.target.value })
-                    }
-                    className="form-control"
-                    placeholder="Enter last name"
-                  />
-                ) : (
-                  <div>{formData.lastName}</div>
-                )}
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="username" className="form-label">
-                  Username
-                </label>
-                {editMode ? (
-                  <input
-                    type="text"
-                    id="username"
-                    value={formData.username}
-                    onChange={(e) =>
-                      setFormData({ ...formData, username: e.target.value })
-                    }
-                    className="form-control"
-                    placeholder="Enter username"
-                  />
-                ) : (
-                  <div>{formData.username}</div>
-                )}
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email Address
-                </label>
-                {editMode ? (
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="form-control"
-                    placeholder="Enter email address"
-                  />
-                ) : (
-                  <div>{formData.email}</div>
-                )}
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="phoneNumber" className="form-label">
-                  Phone Number
-                </label>
-                {editMode ? (
-                  <input
-                    type="tel"
-                    id="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phoneNumber: e.target.value })
-                    }
-                    className="form-control"
-                    placeholder="Enter phone number"
-                  />
-                ) : (
-                  <div>{formData.phoneNumber}</div>
-                )}
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="address" className="form-label">
-                  Address
-                </label>
-                {editMode ? (
-                  <input
-                    type="text"
-                    id="address"
-                    value={formData.address}
-                    onChange={(e) =>
-                      setFormData({ ...formData, address: e.target.value })
-                    }
-                    className="form-control"
-                    placeholder="Enter address"
-                  />
-                ) : (
-                  <div>{formData.address}</div>
-                )}
-              </div>
-            </div>
-            {editMode ? (
-              <div className="col-md-6 d-flex justify-content-left text-center">
+              {editMode ? (
+                <div className="col-md-6 d-flex justify-content-left text-center">
+                  <ButtonStyle
+                    type="submit"
+                    className="btn-update"
+                    style={{ marginRight: "25px" }}
+                  >
+                    Update
+                  </ButtonStyle>
+                  <WhiteButton
+                    type="button"
+                    className="btn-cancel"
+                    onClick={cancelEdit}
+                  >
+                    Cancel
+                  </WhiteButton>
+                </div>
+              ) : (
                 <ButtonStyle
-                  type="submit"
-                  className="btn-update"
-                  style={{ marginRight: "25px" }}
-                >
-                  Update
-                </ButtonStyle>
-                <WhiteButton
                   type="button"
-                  className="btn-cancel"
-                  onClick={cancelEdit}
+                  className="btn-edit"
+                  onClick={() => setEditMode(true)}
                 >
-                  Cancel
-                </WhiteButton>
-              </div>
-            ) : (
-              <ButtonStyle
-                type="button"
-                className="btn-edit"
-                onClick={() => setEditMode(true)}
-              >
-                Edit
-              </ButtonStyle>
-            )}
-          </form>
+                  Edit
+                </ButtonStyle>
+              )}
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-</>
+    </>
   );
 }
 
