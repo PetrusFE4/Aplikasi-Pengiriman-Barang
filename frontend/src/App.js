@@ -17,6 +17,7 @@ import TrackingPageDashboard from "./dashboard/TrackingPageDashboard";
 import Dashboard from "./dashboard/DashboardPage";
 import Unauthorized from "./dashboard/Unauthorized";
 import ProtectedRoute from "./Auth/ProtectedRoute";
+import SupportCenter from "./pages/SupportCenter";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/call-center" element={<CallCenter />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/tracking" element={<TrackingPage />} />
+          <Route path="/support-center" element={<SupportCenter />} />
 
           {/* Dashboard */}
           <Route

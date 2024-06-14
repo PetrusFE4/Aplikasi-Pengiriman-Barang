@@ -14,7 +14,7 @@ const CallCenter = () => {
     <div>
       <Navbar />
       <div className="container mt-4">
-        <h2 className="title">Call Center</h2>
+        <p className="title-call">Call Center</p>
         <div className="row">
           <div className="col-md-6">
             <p>We are always ready to assist You, 24/7. Contact our Call Center for fast support and accurate solutions anytime.</p>

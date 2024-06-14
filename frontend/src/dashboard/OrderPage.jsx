@@ -69,7 +69,7 @@ function OrderPage() {
                 <li class="breadcrumb-item active" aria-current="page"><Link to="/dashboard/order" style={{color:'grey'}}>Order</Link></li>
             </ol>
         </nav>
-      <div className="card shadow" style={{ border: "none", borderRadius: "0" }}>
+      <div className="card shadow" style={{ border: "none", borderRadius: "0", marginBottom: "30px"  }}>
       <p className="title-tracking" style={{ fontSize: "24px", fontWeight: "bold", margin: "20px" }}>Order</p>
         <form onSubmit={handleSubmit} style={{ padding: "20px" }}>
           <div className="row mb-3">
