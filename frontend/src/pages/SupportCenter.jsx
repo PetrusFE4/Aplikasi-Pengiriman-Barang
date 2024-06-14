@@ -16,32 +16,42 @@ const SupportCenter = () => {
         <p className="title-support">Help Support</p>
         <div className="row">
           <div className="col-md-12">
-            <h5 className="mb-4 support-text"> Langkah-Langkah Melakukan Pemesanan</h5>
+            <h4 className="mb-4 support-text">How To Order</h4>
             <ol>
               <li className="mb-4">
-              Sign up on the website when you don't have an account. 
+                Sign up on the website when you don't have an account.
                 <br />
-                <img src={ImageFormRegister} className="img-fluid mb-3" alt="Registrasi" />
+                <div className="image-container">
+                  <img src={ImageFormRegister} className="img-fluid" alt="Registrasi" />
+                </div>
               </li>
               <li className="mb-4">
-              Log in to the website with your account.
+                Log in to the website with your account.
                 <br />
-                <img src={ImageFormLogin} className="img-fluid mb-3" alt="Login" />
+                <div className="image-container">
+                  <img src={ImageFormLogin} className="img-fluid" alt="Login" />
+                </div>
               </li>
               <li className="mb-4">
-              Go to the order page.
+                Go to the order page.
                 <br />
-                <img src={ImageMenuOrder} className="img-fluid mb-3" alt="Menu Order" />
+                <div className="image-container">
+                  <img src={ImageMenuOrder} className="img-fluid" alt="Menu Order" />
+                </div>
               </li>
               <li className="mb-4">
-              Enter the required information.
+                Enter the required information.
                 <br />
-                <img src={ImageFormOrder} className="img-fluid mb-3" alt="Form Order" />
+                <div className="image-container">
+                  <img src={ImageFormOrder} className="img-fluid" alt="Form Order" />
+                </div>
               </li>
               <li className="mb-4">
-              Click the "Order" button to start the delivery  service with our website.
+                Click the "Order" button to start the delivery service with our website.
                 <br />
-                <img src={ImageButtonOrder} className="img-fluid" alt="Button Order" />
+                <div className="image-container">
+                  <img src={ImageButtonOrder} className="img-fluid" alt="Button Order" />
+                </div>
               </li>
             </ol>
           </div>
