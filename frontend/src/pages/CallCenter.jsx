@@ -22,8 +22,8 @@ const CallCenter = () => {
             <h4>Head Office & Logistics</h4>
             <p>Jl. Kalisombo No.18, Salatiga, Kec. Sidorejo, Kota Salatiga, Jawa Tengah, 50711</p>
             <p><StyledIcon icon={faSquarePhone} size="20px" color="#01AA5A" /> 021-123-456</p>
-            <p><StyledIcon icon={faSquareWhatsapp} size="20px" color="#01AA5A" /> 0818-2349-7896</p>
-            <p><StyledIcon icon={faSquareEnvelope} size="20px" color="#01AA5A" /> febeexpress@gmail.com</p>
+            <p><StyledIcon icon={faSquareWhatsapp} size="20px" color="#01AA5A" /><a href="https://wa.me/6289513613933?text=Halo%2C%20can%20you%20help%20me%20?"> 0895-1361-3933</a></p>
+            <p><StyledIcon icon={faSquareEnvelope} size="20px" color="#01AA5A" />< a href="mailto:111202113443@mhs.dinus.ac.id?subject=Ask%20for%20help&body=Halo,%20can%20you%20help%20me?"> febeexpress@gmail.com</a></p>
             <p><StyledIcon icon={faSquareFacebook} size="20px" color="#01AA5A" /> <a href="https://www.facebook.com/">@febeexpress</a></p>
             <p><StyledIcon icon={faSquareInstagram} size="20px" color="#01AA5A" /> <a href="https://www.instagram.com/">@febeexpress</a></p>
             <p><StyledIcon icon={faSquareXTwitter} size="20px" color="#01AA5A" /> <a href="https://twitter.com/">@febeexpress</a></p>
