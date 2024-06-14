@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 
 function MyProfilePage() {
   const [initialValues] = useState({
-    firstName: "Bima",
-    lastName: "Sakti",
+    fullName: "bima sakti",
     username: "bimsak",
     email: "bimasakti@gmail.com",
     phoneNumber: "082465478654",
@@ -62,42 +61,23 @@ function MyProfilePage() {
             <form onSubmit={saveProfile}>
               <div className="row mb-3">
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="firstName" className="form-label">
-                    First Name
+                  <label htmlFor="fullName" className="form-label">
+                    Full Name
                   </label>
                   {editMode ? (
                     <input
                       type="text"
-                      id="firstName"
-                      value={formData.firstName}
+                      id="fullName"
+                      value={formData.fullName}
                       onChange={(e) =>
-                        setFormData({ ...formData, firstName: e.target.value })
+                        setFormData({ ...formData, fullName: e.target.value })
                       }
                       className="form-control"
-                      placeholder="Enter first name"
+                      placeholder="Enter full name"
                       autoFocus
                     />
                   ) : (
-                    <div>{formData.firstName}</div>
-                  )}
-                </div>
-                <div className="col-md-6 mb-3">
-                  <label htmlFor="lastName" className="form-label">
-                    Last Name
-                  </label>
-                  {editMode ? (
-                    <input
-                      type="text"
-                      id="lastName"
-                      value={formData.lastName}
-                      onChange={(e) =>
-                        setFormData({ ...formData, lastName: e.target.value })
-                      }
-                      className="form-control"
-                      placeholder="Enter last name"
-                    />
-                  ) : (
-                    <div>{formData.lastName}</div>
+                    <div>{formData.fullName}</div>
                   )}
                 </div>
                 <div className="col-md-6 mb-3">
