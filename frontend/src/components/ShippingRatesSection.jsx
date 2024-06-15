@@ -70,32 +70,6 @@ function ShippingRatesSection() {
                 />
               </div>
               <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
-                <label className="fw-bold" htmlFor="address">
-                  WIDTH
-                </label>
-                <input
-                  type="number"
-                  id="width"
-                  name="width"
-                  className="form-control input-form-shipping-rate-section"
-                  placeholder="Width"
-                  required
-                />
-              </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
-                <label className="fw-bold" htmlFor="city">
-                  HEIGH
-                </label>
-                <input
-                  type="number"
-                  id="height"
-                  name="number"
-                  className="form-control input-form-shipping-rate-section"
-                  placeholder="Heigh"
-                  required
-                />
-              </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
                 <label className="fw-bold" htmlFor="state">
                   FROM
                 </label>
