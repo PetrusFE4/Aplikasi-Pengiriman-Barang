@@ -11,6 +11,8 @@
     height: 100%;
     flex-direction: row;
     align-items: stretch;
+    padding: 0px;
+    margin-top: 0px;
   
     @media (max-width: 768px) {
       flex-direction: column-reverse; 
@@ -27,9 +29,11 @@
 .register-form{
     width: 90%;
     height: 100%;
-    max-width: 700px;
-    margin-top: 20px;
+    max-width: 600px;
+    padding-top: 25px;
+    padding-bottom: 0px;
     text-align: left;
+    margin: auto;
 
     @media (max-width: 768px) {
       margin-top: 20px;
@@ -145,12 +149,10 @@
     align-items: center;
     justify-content: center;
     flex: 1;
-    margin: 0px;
-    padding: 0px;
   
 }
 .register-img{
-    padding: 100px 50px 0px 50px; 
+    padding: 155px 50px 0px 50px; 
     margin: 0px 50px;
     text-align: center;
     flex: 1;
@@ -170,7 +172,7 @@
     .welcome {
       font-size: 70px;
       margin-top: 0px;
-      margin-bottom: 0px;
+      margin-bottom: 30px;
   
       @media (max-width: 768px) {
         font-size: 40px;
@@ -191,7 +193,7 @@
   
       @media (max-width: 768px) {
         font-size: 16px;
-        margin-right: 8px;
+        margin: 5px 20px;
       }
       @media (min-width: 768px) and (max-width: 1024px) {
         font-size: 20px;
