@@ -9,13 +9,14 @@ import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { CiBoxes } from "react-icons/ci";
 import { MdOutlineSettings } from "react-icons/md";
 import { LuUserPlus } from "react-icons/lu";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function NavbarDashboard() {
   const [userRole, setUserRole] = useState(""); // State untuk menyimpan peran pengguna
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -74,7 +75,7 @@ function NavbarDashboard() {
   };
 
   return (
-    <header className="header">
+    <header className="header header-dashboard">
       <nav className="navbar pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
@@ -112,7 +113,10 @@ function NavbarDashboard() {
           {userRole === "user" && (
             <>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/tracking">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/tracking"
+                >
                   <AiOutlineTruck size={25} color={"#01aa5a"} />
                   Tracking
                 </Link>
@@ -128,13 +132,19 @@ function NavbarDashboard() {
           {userRole === "admin" && (
             <>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/user-list">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/user-list"
+                >
                   <FaUsers size={25} color={"#01aa5a"} />
                   User List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/order-list">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/order-list"
+                >
                   <CiBoxes size={25} color={"#01aa5a"} />
                   Order List
                 </Link>
@@ -144,19 +154,28 @@ function NavbarDashboard() {
           {userRole === "superadmin" && (
             <>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/user-list">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/user-list"
+                >
                   <FaUsers size={25} color={"#01aa5a"} />
                   User List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/order-list">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/order-list"
+                >
                   <CiBoxes size={25} color={"#01aa5a"} />
                   Order List
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex gap-2" to="/dashboard/add-admin">
+                <Link
+                  className="nav-link d-flex gap-2"
+                  to="/dashboard/add-admin"
+                >
                   <LuUserPlus size={25} color={"#01aa5a"} />
                   Add Admin
                 </Link>

@@ -155,7 +155,7 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <header className="header header-main">
       <nav className="navbar navbar-expand-lg pt-1 pb-1 pt-sm-0 pb-sm-0" id="nav-dekstop">
         <div className="container-fluid p-xl-2 ps-xl-5 pe-xl-5 fw-semibold">
           <div className="judul d-flex align-items-center">
@@ -182,7 +182,8 @@ function Header() {
                     <Link className="dropdown-item" to="/shipping-rates">Shipping Rates</Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="" onClick={handleClickOrder}>Order</a>
+                  <button className="dropdown-item" onClick={handleClickOrder}>Order</button>
+
                   </li>
                 </ul>
               </li>
@@ -218,7 +219,7 @@ function Header() {
                   {dropdownVisible && (
                     <div className="dropdown-menu-custom">
                       <Link className="dropdown-item" to="/dashboard/myprofile">Profile</Link>
-                      <Link className="dropdown-item" to="#" onClick={handleLogout}>Logout</Link>
+                      <Link className="dropdown-item" to="/" onClick={handleLogout}>Logout</Link>
                     </div>
                   )}
                 </div>
@@ -252,7 +253,7 @@ function Header() {
                 <Link className="nav-link" to="/shipping-rates">Shipping Rates</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="" onClick={handleClickOrder}>Order</a>
+                <button className="nav-link" onClick={handleClickOrder}>Order</button>
               </li>
             </ul>
           </li>

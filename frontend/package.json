@@ -1,4 +1,15 @@
 {
+  "name": "aplikasi-pengiriman-barang",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "preview": "http-server ./build"
+  },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
@@ -25,11 +36,12 @@
     "sweetalert2": "^11.11.1",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/bootstrap": "^5.2.10",
+    "eslint": "^8.39.0",
+    "eslint-plugin-react": "^7.32.0",
+    "http-server": "^14.0.0"
   },
   "eslintConfig": {
     "extends": [
@@ -48,10 +60,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/bootstrap": "^5.2.10"
   },
   "proxy": "http://localhost:5000"
 }

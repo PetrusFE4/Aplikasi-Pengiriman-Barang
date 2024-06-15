@@ -1,23 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import Login from "./Auth/Login";
-import Register from "./Auth/Register";
-import CheckShippingCostsPage from "./pages/CheckShippingCostsPage";
-import CallCenter from "./pages/CallCenter";
-import NotFoundPage from "./pages/NotFoundPage";
-import TrackingPage from "./pages/TrackingPage";
-import OrderPage from "./dashboard/OrderPage";
-import SettingsPage from "./dashboard/SettingsPage";
-import UserListPage from "./dashboard/UserListPage";
-import OrderListPage from "./dashboard/OrderListPage";
-import MyProfilePage from "./dashboard/MyProfilePage";
-import AddAdmin from "./dashboard/AddAdmin";
-import TrackingPageDashboard from "./dashboard/TrackingPageDashboard";
-import Dashboard from "./dashboard/DashboardPage";
-import Unauthorized from "./dashboard/Unauthorized";
-import ProtectedRoute from "./Auth/ProtectedRoute";
-import SupportCenter from "./pages/SupportCenter";
+import HomePage from "./pages/HomePage.jsx";
+import Login from "./Auth/Login.jsx";
+import Register from "./Auth/Register.jsx";
+import CheckShippingCostsPage from "./pages/CheckShippingCostsPage.jsx";
+import CallCenter from "./pages/CallCenter.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
+import TrackingPage from "./pages/TrackingPage.jsx";
+import OrderPage from "./dashboard/OrderPage.jsx";
+import SettingsPage from "./dashboard/SettingsPage.jsx";
+import UserListPage from "./dashboard/UserListPage.jsx";
+import OrderListPage from "./dashboard/OrderListPage.jsx";
+import MyProfilePage from "./dashboard/MyProfilePage.jsx";
+import AddAdmin from "./dashboard/AddAdmin.jsx";
+import TrackingPageDashboard from "./dashboard/TrackingPageDashboard.jsx";
+import Dashboard from "./dashboard/DashboardPage.jsx";
+import Unauthorized from "./dashboard/Unauthorized.jsx";
+import ProtectedRoute from "./Auth/ProtectedRoute.jsx";
+import SupportCenter from "./pages/SupportCenter.jsx";
 
 function App() {
   return (
