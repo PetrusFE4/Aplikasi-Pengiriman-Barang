@@ -1,3 +1,4 @@
+// *
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
@@ -37,7 +38,10 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <ProtectedRoute element={Dashboard} roles={["user", "admin","superadmin"]} />
+              <ProtectedRoute
+                element={Dashboard}
+                roles={["user", "admin", "superadmin"]}
+              />
             }
           />
 
@@ -50,32 +54,40 @@ function App() {
             element={
               <ProtectedRoute
                 element={SettingsPage}
-                roles={["user", "admin","superadmin"]}
+                roles={["user", "admin", "superadmin"]}
               />
             }
           />
           <Route
             path="/dashboard/user-list"
             element={
-              <ProtectedRoute element={UserListPage} roles={["admin","superadmin"]} />
+              <ProtectedRoute
+                element={UserListPage}
+                roles={["admin", "superadmin"]}
+              />
             }
           />
           <Route
             path="/dashboard/order-list"
             element={
-              <ProtectedRoute element={OrderListPage} roles={["admin","superadmin"]} />
+              <ProtectedRoute
+                element={OrderListPage}
+                roles={["admin", "superadmin"]}
+              />
             }
           />
           <Route
             path="/dashboard/add-admin"
-            element={<ProtectedRoute element={AddAdmin} roles={["superadmin"]} />}
+            element={
+              <ProtectedRoute element={AddAdmin} roles={["superadmin"]} />
+            }
           />
           <Route
             path="/dashboard/myprofile"
             element={
               <ProtectedRoute
                 element={MyProfilePage}
-                roles={["user", "admin","superadmin"]}
+                roles={["user", "admin", "superadmin"]}
               />
             }
           />
