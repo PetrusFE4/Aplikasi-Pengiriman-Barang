@@ -7,6 +7,7 @@
 .hero-content {
   z-index: 1;
   margin: 120px 0;
+  
   h2 {
     letter-spacing: 5%;
     span {
@@ -17,6 +18,8 @@
     border: none;
     background-color: #fff;
     border-radius: 10px;
+    max-width: 100%;
+    box-sizing: border-box;
 
     input {
       border: none;
@@ -26,7 +29,6 @@
     }
   }
 }
-
 
 @media (max-width: 810px) {
   .hero-content {
@@ -56,11 +58,26 @@
     margin: 50px 0;
   }
 
-  .hero-content form {
+  .track-form {
+    border: none;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 auto; 
+
     input {
+      border: none;
+      outline: none;
+      padding: 10px 20px;
       font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
     }
   }
+
   .motor img {
     width: 120px;
     height: auto;
