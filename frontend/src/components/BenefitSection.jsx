@@ -56,7 +56,7 @@ function BenefitSection() {
           </div>
         </div>
         <div className="benefit-image col-12 col-lg-4 d-flex justify-content-center order-1 order-lg-2 pt-5">
-          <img src={ImageBenefit} alt="benefit section" />
+          <img src={ImageBenefit} alt="benefit section" className="image-benefit" />
         </div>
       </div>
     </section>

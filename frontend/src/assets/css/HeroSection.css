@@ -27,9 +27,12 @@
   }
 }
 
+
 @media (max-width: 810px) {
   .hero-content {
     margin: 50px 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .hero-content form {
     input {
@@ -38,9 +41,6 @@
     button {
       padding: 8px 16px;
     }
-  }
-  .track-form{
-    width: 100%;
   }
   .motor img {
     width: 160px;
@@ -53,16 +53,13 @@
     padding-bottom: 100px;
   }
   .hero-content {
-    margin: 50px 30px;
+    margin: 50px 0;
   }
 
   .hero-content form {
     input {
       font-size: 14px;
     }
-  }
-  .track-form{
-    width: 100%;
   }
   .motor img {
     width: 120px;

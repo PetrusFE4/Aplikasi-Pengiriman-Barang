@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Link} from "react-router-dom";
+import "../assets/css/Footer.css";
 
 function Footer() {
   return (
@@ -12,7 +13,6 @@ function Footer() {
         <div className="isi-footer1 d-flex flex-column flex-sm-row justify-content-around pt-4 pb-4 ps-4 pe-4 pt-lg-5 pb-lg-5 ps-lg-0 pe-lg-0">
           <div
             className="judul-deskripsi d-flex flex-column gap-3 pe-3"
-            style={{ width: "350px" }}
           >
             <h2 className="fs-2 fw-bold">
               Febe<span style={{ color: "#01aa5a" }}>Express</span>

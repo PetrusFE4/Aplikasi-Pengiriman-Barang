@@ -10,7 +10,7 @@
     width: 80%;
 }
 .image-about img {
-  width: 400px;
+width: 350px;
 }
 
 @media (max-width: 810px) {
