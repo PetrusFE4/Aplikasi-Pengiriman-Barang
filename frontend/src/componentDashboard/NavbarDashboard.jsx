@@ -3,7 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/NavbarDashboard.css";
 import { AiOutlineMenuUnfold, AiOutlineTruck } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaHome, FaUsers } from "react-icons/fa";
 import { IoPersonCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { CiBoxes } from "react-icons/ci";
@@ -16,7 +16,25 @@ import { useNavigate } from "react-router-dom";
 function NavbarDashboard() {
   const [userRole, setUserRole] = useState(""); // State untuk menyimpan peran pengguna
   const navigate = useNavigate();
-  
+
+  // Callback untuk menangani scroll
+  const handleScroll = useCallback(() => {
+    const header = document.querySelector(".header");
+    if (header) {
+      if (window.scrollY > 70) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+  }, []);
+  // Efek untuk menambahkan event listener pada scroll
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
