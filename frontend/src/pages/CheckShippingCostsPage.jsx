@@ -13,35 +13,87 @@ import {
   faWeightHanging,
   faBox,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const CheckShippingCostsPage = () => {
-  const [formValues, setFormValues] = useState({
-    from: "",
-    to: "",
-    service: "",
-    weight: "",
-  });
+  const [service, setService] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [weight, setWeight] = useState("");
+  const [shippingCost, setShippingCost] = useState(null); // State untuk menyimpan hasil perhitungan biaya pengiriman
 
-  const [submittedValues, setSubmittedValues] = useState(null);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
+  const handleServiceChange = (e) => {
+    setService(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleFromChange = (e) => {
+    setFrom(e.target.value);
+  };
+
+  const handleToChange = (e) => {
+    setTo(e.target.value);
+  };
+  const handleWeightChange = (e) => {
+    setWeight(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmittedValues(formValues);
+    const shipingRates = {
+      origin: from,
+      destination: to,
+      weight,
+    };
+    // Menampilkan loader
+    const loadingSwal = Swal.fire({
+      title: "Processing...",
+      text: "Please wait while we calculate the shipping cost.",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+    try {
+      const response = await axios.post("/api/auth/cek-ongkir/", shipingRates, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      loadingSwal.close();
+      setShippingCost(response.data.cost);
+    } catch (error) {
+      console.error("Error:", error);
+
+      // Menangani kesalahan berdasarkan status kode dari respon
+      if (error.response) {
+        Swal.fire({
+          icon: "error",
+          title: "Request Failed!",
+          text: error.response.data.message,
+          confirmButtonColor: "#f27474",
+        });
+      } else {
+        // Jika tidak ada respon dari server
+        Swal.fire({
+          icon: "error",
+          title: "Request Failed!",
+          text: "Unable to connect to server.",
+          confirmButtonColor: "#f27474",
+        });
+      }
+      setFrom("");
+      setTo("");
+      setShippingCost("");
+    }
   };
 
   return (
     <div>
       <Navbar />
       <div className="container mt-5 pt-5 min-vh-100">
-        <p className="title">Check Shipping Cost</p>
+        <p className="title">Shipping Rates</p>
         <form onSubmit={handleSubmit}>
           <div className="row g-3">
             {/* Baris pertama */}
@@ -55,8 +107,8 @@ const CheckShippingCostsPage = () => {
                 className="form-control form-input-shipping-cost"
                 placeholder="City"
                 name="from"
-                value={formValues.from}
-                onChange={handleChange}
+                value={from}
+                onChange={handleFromChange}
                 required
                 autoFocus
               />
@@ -70,8 +122,8 @@ const CheckShippingCostsPage = () => {
                 className="form-control form-input-shipping-cost"
                 placeholder="City"
                 name="to"
-                value={formValues.to}
-                onChange={handleChange}
+                value={to}
+                onChange={handleToChange}
                 required
               />
             </div>
@@ -82,15 +134,15 @@ const CheckShippingCostsPage = () => {
               <select
                 className="form-select form-input-shipping-cost"
                 name="service"
-                value={formValues.service}
-                onChange={handleChange}
+                value={service}
+                onChange={handleServiceChange}
                 required
               >
                 <option selected>Choose Service</option>
                 <option value="Document Delivery">Document Delivery</option>
                 <option value="Goods Delivery">Goods Delivery</option>
                 <option value="Cargo Delivery">
-                  Cargo Delivery (*min. 1000 gram)
+                  Cargo Delivery (*min 0.5 Kilogram)
                 </option>
               </select>
             </div>
@@ -105,11 +157,11 @@ const CheckShippingCostsPage = () => {
                   className="form-control form-input-shipping-cost"
                   placeholder="1"
                   name="weight"
-                  value={formValues.weight}
-                  onChange={handleChange}
+                  value={weight}
+                  onChange={handleWeightChange}
                   required
                 />
-                <span className="input-group-text">gram</span>
+                <span className="input-group-text">Kilogram</span>
               </div>
             </div>
           </div>
@@ -122,33 +174,33 @@ const CheckShippingCostsPage = () => {
               }}
               type="submit"
             >
-              Lihat Ongkir
+              Check Shiping Rates
             </ButtonStyle>
           </center>
         </form>
         {/* Menampilkan input */}
-        {submittedValues && (
+        {shippingCost !== null && (
           <div className="input-container">
             <table className="tbl-input">
               <tr>
                 <td>From</td>
                 <td>:</td>
-                <td>{submittedValues.from}</td>
+                <td>{from}</td>
               </tr>
               <tr>
                 <td>To</td>
                 <td>:</td>
-                <td>{submittedValues.to}</td>
+                <td>{to}</td>
               </tr>
               <tr>
                 <td>Service</td>
                 <td>:</td>
-                <td>{submittedValues.service}</td>
+                <td>{service}</td>
               </tr>
               <tr>
                 <td>Weight</td>
                 <td>:</td>
-                <td>{submittedValues.weight} gram</td>
+                <td>{weight} gram</td>
               </tr>
             </table>
           </div>
@@ -164,9 +216,9 @@ const CheckShippingCostsPage = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Document</td>
-                <td>Document</td>
-                <td>Rp 10.000,-</td>
+                <td>{service}</td>
+                <td>{weight} gram</td>
+                <td>Rp {shippingCost}</td>
               </tr>
             </tbody>
           </table>
