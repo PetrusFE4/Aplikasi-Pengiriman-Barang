@@ -261,7 +261,7 @@ function Header() {
             <Link className="nav-link" to="/tracking">Tracking</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/#service">Service</Link>
+          <Link className="nav-link" to="/" onClick={(e) => handleClick(e, "/", "service-section")}>Service</Link>
           </li>
           <li className="nav-item dropdown">
             <Link className="nav-link dropdown-toggle" to="/#informationmenu" data-bs-toggle="collapse">Information</Link>
@@ -273,7 +273,7 @@ function Header() {
                 <Link className="nav-link" to="/call-center">Call Center</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/#faq">FAQ</Link>
+              <Link className="nav-link" to="/" onClick={(e) => handleClick(e, "/", "faq-section")}>FAQ</Link>
               </li>
             </ul>
           </li>

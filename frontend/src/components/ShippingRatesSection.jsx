@@ -4,7 +4,7 @@ import "../assets/css/ShippingRatesSection.css";
 import ImageShippingRates from "../assets/img/image-shipping-rates.svg";
 import { ButtonStyle } from "./StyledComponents";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated } from "@react-spring/web";
 import { useInView } from "react-intersection-observer";
 
 function ShippingRatesSection() {
@@ -25,7 +25,9 @@ function ShippingRatesSection() {
           <h2 className="fw-bold fs-2">
             Shipping <span>Rates</span>
           </h2>
-          <p className="text-center">This is the estimated cost of shipping the package</p>
+          <p className="text-center">
+            This is the estimated cost of shipping the package
+          </p>
         </div>
         <div className="body-rates d-flex flex-column flex-lg-row p-3 p-sm-5 ">
           <animated.div
@@ -36,72 +38,75 @@ function ShippingRatesSection() {
             <img src={ImageShippingRates} alt=" shipping rates section" />
           </animated.div>
           <div className="form-container d-flex justify-content-center align-items-center col-12 col-lg-6">
-          <animated.div
-            ref={refShippingRates}
-            style={animasiShippingRates}>
-            <form
-              action=""
-              className="form-shipping-rates  d-flex flex-wrap justify-content-center p-5 "
-            >
-              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
-                <label className="fw-bold" htmlFor="name">
-                  TYPE OF SERVICE
-                </label>
-                <input
-                  type="text"
-                  id="type"
-                  name="type"
-                  className="form-control input-form-shipping-rate-section"
-                  placeholder="Select"
-                  required
-                />
-              </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
-                <label className="fw-bold" htmlFor="email">
-                  WEIGHT
-                </label>
-                <input
-                  type="number"
-                  id="weight"
-                  name="weight"
-                  className="form-control input-form-shipping-rate-section"
-                  placeholder="Weight"
-                  required
-                />
-              </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
-                <label className="fw-bold" htmlFor="state">
-                  FROM
-                </label>
-                <input
-                  type="text"
-                  id="from"
-                  name="from"
-                  className="form-control input-form-shipping-rate-section"
-                  placeholder="City"
-                  required
-                />
-              </div>
-              <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
-                <label className="fw-bold" htmlFor="zip">
-                  TO
-                </label>
-                <input
-                  type="text"
-                  id="to"
-                  name="to"
-                  className="form-control input-form-shipping-rate-section"
-                  placeholder="City"
-                  required
-                />
-              </div>
-              <ButtonStyle
-                style={{ width: "100%" }}
-                className="mt-4 ms-2 me-2 d-flex justify-content-between align-item-center"
+            <animated.div ref={refShippingRates} style={animasiShippingRates}>
+              <form
+                action=""
+                className="form-shipping-rates  d-flex flex-wrap justify-content-center p-5 "
               >
-                Estimate <FaArrowRightLong />
-              </ButtonStyle>
-            </form>
+                <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
+                  <label className="fw-bold" htmlFor="type">
+                    TYPE OF SERVICE
+                  </label>
+                  <select
+                    id="type"
+                    name="type"
+                    className="form-control input-form-shipping-rate-section"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select
+                    </option>
+                    <option value="service1">Document</option>
+                    <option value="service2">Goods</option>
+                    <option value="service3">Cargo</option>
+                  </select>
+                </div>
+                <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
+                  <label className="fw-bold" htmlFor="email">
+                    WEIGHT
+                  </label>
+                  <input
+                    type="number"
+                    id="weight"
+                    name="weight"
+                    className="form-control input-form-shipping-rate-section"
+                    placeholder="Gram"
+                    required
+                  />
+                </div>
+                <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
+                  <label className="fw-bold" htmlFor="state">
+                    FROM
+                  </label>
+                  <input
+                    type="text"
+                    id="from"
+                    name="from"
+                    className="form-control input-form-shipping-rate-section"
+                    placeholder="City"
+                    required
+                  />
+                </div>
+                <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
+                  <label className="fw-bold" htmlFor="zip">
+                    TO
+                  </label>
+                  <input
+                    type="text"
+                    id="to"
+                    name="to"
+                    className="form-control input-form-shipping-rate-section"
+                    placeholder="City"
+                    required
+                  />
+                </div>
+                <ButtonStyle
+                  style={{ width: "100%" }}
+                  className="mt-4 ms-2 me-2 d-flex justify-content-between align-item-center"
+                >
+                  Estimate <FaArrowRightLong />
+                </ButtonStyle>
+              </form>
             </animated.div>
           </div>
         </div>
