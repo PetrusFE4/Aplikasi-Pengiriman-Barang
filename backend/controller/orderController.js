@@ -59,7 +59,17 @@ const generateOrderID = () => {
 
             const orderId = await buatPesanan(orderData);
             // console.log("orderID", orderId)
-
+            const query = 'SELECT * FROM tbl_orders WHERE order_id = ?';
+            db.query(query, [order_id], (err, results)=>{
+                if(err){
+                    console.error(err);
+                    return res.status(500).json({message: 'Error fetching order'});
+                }
+                if(results.length === 0 ) {
+                    return res.status(404).json({message: 'Order not found'});
+                }
+                res.status(200).json({order: results[0]});
+                });
             
                 res.status(201).json({
                     message: "Pesanan berhasil dibuat",

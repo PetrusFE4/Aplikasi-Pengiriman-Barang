@@ -15,7 +15,7 @@ let con = mysql.createConnection({
   password: "	LV6cXgaRUC896THY", //punyaku pake password
   database: "peWFmpBkhAU8SvpZ",
   port: 3307
-})
+});
 
 //untuk mengecek database berjalan dengan aman atau tidak
 con.connect(function (error) {
