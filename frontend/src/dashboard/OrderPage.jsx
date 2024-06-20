@@ -18,7 +18,7 @@ function OrderPage() {
   const [recipientPostCode, setRecipientPostCode] = useState("");
   const [recipientAddress, setRecipientAddress] = useState("");
   const [itemName, setItemName] = useState("");
-  const [serviceType, setServiceType] = useState("Cargo");
+  const [serviceType, setServiceType] = useState("Choose Service");
   const [weight, setWeight] = useState("");
   const [itemValue, setItemValue] = useState("");
 
@@ -282,9 +282,10 @@ function OrderPage() {
                         value={serviceType}
                         onChange={(e) => setServiceType(e.target.value)}
                       >
-                        <option value="Cargo">Cargo</option>
-                        <option value="Express">Express</option>
-                        <option value="Economy">Economy</option>
+                        <option value="Choose Service">Choose Service</option>
+                        <option value="Document">Document Delivery</option>
+                        <option value="Goods">Good Delivery</option>
+                        <option value="Cargo">Cargo Delivery (*min 0,5 Kilogram)</option>
                       </select>
                     </div>
                   </div>
