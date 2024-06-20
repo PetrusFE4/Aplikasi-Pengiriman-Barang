@@ -200,7 +200,7 @@ const CheckShippingCostsPage = () => {
               <tr>
                 <td>Weight</td>
                 <td>:</td>
-                <td>{weight} gram</td>
+                <td>{weight} Kilogram</td>
               </tr>
             </table>
           </div>
@@ -217,7 +217,7 @@ const CheckShippingCostsPage = () => {
             <tbody>
               <tr>
                 <td>{service}</td>
-                <td>{weight} gram</td>
+                <td>{weight} Kilogram</td>
                 <td>Rp {shippingCost}</td>
               </tr>
             </tbody>
