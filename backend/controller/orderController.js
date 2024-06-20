@@ -61,6 +61,14 @@ const generateOrderID = () => {
 
             const orderId = await buatPesanan(orderData);
             // console.log("orderID", orderId)
+
+            
+            //buat deeplink WhatsApp untuk payment
+            const csNumber = '+6285607525004';
+            const pesan = `Halo, kak, saya mau bayar untuk pesanan saya dengan ID ${order_id}. Total bayar Rp ${cost}.`;
+            const url = `https://api.whatsapp.com/send?phone=${csNumber}&text=${encodeURIComponent(pesan)}`;
+
+
             const query = 'SELECT * FROM tbl_orders WHERE order_id = ?';
             db.query(query, [order_id], (err, results)=>{
                 if(err){
@@ -70,9 +78,7 @@ const generateOrderID = () => {
                 if(results.length === 0 ) {
                     return res.status(404).json({message: 'Order not found'});
                 }
-                res.status(200).json({order: results[0]});
-                });
-            
+                // res.status(200).json({order: results[0]});
                 res.status(201).json({
                     message: "Pesanan berhasil dibuat",
                     order_id,
@@ -85,9 +91,10 @@ const generateOrderID = () => {
                     kodePos_penerima,
                     namaBarang,
                     berat,
-                    status: 'on progress'
+                    status: 'on progress',
+                    url
                 });
-
+             });
             }catch(err){
                 console.error(err);
                 res.status(500).json({
