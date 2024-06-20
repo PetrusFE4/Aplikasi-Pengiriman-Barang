@@ -155,6 +155,7 @@ function ShippingRatesSection() {
                     onChange={handleWeightChange}
                     placeholder="min 0.5 kg"
                     min="0.5"
+                    step="0.1"
                     required
                   />
                 </div>
