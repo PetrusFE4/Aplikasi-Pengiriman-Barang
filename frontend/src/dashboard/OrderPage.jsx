@@ -132,7 +132,7 @@ function OrderPage() {
         }).then((result) => {
           if (result.isConfirmed) {
             // Mengarahkan pengguna ke URL yang dikirim server
-            window.open(response.data.url, "_blank");
+            window.open(response.data.url, '_blank');
           }
         });
       } else {
@@ -399,12 +399,12 @@ function OrderPage() {
                         value={serviceType}
                         onChange={handleServiceType}
                       >
-                        <option value="" disabled selected>
-                          Choose Service
-                        </option>
+                        <option value="Choose Service"disabled selected>Choose Service</option>
                         <option value="Document">Document Delivery</option>
                         <option value="Goods">Good Delivery</option>
-                        <option value="Cargo">Cargo Delivery</option>
+                        <option value="Cargo">
+                          Cargo Delivery
+                        </option>
                       </select>
                     </div>
                   </div>
