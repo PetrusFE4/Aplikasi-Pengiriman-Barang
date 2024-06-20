@@ -24,9 +24,9 @@ const CallCenter = () => {
             <p><StyledIcon icon={faSquarePhone} size="20px" color="#01AA5A" /> 021-123-456</p>
             <p><StyledIcon icon={faSquareWhatsapp} size="20px" color="#01AA5A" /><a href="https://wa.me/6289513613933?text=Halo%2C%20can%20you%20help%20me%20?" target="_blank" rel="noreferrer"> 0895-1361-3933</a></p>
             <p><StyledIcon icon={faSquareEnvelope} size="20px" color="#01AA5A" />< a href="mailto:111202113443@mhs.dinus.ac.id?subject=Ask%20for%20help&body=Halo,%20can%20you%20help%20me?" target="_blank" rel="noreferrer"> febeexpress@gmail.com</a></p>
-            <p><StyledIcon icon={faSquareFacebook} size="20px" color="#01AA5A" /> <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">@febeexpress</a></p>
-            <p><StyledIcon icon={faSquareInstagram} size="20px" color="#01AA5A" /> <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">@febeexpress</a></p>
-            <p><StyledIcon icon={faSquareXTwitter} size="20px" color="#01AA5A" /> <a href="https://twitter.com/" target="_blank" rel="noreferrer">@febeexpress</a></p>
+            <p><StyledIcon icon={faSquareFacebook} size="20px" color="#01AA5A" /> <a href="https://www.facebook.com/profile.php?id=61561188902558" target="_blank" rel="noreferrer">@febeexpress</a></p>
+            <p><StyledIcon icon={faSquareInstagram} size="20px" color="#01AA5A" /> <a href="https://www.instagram.com/febeexpress?igsh=MTlnZHJzend0cDM0" target="_blank" rel="noreferrer">@febeexpress</a></p>
+            <p><StyledIcon icon={faSquareXTwitter} size="20px" color="#01AA5A" /> <a href="https://x.com/cumkata/" target="_blank" rel="noreferrer">@febeexpress</a></p>
           </div>
           <div className="col-md-6">
             <img src={ImageCallCenter} alt="call-center" className="img-fluid" />
