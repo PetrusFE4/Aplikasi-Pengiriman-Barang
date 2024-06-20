@@ -128,6 +128,12 @@ function OrderPage() {
           icon: "success",
           iconColor: "#01aa5a",
           confirmButtonColor: "#01aa5a",
+          confirmButtonText: "Pay", // Mengubah teks tombol confirm
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Mengarahkan pengguna ke URL yang dikirim server
+            window.open(response.data.url, '_blank');
+          }
         });
       } else {
         Swal.fire({
@@ -393,11 +399,11 @@ function OrderPage() {
                         value={serviceType}
                         onChange={handleServiceType}
                       >
-                        <option value="Choose Service">Choose Service</option>
+                        <option value="Choose Service"disabled selected>Choose Service</option>
                         <option value="Document">Document Delivery</option>
                         <option value="Goods">Good Delivery</option>
                         <option value="Cargo">
-                          Cargo Delivery (*min 0,5 Kilogram)
+                          Cargo Delivery
                         </option>
                       </select>
                     </div>

@@ -1,4 +1,6 @@
+import React, { useEffect, useState } from "react";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
+import {jwtDecode} from "jwt-decode";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/DashboardPage.css";
@@ -6,6 +8,30 @@ import { ButtonStyle } from "../components/StyledComponents";
 import { Link } from "react-router-dom";
 
 function DashboardPage() {
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    const fetchRole = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.log("User not logged in");
+          return;
+        }
+        // Decode the token to get user role
+        const decodedToken = jwtDecode(token);
+        const userType = decodedToken.role;
+        // Update state with user role
+        setRole(userType);
+
+      } catch (error) {
+        console.error("Error fetching user role", error);
+      }
+    };
+
+    fetchRole();
+  }, []);
+
   return (
     <>
       <NavbarDashboard />
@@ -131,17 +157,17 @@ function DashboardPage() {
                 <p>
                   <b>Role</b>
                 </p>
-                <p>Admin</p>
+                <p>{role}</p>
                 <hr />
                 <p>
                   <b>Order Quantity</b>
                 </p>
-                <p>10</p>
+                <p>0</p>
                 <hr />
                 <p>
                   <b>Number of Users</b>
                 </p>
-                <p>10</p>
+                <p>0</p>
               </div>
             </div>
           </div>
