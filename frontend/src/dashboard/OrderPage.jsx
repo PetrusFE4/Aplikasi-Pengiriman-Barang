@@ -5,6 +5,8 @@ import "../assets/css/OrderPageDashboard.css";
 import NavbarDashboard from "../componentDashboard/NavbarDashboard";
 import { ButtonStyle, WhiteButton } from "../components/StyledComponents";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function OrderPage() {
   const [senderName, setSenderName] = useState("");
@@ -18,9 +20,13 @@ function OrderPage() {
   const [recipientPostCode, setRecipientPostCode] = useState("");
   const [recipientAddress, setRecipientAddress] = useState("");
   const [itemName, setItemName] = useState("");
-  const [serviceType, setServiceType] = useState("Choose Service");
+  const [serviceType, setServiceType] = useState("");
   const [weight, setWeight] = useState("");
   const [itemValue, setItemValue] = useState("");
+  // const [shippingRates, setShippingRates] = useState(0);
+  // const [insurance, setInsurance] = useState(0);
+  // const [totalFee, setTotalFee] = useState(0);
+  const [shippingCost, setShippingCost] = useState(null);
 
   const handleDelete = () => {
     setSenderName("");
@@ -37,27 +43,101 @@ function OrderPage() {
     setServiceType("");
     setWeight("");
     setItemValue("");
+    // setShippingRates(0);
+    // setInsurance(0);
+    // setTotalFee(0);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted with data:", {
-      senderName,
-      senderPhone,
-      senderCity,
-      senderPostCode,
-      senderAddress,
-      recipientName,
-      recipientPhone,
-      recipientCity,
-      recipientPostCode,
-      recipientAddress,
-      itemName,
-      serviceType,
-      weight,
-      itemValue,
-    });
+  const handleSenderName = (e) => {
+    setSenderName(e.target.value);
   };
+  const handleSenderPhone = (e) => {
+    setSenderPhone(e.target.value);
+  };
+  const handleSenderCity = (e) => {
+    setSenderCity(e.target.value);
+  };
+  const handleSenderPostCode = (e) => {
+    setSenderPostCode(e.target.value);
+  };
+  const handleSenderAddress = (e) => {
+    setSenderAddress(e.target.value);
+  };
+  const handleRecipientName = (e) => {
+    setRecipientName(e.target.value);
+  };
+  const handleRecipientPhone = (e) => {
+    setRecipientPhone(e.target.value);
+  };
+  const handleRecipientCity = (e) => {
+    setRecipientCity(e.target.value);
+  };
+  const handleRecipientPostCode = (e) => {
+    setRecipientPostCode(e.target.value);
+  };
+  const handleRecipientAddress = (e) => {
+    setRecipientAddress(e.target.value);
+  };
+  const handleItemName = (e) => {
+    setItemName(e.target.value);
+  };
+  const handleServiceType = (e) => {
+    setServiceType(e.target.value);
+  };
+  const handleWeight = (e) => {
+    setWeight(e.target.value);
+  };
+  const handleItemValue = (e) => {
+    setItemValue(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const orderData = {
+      nama_pengirim: senderName,
+      kota_asal: senderCity,
+      kodePos_pengirim: senderPostCode,
+      nama_penerima: recipientName,
+      kota_penerima: recipientCity,
+      kodePos_penerima: recipientPostCode,
+      namaBarang: itemName,
+      berat: weight,
+    };
+
+  try {
+    const response = await axios.post('/api/auth/order', orderData, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    setShippingCost(response.data.cost);
+    Swal.fire('Success', 'Order created successfully', 'success');
+    handleDelete();
+  } catch (error) {
+    Swal.fire('Error', 'There was an error creating the order', 'error');
+  }
+  setShippingCost("");
+};
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log("Form submitted with data:", {
+  //     senderName,
+  //     senderPhone,
+  //     senderCity,
+  //     senderPostCode,
+  //     senderAddress,
+  //     recipientName,
+  //     recipientPhone,
+  //     recipientCity,
+  //     recipientPostCode,
+  //     recipientAddress,
+  //     itemName,
+  //     serviceType,
+  //     weight,
+  //     itemValue,
+  //   });
+  // };
 
   return (
     <>
@@ -102,7 +182,7 @@ function OrderPage() {
                     className="form-control"
                     id="senderName"
                     value={senderName}
-                    onChange={(e) => setSenderName(e.target.value)}
+                    onChange={handleSenderName}
                     placeholder="Enter name"
                     required
                     autoFocus
@@ -117,7 +197,7 @@ function OrderPage() {
                     className="form-control"
                     id="senderPhone"
                     value={senderPhone}
-                    onChange={(e) => setSenderPhone(e.target.value)}
+                    onChange={handleSenderPhone}
                     placeholder="Enter phone number"
                     required
                   />
@@ -132,7 +212,7 @@ function OrderPage() {
                     className="form-control"
                     id="senderCity"
                     value={senderCity}
-                    onChange={(e) => setSenderCity(e.target.value)}
+                    onChange={handleSenderCity}
                     placeholder="Enter origin city"
                     required
                   />
@@ -147,7 +227,7 @@ function OrderPage() {
                     className="form-control"
                     id="senderPostCode"
                     value={senderPostCode}
-                    onChange={(e) => setSenderPostCode(e.target.value)}
+                    onChange={handleSenderPostCode}
                     placeholder="Enter post code"
                     required
                   />
@@ -162,7 +242,7 @@ function OrderPage() {
                     id="senderAddress"
                     rows="3"
                     value={senderAddress}
-                    onChange={(e) => setSenderAddress(e.target.value)}
+                    onChange={handleSenderAddress}
                     placeholder="Enter address"
                     required
                   />
@@ -181,7 +261,7 @@ function OrderPage() {
                     className="form-control"
                     id="recipientName"
                     value={recipientName}
-                    onChange={(e) => setRecipientName(e.target.value)}
+                    onChange={handleRecipientName}
                     placeholder="Enter name"
                     required
                   />
@@ -196,7 +276,7 @@ function OrderPage() {
                     className="form-control"
                     id="recipientPhone"
                     value={recipientPhone}
-                    onChange={(e) => setRecipientPhone(e.target.value)}
+                    onChange={handleRecipientPhone}
                     placeholder="Enter phone number"
                     required
                   />
@@ -211,7 +291,7 @@ function OrderPage() {
                     className="form-control"
                     id="recipientCity"
                     value={recipientCity}
-                    onChange={(e) => setRecipientCity(e.target.value)}
+                    onChange={handleRecipientCity}
                     placeholder="Enter destination city"
                     required
                   />
@@ -226,7 +306,7 @@ function OrderPage() {
                     className="form-control"
                     id="recipientPostCode"
                     value={recipientPostCode}
-                    onChange={(e) => setRecipientPostCode(e.target.value)}
+                    onChange={handleRecipientPostCode}
                     placeholder="Enter post code"
                     required
                   />
@@ -241,7 +321,7 @@ function OrderPage() {
                     id="recipientAddress"
                     rows="3"
                     value={recipientAddress}
-                    onChange={(e) => setRecipientAddress(e.target.value)}
+                    onChange={handleRecipientAddress}
                     placeholder="Enter address"
                     required
                   />
@@ -265,7 +345,7 @@ function OrderPage() {
                         className="form-control"
                         id="itemName"
                         value={itemName}
-                        onChange={(e) => setItemName(e.target.value)}
+                        onChange={handleItemName}
                         placeholder="Enter item name"
                       />
                     </div>
@@ -280,7 +360,7 @@ function OrderPage() {
                         className="form-control"
                         id="serviceType"
                         value={serviceType}
-                        onChange={(e) => setServiceType(e.target.value)}
+                        onChange={handleServiceType}
                       >
                         <option value="Choose Service">Choose Service</option>
                         <option value="Document">Document Delivery</option>
@@ -300,8 +380,10 @@ function OrderPage() {
                         className="form-control"
                         id="weight"
                         value={weight}
-                        onChange={(e) => setWeight(e.target.value)}
-                        placeholder="Enter weight"
+                        onChange={handleWeight}
+                        placeholder="min 0.5 kg"
+                        min="0.5"
+                        step="0.1"
                       />
                     </div>
                   </div>
@@ -316,7 +398,7 @@ function OrderPage() {
                         className="form-control"
                         id="itemValue"
                         value={itemValue}
-                        onChange={(e) => setItemValue(e.target.value)}
+                        onChange={handleItemValue}
                         placeholder="Enter item value"
                       />
                     </div>
@@ -333,17 +415,17 @@ function OrderPage() {
                     <p className="mb-0">Shipping Rates:</p>
                   </div>
                   <div className="col-md-4">
-                    <p className="mb-0">Rp 0</p>
+                    <p className="mb-0">Rp {shippingCost}</p>
                   </div>
                 </div>
-                <div className="row mb-2">
+                {/* <div className="row mb-2">
                   <div className="col-md-4">
                     <p className="mb-0">Insurance:</p>
                   </div>
                   <div className="col-md-4">
                     <p className="mb-0">Rp 0</p>
                   </div>
-                </div>
+                </div> */}
                 <div className="row mb-2">
                   <div className="col-md-4">
                     <p className="mb-0 fw-bold">Total Fee:</p>

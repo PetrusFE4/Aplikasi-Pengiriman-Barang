@@ -272,7 +272,7 @@
   margin: auto;
 
   @media (min-width: 1024px) {
-    max-width: 750px;
+    max-width: 700px;
 
   }
 
@@ -282,7 +282,7 @@
   label {
     display: block;
     margin-bottom: 10px;
-    margin-left: 140px;
+    margin-left: 150px;
     text-align: left;
     font-size: 15px;
 
@@ -303,7 +303,7 @@
     max-width: 440px;
     height: 60px;
     padding: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     border: 1px solid black;
     border-radius: 10px;
     padding-left: 20px;
@@ -321,7 +321,7 @@
     max-width: 440px;
     height: 38px;
     padding: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     border: 1px solid black;
     border-radius: 10px;
     padding-left: 20px;
