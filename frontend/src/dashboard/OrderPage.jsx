@@ -403,7 +403,7 @@ function OrderPage() {
                         <option value="Document">Document Delivery</option>
                         <option value="Goods">Good Delivery</option>
                         <option value="Cargo">
-                          Cargo Delivery (*min 0,5 Kilogram)
+                          Cargo Delivery
                         </option>
                       </select>
                     </div>
