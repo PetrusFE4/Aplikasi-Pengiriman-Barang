@@ -134,7 +134,7 @@ function ShippingRatesSection() {
                     onChange={handleServiceChange}
                     required
                   >
-                    <option value="" disabled selected>
+                    <option value="" disabled>
                       Select
                     </option>
                     <option value="Document">Document</option>
