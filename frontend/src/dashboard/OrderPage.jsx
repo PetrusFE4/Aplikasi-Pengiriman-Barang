@@ -128,6 +128,12 @@ function OrderPage() {
           icon: "success",
           iconColor: "#01aa5a",
           confirmButtonColor: "#01aa5a",
+          confirmButtonText: "Pay", // Mengubah teks tombol confirm
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Mengarahkan pengguna ke URL yang dikirim server
+            window.open(response.data.url, '_blank');
+          }
         });
       } else {
         Swal.fire({
