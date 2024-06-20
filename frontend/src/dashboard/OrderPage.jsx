@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/OrderPageDashboard.css";
@@ -23,9 +23,6 @@ function OrderPage() {
   const [serviceType, setServiceType] = useState("");
   const [weight, setWeight] = useState("");
   const [itemValue, setItemValue] = useState("");
-  // const [shippingRates, setShippingRates] = useState(0);
-  // const [insurance, setInsurance] = useState(0);
-  // const [totalFee, setTotalFee] = useState(0);
   const [shippingCost, setShippingCost] = useState(null);
 
   const handleDelete = () => {
@@ -43,54 +40,66 @@ function OrderPage() {
     setServiceType("");
     setWeight("");
     setItemValue("");
-    setShippingCost("");
-    // setShippingRates(0);
-    // setInsurance(0);
-    // setTotalFee(0);
+    setShippingCost(null);
   };
 
-  const handleSenderName = (e) => {
-    setSenderName(e.target.value);
-  };
-  const handleSenderPhone = (e) => {
-    setSenderPhone(e.target.value);
-  };
-  const handleSenderCity = (e) => {
-    setSenderCity(e.target.value);
-  };
-  const handleSenderPostCode = (e) => {
-    setSenderPostCode(e.target.value);
-  };
-  const handleSenderAddress = (e) => {
-    setSenderAddress(e.target.value);
-  };
-  const handleRecipientName = (e) => {
-    setRecipientName(e.target.value);
-  };
-  const handleRecipientPhone = (e) => {
-    setRecipientPhone(e.target.value);
-  };
-  const handleRecipientCity = (e) => {
-    setRecipientCity(e.target.value);
-  };
-  const handleRecipientPostCode = (e) => {
-    setRecipientPostCode(e.target.value);
-  };
-  const handleRecipientAddress = (e) => {
-    setRecipientAddress(e.target.value);
-  };
-  const handleItemName = (e) => {
-    setItemName(e.target.value);
-  };
-  const handleServiceType = (e) => {
-    setServiceType(e.target.value);
-  };
-  const handleWeight = (e) => {
-    setWeight(e.target.value);
-  };
-  const handleItemValue = (e) => {
-    setItemValue(e.target.value);
-  };
+  const handleSenderName = (e) => setSenderName(e.target.value);
+  const handleSenderPhone = (e) => setSenderPhone(e.target.value);
+  const handleSenderCity = (e) => setSenderCity(e.target.value);
+  const handleSenderPostCode = (e) => setSenderPostCode(e.target.value);
+  const handleSenderAddress = (e) => setSenderAddress(e.target.value);
+  const handleRecipientName = (e) => setRecipientName(e.target.value);
+  const handleRecipientPhone = (e) => setRecipientPhone(e.target.value);
+  const handleRecipientCity = (e) => setRecipientCity(e.target.value);
+  const handleRecipientPostCode = (e) => setRecipientPostCode(e.target.value);
+  const handleRecipientAddress = (e) => setRecipientAddress(e.target.value);
+  const handleItemName = (e) => setItemName(e.target.value);
+  const handleServiceType = (e) => setServiceType(e.target.value);
+  const handleWeight = (e) => setWeight(e.target.value);
+  const handleItemValue = (e) => setItemValue(e.target.value);
+
+  const calculateShippingCost = useCallback(async () => {
+    if (senderCity && recipientCity && weight) {
+      const orderData = {
+        nama_pengirim: senderName,
+        kota_asal: senderCity,
+        kodePos_pengirim: senderPostCode,
+        nama_penerima: recipientName,
+        kota_penerima: recipientCity,
+        kodePos_penerima: recipientPostCode,
+        namaBarang: itemName,
+        berat: weight,
+      };
+
+      try {
+        const response = await axios.post("/api/auth/order", orderData, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        setShippingCost(response.data.cost);
+      } catch (error) {
+        console.error("Error calculating shipping cost:", error);
+        const errorMessage = error.response
+          ? error.response.data.message
+          : "Order Failed!";
+        setShippingCost("0 | " + errorMessage);
+      }
+    }
+  }, [
+    senderCity,
+    recipientCity,
+    weight,
+    senderName,
+    senderPostCode,
+    recipientName,
+    recipientPostCode,
+    itemName,
+  ]);
+
+  useEffect(() => {
+    calculateShippingCost();
+  }, [calculateShippingCost]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -104,14 +113,14 @@ function OrderPage() {
       namaBarang: itemName,
       berat: weight,
     };
-  
+
     try {
       const response = await axios.post("/api/auth/order", orderData, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-  
+
       if (response.status === 201) {
         Swal.fire({
           title: "Good job!",
@@ -120,7 +129,6 @@ function OrderPage() {
           iconColor: "#01aa5a",
           confirmButtonColor: "#01aa5a",
         });
-        setShippingCost(response.data.cost);
       } else {
         Swal.fire({
           title: "Error",
@@ -130,7 +138,9 @@ function OrderPage() {
         });
       }
     } catch (error) {
-      const errorMessage = error.response ? error.response.data.message : "Order Failed!";
+      const errorMessage = error.response
+        ? error.response.data.message
+        : "Order Failed!";
       Swal.fire({
         title: "Error",
         text: errorMessage,
@@ -139,7 +149,6 @@ function OrderPage() {
       });
     }
   };
-  
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();
