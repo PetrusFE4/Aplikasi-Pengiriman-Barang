@@ -1,6 +1,7 @@
 const buatPesanan = require('../models/orderModels');
 const hitungTarif = require('../models/tarifModels');
 const getJarak = require('../models/jarakModels');
+const db = require('../config/db')
 
 //fungsi untuk resi
 const generateOrderID = () => {
@@ -52,7 +53,8 @@ const generateOrderID = () => {
                 kodePos_penerima,
                 namaBarang,
                 berat, 
-                cost
+                cost,
+                status: 'on progress'
             };
 
             // console.log("Request Data", orderData)
@@ -82,7 +84,8 @@ const generateOrderID = () => {
                     kota_penerima,
                     kodePos_penerima,
                     namaBarang,
-                    berat
+                    berat,
+                    status: 'on progress'
                 });
 
             }catch(err){
