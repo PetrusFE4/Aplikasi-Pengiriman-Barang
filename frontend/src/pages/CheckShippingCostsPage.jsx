@@ -143,9 +143,7 @@ const CheckShippingCostsPage = () => {
                 </option>
                 <option value="Document Delivery">Document Delivery</option>
                 <option value="Goods Delivery">Goods Delivery</option>
-                <option value="Cargo Delivery">
-                  Cargo Delivery (*min 0.5 Kilogram)
-                </option>
+                <option value="Cargo Delivery">Cargo Delivery</option>
               </select>
             </div>
             <div className="col-md-3">
