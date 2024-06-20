@@ -138,7 +138,9 @@ const CheckShippingCostsPage = () => {
                 onChange={handleServiceChange}
                 required
               >
-                <option selected>Choose Service</option>
+                <option value="" disabled selected>
+                  Select
+                </option>
                 <option value="Document Delivery">Document Delivery</option>
                 <option value="Goods Delivery">Goods Delivery</option>
                 <option value="Cargo Delivery">
@@ -174,7 +176,7 @@ const CheckShippingCostsPage = () => {
               }}
               type="submit"
             >
-              Check Shiping Rates
+              Check Shipping Rates
             </ButtonStyle>
           </center>
         </form>

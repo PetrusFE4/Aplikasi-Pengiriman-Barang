@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "../assets/css/ShippingRatesSection.css";
@@ -6,8 +7,85 @@ import { ButtonStyle } from "./StyledComponents";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useSpring, animated } from "@react-spring/web";
 import { useInView } from "react-intersection-observer";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function ShippingRatesSection() {
+  const [service, setService] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [weight, setWeight] = useState("");
+
+  const handleServiceChange = (e) => {
+    setService(e.target.value);
+  };
+
+  const handleFromChange = (e) => {
+    setFrom(e.target.value);
+  };
+
+  const handleToChange = (e) => {
+    setTo(e.target.value);
+  };
+  const handleWeightChange = (e) => {
+    setWeight(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const shipingRates = {
+      origin: from,
+      destination: to,
+      weight,
+    };
+    // Menampilkan loader
+    const loadingSwal = Swal.fire({
+      title: "Processing...",
+      text: "Please wait while we calculate the shipping cost.",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+    try {
+      const response = await axios.post("/api/auth/cek-ongkir/", shipingRates, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      loadingSwal.close();
+      if (response.status === 200) {
+        Swal.fire({
+          title: "Estimate Rates",
+          text: `Shipping Rates from ${response.data.origin} to ${response.data.destination} is : Rp.${response.data.cost}`,
+          iconColor: "#01aa5a",
+          confirmButtonColor: "#01aa5a",
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+
+      // Menangani kesalahan berdasarkan status kode dari respon
+      if (error.response) {
+        Swal.fire({
+          icon: "error",
+          title: "Request Failed!",
+          text: error.response.data.message,
+          confirmButtonColor: "#f27474",
+        });
+      } else {
+        // Jika tidak ada respon dari server
+        Swal.fire({
+          icon: "error",
+          title: "Request Failed!",
+          text: "Unable to connect to server.",
+          confirmButtonColor: "#f27474",
+        });
+      }
+    }
+  };
+
   const [refShippingRates, inView] = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -40,6 +118,7 @@ function ShippingRatesSection() {
           <div className="form-container d-flex justify-content-center align-items-center col-12 col-lg-6">
             <animated.div ref={refShippingRates} style={animasiShippingRates}>
               <form
+                onSubmit={handleSubmit}
                 action=""
                 className="form-shipping-rates  d-flex flex-wrap justify-content-center p-5 "
               >
@@ -51,14 +130,16 @@ function ShippingRatesSection() {
                     id="type"
                     name="type"
                     className="form-control input-form-shipping-rate-section"
+                    value={service}
+                    onChange={handleServiceChange}
                     required
                   >
                     <option value="" disabled selected>
                       Select
                     </option>
-                    <option value="service1">Document</option>
-                    <option value="service2">Goods</option>
-                    <option value="service3">Cargo</option>
+                    <option value="Document">Document</option>
+                    <option value="Goods">Goods</option>
+                    <option value="Cargo">Cargo</option>
                   </select>
                 </div>
                 <div className="d-flex flex-column col-12 col-md-6 p-1 p-sm-2 gap-3">
@@ -70,7 +151,9 @@ function ShippingRatesSection() {
                     id="weight"
                     name="weight"
                     className="form-control input-form-shipping-rate-section"
-                    placeholder="Gram"
+                    placeholder="Kilogram"
+                    value={weight}
+                    onChange={handleWeightChange}
                     required
                   />
                 </div>
@@ -84,6 +167,8 @@ function ShippingRatesSection() {
                     name="from"
                     className="form-control input-form-shipping-rate-section"
                     placeholder="City"
+                    value={from}
+                    onChange={handleFromChange}
                     required
                   />
                 </div>
@@ -97,6 +182,8 @@ function ShippingRatesSection() {
                     name="to"
                     className="form-control input-form-shipping-rate-section"
                     placeholder="City"
+                    value={to}
+                    onChange={handleToChange}
                     required
                   />
                 </div>
