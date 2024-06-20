@@ -107,6 +107,7 @@ const pesananBaru = async (req, res) => {
         namaBarang,
         berat,
         status: "on progress",
+        url
       });
     });
     // res.status(200).json({order: results[0]});
