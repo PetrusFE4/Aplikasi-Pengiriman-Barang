@@ -43,6 +43,7 @@ function OrderPage() {
     setServiceType("");
     setWeight("");
     setItemValue("");
+    setShippingCost("");
     // setShippingRates(0);
     // setInsurance(0);
     // setTotalFee(0);
@@ -103,21 +104,42 @@ function OrderPage() {
       namaBarang: itemName,
       berat: weight,
     };
-
-  try {
-    const response = await axios.post('/api/auth/order', orderData, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    setShippingCost(response.data.cost);
-    Swal.fire('Success', 'Order created successfully', 'success');
-    handleDelete();
-  } catch (error) {
-    Swal.fire('Error', 'There was an error creating the order', 'error');
-  }
-  setShippingCost("");
-};
+  
+    try {
+      const response = await axios.post("/api/auth/order", orderData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (response.status === 201) {
+        Swal.fire({
+          title: "Good job!",
+          text: response.data.message,
+          icon: "success",
+          iconColor: "#01aa5a",
+          confirmButtonColor: "#01aa5a",
+        });
+        setShippingCost(response.data.cost);
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "Failed to create order",
+          icon: "error",
+          confirmButtonColor: "#f27474",
+        });
+      }
+    } catch (error) {
+      const errorMessage = error.response ? error.response.data.message : "Order Failed!";
+      Swal.fire({
+        title: "Error",
+        text: errorMessage,
+        icon: "error",
+        confirmButtonColor: "#f27474",
+      });
+    }
+  };
+  
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -365,7 +387,9 @@ function OrderPage() {
                         <option value="Choose Service">Choose Service</option>
                         <option value="Document">Document Delivery</option>
                         <option value="Goods">Good Delivery</option>
-                        <option value="Cargo">Cargo Delivery (*min 0,5 Kilogram)</option>
+                        <option value="Cargo">
+                          Cargo Delivery (*min 0,5 Kilogram)
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -431,7 +455,7 @@ function OrderPage() {
                     <p className="mb-0 fw-bold">Total Fee:</p>
                   </div>
                   <div className="col-md-4">
-                    <p className="mb-0 fw-bold">Rp 0</p>
+                    <p className="mb-0 fw-bold">Rp {shippingCost}</p>
                   </div>
                 </div>
                 <div className="row">
