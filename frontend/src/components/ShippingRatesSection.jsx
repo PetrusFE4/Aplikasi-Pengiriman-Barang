@@ -151,9 +151,10 @@ function ShippingRatesSection() {
                     id="weight"
                     name="weight"
                     className="form-control input-form-shipping-rate-section"
-                    placeholder="Kilogram"
                     value={weight}
                     onChange={handleWeightChange}
+                    placeholder="min 0.5 kg"
+                    min="0.5"
                     required
                   />
                 </div>

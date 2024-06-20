@@ -157,10 +157,11 @@ const CheckShippingCostsPage = () => {
                 <input
                   type="number"
                   className="form-control form-input-shipping-cost"
-                  placeholder="1"
                   name="weight"
                   value={weight}
                   onChange={handleWeightChange}
+                  placeholder="min 0.5 kg"
+                  min="0.5"
                   required
                 />
                 <span className="input-group-text">Kilogram</span>
