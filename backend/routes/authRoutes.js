@@ -9,6 +9,7 @@ const {updateStatus, trackOrder} = require('../controller/statusController');
 
 const hitungOngkir = require('../controller/ongkirController');
 const buatPesanan = require('../controller/orderController');
+const transactionList = require('../controller/transaksiController');
 
 router.post('/register', authController.register);
 router.post('/login', authController.login);
@@ -19,5 +20,6 @@ router.post('/order', buatPesanan);
 
 router.get('/status', updateStatus);
 router.get('/track/:order_id', trackOrder );
+router.get('/transaction', transactionList);
 
 module.exports = router;
