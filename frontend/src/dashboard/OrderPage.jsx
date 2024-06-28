@@ -135,6 +135,7 @@ function OrderPage() {
             window.open(response.data.url, '_blank');
           }
         });
+        handleDelete();
       } else {
         Swal.fire({
           title: "Error",
